@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERNA | Taller & Store de Precisión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #ff4d00;
+            --dark: #0a0a0a;
+            --light: #f5f5f7;
+            --whatsapp: #25D366;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 77, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            transition: all 0.3s ease;
+        }
+
+        .product-card {
+            transition: all 0.4s ease;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 100;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 90;
+        }
+
+        .cart-overlay.show {
+            display: block;
+        }
+
+        [data-lang="en"] { display: none; }
+        .lang-en [data-lang="es"] { display: none; }
+        .lang-en [data-lang="en"] { display: block; }
+
+        .social-link {
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 40;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="lang-es">
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-float bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Overlay Carrito -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Drawer Carrito -->
+    <div class="cart-drawer p-8 flex flex-col" id="cartDrawer">
+        <div class="flex justify-between items-center mb-8">
+            <h3 class="text-xl font-black">
+                <span data-lang="es">Tu Carrito</span>
+                <span data-lang="en">Your Cart</span>
+            </h3>
+            <button onclick="toggleCart()"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div id="cartItems" class="flex-grow overflow-y-auto space-y-4 mb-8">
+            <p class="text-gray-400 text-center italic mt-10">
+                <span data-lang="es">El carrito está vacío</span>
+                <span data-lang="en">Your cart is empty</span>
+            </p>
+        </div>
+
+        <div class="border-t pt-6">
+            <div class="flex justify-between mb-4">
+                <span class="font-bold">Total:</span>
+                <span class="font-black text-xl" id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-primary w-full text-white py-4 rounded-xl font-bold uppercase tracking-wider">
+                <span data-lang="es">Finalizar Compra</span>
+                <span data-lang="en">Checkout Now</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="brand text-2xl font-black italic">MODERNA<span class="text-orange-600">.</span></div>
+            
+            <div class="hidden md:flex space-x-8 font-semibold text-sm">
+                <a href="#tienda" data-lang="es">Tienda</a>
+                <a href="#tienda" data-lang="en">Store</a>
+                <a href="#servicios" data-lang="es">Servicios</a>
+                <a href="#servicios" data-lang="en">Services</a>
+                <a href="#promos" data-lang="es">Promos</a>
+                <a href="#promos" data-lang="en">Promos</a>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <button class="relative" onclick="toggleCart()">
+                    <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-orange-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+
+                <div class="flex border rounded overflow-hidden">
+                    <button onclick="setLanguage('es')" id="btn-es" class="px-3 py-1 text-xs font-bold transition-colors active">ES</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 text-xs font-bold transition-colors">EN</button>
+                </div>
+                
+                <a href="#agendar" class="btn-primary text-white px-5 py-2 rounded-full text-xs font-bold shadow-lg">
+                    <span data-lang="es">AGENDAR</span>
+                    <span data-lang="en">BOOK</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center text-center text-white px-6 pt-16">
+        <div data-aos="zoom-out" data-aos-duration="1200">
+            <h1 class="text-4xl md:text-7xl mb-4">
+                <span data-lang="es">Excelencia Automotriz</span>
+                <span data-lang="en">Automotive Excellence</span>
+            </h1>
+            <p class="text-lg font-light mb-8 max-w-xl mx-auto opacity-90">
+                <span data-lang="es">Potencia, seguridad y estilo para tu vehículo bajo un mismo techo.</span>
+                <span data-lang="en">Power, safety, and style for your vehicle under one roof.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Tienda de Productos (2 Filas) -->
+    <section id="tienda" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-black">
+                <span data-lang="es">Productos Destacados</span>
+                <span data-lang="en">Featured Products</span>
+            </h2>
+            <div class="h-[1px] flex-grow mx-8 bg-gray-200 hidden md:block"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Fila 1 -->
+            <div class="product-card group" data-aos="fade-up">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Aceite Sintético 5W-30', 45, 'https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Aceite Sintético 5W-30</h4>
+                    <span class="font-black text-lg">$45.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Filtro Aire HighFlow', 25, 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Filtro Aire HighFlow</h4>
+                    <span class="font-black text-lg">$25.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Bujías Iridium X4', 60, 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Bujías Iridium X4</h4>
+                    <span class="font-black text-lg">$60.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517524008436-bbdb53c51596?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Kit Limpieza Pro', 35, 'https://images.unsplash.com/photo-1517524008436-bbdb53c51596?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Kit Limpieza Pro</h4>
+                    <span class="font-black text-lg">$35.00</span>
+                </div>
+            </div>
+            <!-- Fila 2 -->
+            <div class="product-card group" data-aos="fade-up">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Pastillas Cerámicas', 90, 'https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Pastillas Cerámicas</h4>
+                    <span class="font-black text-lg">$90.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563200020-0370f1a603c6?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Aditivo Combustible', 15, 'https://images.unsplash.com/photo-1563200020-0370f1a603c6?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Aditivo Combustible</h4>
+                    <span class="font-black text-lg">$15.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Líquido Frenos Dot4', 18, 'https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Líquido Frenos Dot4</h4>
+                    <span class="font-black text-lg">$18.00</span>
+                </div>
+            </div>
+            <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-48 bg-gray-100 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <button onclick="addToCart('Escobillas Pro', 40, 'https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                        <i data-lucide="plus"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-sm mb-2">Escobillas Pro</h4>
+                    <span class="font-black text-lg">$40.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Agendar y WhatsApp -->
+    <section id="agendar" class="py-24 max-w-5xl mx-auto px-6">
+        <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            <!-- Formulario Tradicional -->
+            <div class="p-10 md:p-16">
+                <h2 class="text-3xl font-black mb-8 italic">
+                    <span data-lang="es">Agendar por Correo</span>
+                    <span data-lang="en">Book by Email</span>
+                </h2>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Tu Nombre" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all">
+                    <input type="email" placeholder="Email" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all">
+                    <textarea placeholder="¿Qué necesita tu auto?" class="w-full p-4 bg-gray-50 rounded-xl h-32 focus:ring-2 focus:ring-orange-600 outline-none transition-all"></textarea>
+                    <button class="btn-primary w-full text-white py-4 rounded-xl font-bold tracking-widest uppercase">Solicitar Turno</button>
+                </form>
+            </div>
+
+            <!-- Contacto Rápido WhatsApp -->
+            <div class="bg-dark text-white p-10 md:p-16 flex flex-col justify-center text-center">
+                <div class="mb-8">
+                    <div class="w-20 h-20 bg-[#25D366]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="message-circle" class="w-10 h-10 text-[#25D366]"></i>
+                    </div>
+                    <h2 class="text-3xl font-black mb-4 tracking-tighter">
+                        <span data-lang="es">Atención Inmediata</span>
+                        <span data-lang="en">Fast Support</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                        <span data-lang="es">Recibe un presupuesto estimado y agenda tu cita en menos de 2 minutos vía WhatsApp.</span>
+                        <span data-lang="en">Get an estimated quote and book your appointment in less than 2 minutes via WhatsApp.</span>
+                    </p>
+                </div>
+                
+                <a href="https://wa.me/1234567890?text=Hola!%20Me%20gustaría%20agendar%20una%20cita%20en%20el%20taller." target="_blank" class="bg-[#25D366] hover:scale-105 transition-transform text-white py-5 px-8 rounded-full font-black flex items-center justify-center space-x-3 text-lg">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    <span>WHATSAPP DIRECTO</span>
+                </a>
+                <p class="mt-8 text-[10px] text-gray-500 uppercase tracking-[0.2em]">Respuesta promedio: 5 minutos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mejorado -->
+    <footer class="bg-white pt-24 pb-12 border-t">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16">
+                <!-- Branding -->
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <div class="brand text-3xl font-black italic mb-2">MODERNA<span class="text-orange-600">.</span></div>
+                    <p class="text-gray-400 text-xs font-medium max-w-xs">
+                        Taller mecánico de precisión y tienda de repuestos de alto rendimiento.
+                    </p>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="https://instagram.com" class="social-link" title="Instagram">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" title="X (Twitter)">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="mailto:contacto@moderna.com" class="social-link" title="Email">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Síguenos en nuestras redes</p>
+                </div>
+            </div>
+
+            <!-- Copyright & Credits -->
+            <div class="flex flex-col md:flex-row justify-between items-center border-t pt-8 space-y-4 md:space-y-0">
+                <p class="text-[10px] text-gray-400 font-bold tracking-widest uppercase">
+                    &copy; 2024 MODERNA TALLER AUTOMOTRIZ. TODOS LOS DERECHOS RESERVADOS.
+                </p>
+                <div class="flex items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                    <span>DESIGNED BY</span>
+                    <span class="text-orange-600 font-black">BYTES TECHNOLOGY</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        let cart = [];
+        let currentLang = 'es';
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('open');
+            document.getElementById('cartOverlay').classList.toggle('show');
+        }
+
+        function addToCart(name, price, img) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, img, quantity: 1 });
+            }
+            updateCartUI();
+            if(!document.getElementById('cartDrawer').classList.contains('open')) {
+                toggleCart();
+            }
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItems');
+            const countBadge = document.getElementById('cartCount');
+            const totalEl = document.getElementById('cartTotal');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-gray-400 text-center italic mt-10">
+                    <span data-lang="es">${currentLang === 'es' ? 'El carrito está vacío' : 'Your cart is empty'}</span>
+                </p>`;
+            } else {
+                cart.forEach(item => {
+                    total += item.price * item.quantity;
+                    count += item.quantity;
+                    container.innerHTML += `
+                        <div class="flex items-center space-x-4 bg-gray-50 p-3 rounded-xl">
+                            <img src="${item.img}" class="w-16 h-16 object-cover rounded-lg">
+                            <div class="flex-grow">
+                                <h4 class="text-sm font-bold">${item.name}</h4>
+                                <p class="text-xs text-gray-500 font-bold">$${item.price} x ${item.quantity}</p>
+                            </div>
+                            <button onclick="removeFromCart('${item.name}')" class="text-red-500 p-2 hover:bg-red-50 rounded-full transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                    `;
+                });
+            }
+
+            countBadge.innerText = count;
+            totalEl.innerText = `$${total.toFixed(2)}`;
+            lucide.createIcons();
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const body = document.body;
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                body.classList.add('lang-en');
+                body.classList.remove('lang-es');
+                btnEn.classList.add('active');
+                btnEs.classList.remove('active');
+            } else {
+                body.classList.add('lang-es');
+                body.classList.remove('lang-en');
+                btnEs.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+            updateCartUI();
+        }
+
+        window.onload = function() {
+            lucide.createIcons();
+            AOS.init({ duration: 800, once: true });
+        };
+    </script>
+</body>
+</html>
