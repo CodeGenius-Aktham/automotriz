@@ -311,16 +311,9 @@
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 <script>
-                    const products = [
-                        { name: "Aceite Sintético Pro", price: 45, img: "https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop", brand: "Premium Gold" },
-                        { name: "Batería Ion-Lithium", price: 120, img: "https://images.unsplash.com/photo-1597893110200-a9a3b2b93708?q=80&w=400&auto=format&fit=crop", brand: "Ultra Endurance" },
-                        { name: "Filtro Aire Sport", price: 35, img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop", brand: "High Flow" },
-                        { name: "Pastillas Cerámicas", price: 85, img: "https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop", brand: "Extreme Stop" },
-                        { name: "Kit Luces LED X", price: 55, img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop", brand: "Pure White" },
-                        { name: "Aditivo Motor Nano", price: 20, img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=400&auto=format&fit=crop", brand: "Compression+" },
-                        { name: "Limpia Parabrisas Pro", price: 40, img: "https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop", brand: "All-Weather" },
-                        { name: "Scanner OBD2 WiFi", price: 95, img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=400&auto=format&fit=crop", brand: "Bytes Link" }
-                    ];
+                   const products = JSON.parse(localStorage.getItem('products')) || [];
+
+
 
                     document.write(products.map(p => `
                         <div class="bg-white rounded-[2rem] p-5 shadow-sm hover:shadow-2xl transition-all duration-500 product-card border border-gray-100 group">
