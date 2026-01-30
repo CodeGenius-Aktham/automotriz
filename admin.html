@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERNA | Dashboard Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen flex text-slate-800">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-slate-900 text-white hidden lg:flex flex-col sticky h-screen top-0">
+        <div class="p-8">
+            <h1 class="text-2xl font-black tracking-tighter italic text-orange-500">MODERNA</h1>
+            <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-1" data-i18n="adminPanel">Admin Control Panel</p>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="#" class="flex items-center gap-3 p-3 bg-orange-600 rounded-xl text-white font-semibold transition-all">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i> <span data-i18n="dashboard">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
+                <i data-lucide="package" class="w-5 h-5"></i> <span data-i18n="products">Productos</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl transition-all">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i> <span data-i18n="stats">Estadísticas</span>
+            </a>
+        </nav>
+        
+        <!-- IDIOMA SELECTOR -->
+        <div class="px-6 mb-4">
+            <div class="bg-slate-800 p-1 rounded-lg flex gap-1">
+                <button onclick="setLanguage('es')" id="btn-es" class="flex-1 py-1 text-xs font-bold rounded-md transition-all bg-orange-600 text-white">ES</button>
+                <button onclick="setLanguage('en')" id="btn-en" class="flex-1 py-1 text-xs font-bold rounded-md transition-all text-slate-400 hover:text-white">EN</button>
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center font-bold">AG</div>
+                <div>
+                    <p class="text-sm font-bold">Abel Ghanam</p>
+                    <p class="text-xs text-slate-500">CEO / Founder</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-4 lg:p-10 overflow-auto custom-scrollbar">
+        
+        <!-- TOP NAV -->
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+            <div>
+                <h2 class="text-3xl font-extrabold tracking-tight" data-i18n="inventoryTitle">Resumen de Inventario</h2>
+                <p class="text-slate-500" data-i18n="inventorySubtitle">Gestiona tus productos y monitorea el stock en tiempo real.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('productFormContainer').scrollIntoView({behavior: 'smooth'})" 
+                        class="bg-white border border-slate-200 px-5 py-2.5 rounded-xl font-semibold shadow-sm hover:bg-slate-50 flex items-center gap-2">
+                    <i data-lucide="plus" class="w-4 h-4"></i> <span data-i18n="newItem">Nuevo Item</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- STATS CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-2 bg-blue-50 text-blue-600 rounded-lg"><i data-lucide="box" class="w-6 h-6"></i></div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="totalProducts">Total Productos</span>
+                </div>
+                <h3 id="statTotalItems" class="text-3xl font-black">0</h3>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-2 bg-green-50 text-green-600 rounded-lg"><i data-lucide="dollar-sign" class="w-6 h-6"></i></div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="inventoryValue">Valor Inventario</span>
+                </div>
+                <h3 id="statTotalValue" class="text-3xl font-black">$0</h3>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-2 bg-orange-50 text-orange-600 rounded-lg"><i data-lucide="alert-circle" class="w-6 h-6"></i></div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="lowStock">Bajo Stock</span>
+                </div>
+                <h3 id="statLowStock" class="text-3xl font-black text-red-500">0</h3>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <!-- LISTA / TABLA -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="p-6 border-b border-slate-50 flex justify-between items-center bg-slate-50/50">
+                        <h3 class="font-bold text-lg" data-i18n="generalList">Listado General</h3>
+                        <div class="relative">
+                            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="searchInput" oninput="render()" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar producto..." class="pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20">
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="text-[11px] uppercase tracking-widest text-slate-400 bg-slate-50">
+                                    <th class="px-6 py-4 font-bold" data-i18n="thProduct">Producto</th>
+                                    <th class="px-6 py-4 font-bold" data-i18n="thPrice">Precio</th>
+                                    <th class="px-6 py-4 font-bold" data-i18n="thStock">Stock</th>
+                                    <th class="px-6 py-4 font-bold text-right" data-i18n="thActions">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTable" class="divide-y divide-slate-100">
+                                <!-- Filas generadas por JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO -->
+            <div id="productFormContainer" class="space-y-6">
+                <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-2" data-i18n="formTitle">Editor de Productos</h3>
+                        <p class="text-slate-400 text-sm mb-8" data-i18n="formSubtitle">Agrega nuevos productos o actualiza existencias automáticamente.</p>
+                        
+                        <form id="productForm" class="space-y-4 text-slate-800">
+                            <div>
+                                <label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block" data-i18n="labelName">Nombre del Producto</label>
+                                <input id="name" required class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-orange-500 outline-none transition-all placeholder:text-slate-600" data-i18n-placeholder="placeholderName" placeholder="Ej: Smartphone X1">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block" data-i18n="labelBrand">Marca</label>
+                                    <input id="brand" required class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-orange-500 outline-none" data-i18n-placeholder="labelBrand" placeholder="Marca">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block" data-i18n="labelPrice">Precio ($)</label>
+                                    <input id="price" type="number" step="0.01" required class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-orange-500 outline-none" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block" data-i18n="labelImg">URL Imagen</label>
+                                <input id="img" required class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-orange-500 outline-none" placeholder="https://...">
+                            </div>
+                            <div>
+                                <label class="text-[10px] uppercase font-bold text-slate-500 mb-1 block" data-i18n="labelStock">Stock Inicial</label>
+                                <input id="stock" type="number" required class="w-full p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:border-orange-500 outline-none" data-i18n-placeholder="placeholderStock" placeholder="Cantidad">
+                            </div>
+                            <button class="w-full bg-orange-600 hover:bg-orange-500 text-white py-4 rounded-xl font-black uppercase tracking-widest shadow-lg shadow-orange-900/20 transition-all active:scale-[0.98]" data-i18n="btnSave">
+                                Guardar Producto
+                            </button>
+                        </form>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-orange-600/10 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- NOTIFICACIÓN -->
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl flex items-center gap-4 transition-all duration-500 z-[100]">
+        <div class="bg-green-500 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4"></i></div>
+        <span id="toastMsg" class="font-bold">Acción realizada con éxito</span>
+    </div>
+
+    <!-- MODAL STOCK -->
+    <div id="stockModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl scale-95 transition-transform">
+            <div class="flex items-center gap-4 mb-6">
+                <div id="modalIconContainer" class="p-3 bg-red-100 text-red-600 rounded-2xl">
+                    <i id="modalIcon" data-lucide="package-minus" class="w-6 h-6"></i>
+                </div>
+                <h3 id="modalTitleText" class="text-xl font-black" data-i18n="modalTitle">Salida de Stock</h3>
+            </div>
+            
+            <p id="stockInfo" class="text-slate-500 text-sm mb-6 leading-relaxed"></p>
+
+            <div class="space-y-4">
+                <div>
+                    <label id="modalLabelAmount" class="text-[10px] uppercase font-bold text-slate-400 mb-1 block" data-i18n="labelDiscount">Cantidad a descontar</label>
+                    <input id="stockAmount" type="number" class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-red-500 outline-none font-bold text-lg" placeholder="0">
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button id="modalConfirmBtn" onclick="confirmStockAction()" class="flex-[2] bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all" data-i18n="btnConfirm">
+                        Confirmar
+                    </button>
+                    <button onclick="closeStockModal()" class="flex-1 bg-slate-100 text-slate-600 py-4 rounded-2xl font-bold hover:bg-slate-200 transition-all" data-i18n="btnClose">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // DICCIONARIO DE TRADUCCIONES
+    const translations = {
+        es: {
+            adminPanel: "Admin Control Panel",
+            dashboard: "Dashboard",
+            products: "Productos",
+            stats: "Estadísticas",
+            inventoryTitle: "Resumen de Inventario",
+            inventorySubtitle: "Gestiona tus productos y monitorea el stock en tiempo real.",
+            newItem: "Nuevo Item",
+            totalProducts: "Total Productos",
+            inventoryValue: "Valor Inventario",
+            lowStock: "Bajo Stock",
+            generalList: "Listado General",
+            searchPlaceholder: "Buscar producto...",
+            thProduct: "Producto",
+            thPrice: "Precio",
+            thStock: "Stock",
+            thActions: "Acciones",
+            formTitle: "Editor de Productos",
+            formSubtitle: "Agrega nuevos productos o actualiza existencias automáticamente.",
+            labelName: "Nombre del Producto",
+            placeholderName: "Ej: Smartphone X1",
+            labelBrand: "Marca",
+            labelPrice: "Precio ($)",
+            labelImg: "URL Imagen",
+            labelStock: "Stock Inicial",
+            placeholderStock: "Cantidad",
+            btnSave: "Guardar Producto",
+            modalTitleOut: "Salida de Stock",
+            modalTitleIn: "Entrada de Stock",
+            labelDiscount: "Cantidad a descontar",
+            labelAdd: "Cantidad a agregar",
+            btnConfirm: "Confirmar",
+            btnClose: "Cerrar",
+            units: "unidades",
+            noProducts: "No se encontraron productos",
+            msgRemoved: "Se retiraron {n} unidades de {p}",
+            msgAddedQty: "Se sumaron {n} unidades a {p}",
+            msgDeleted: "{p} eliminado del inventario",
+            msgUpdated: "Stock actualizado: {p}",
+            msgAdded: "Producto agregado: {p}",
+            modalInfoOut: "Vas a retirar existencias de <b>{p}</b>.<br>Stock actual: <b>{s}</b>.",
+            modalInfoIn: "Vas a agregar existencias a <b>{p}</b>.<br>Stock actual: <b>{s}</b>."
+        },
+        en: {
+            adminPanel: "Admin Control Panel",
+            dashboard: "Dashboard",
+            products: "Products",
+            stats: "Statistics",
+            inventoryTitle: "Inventory Overview",
+            inventorySubtitle: "Manage your products and monitor stock in real-time.",
+            newItem: "New Item",
+            totalProducts: "Total Products",
+            inventoryValue: "Inventory Value",
+            lowStock: "Low Stock",
+            generalList: "General List",
+            searchPlaceholder: "Search product...",
+            thProduct: "Product",
+            thPrice: "Price",
+            thStock: "Stock",
+            thActions: "Actions",
+            formTitle: "Product Editor",
+            formSubtitle: "Add new products or update existing stock automatically.",
+            labelName: "Product Name",
+            placeholderName: "Ex: Smartphone X1",
+            labelBrand: "Brand",
+            labelPrice: "Price ($)",
+            labelImg: "Image URL",
+            labelStock: "Initial Stock",
+            placeholderStock: "Quantity",
+            btnSave: "Save Product",
+            modalTitleOut: "Stock Out",
+            modalTitleIn: "Stock In",
+            labelDiscount: "Amount to discount",
+            labelAdd: "Amount to add",
+            btnConfirm: "Confirm",
+            btnClose: "Close",
+            units: "units",
+            noProducts: "No products found",
+            msgRemoved: "Removed {n} units of {p}",
+            msgAddedQty: "Added {n} units to {p}",
+            msgDeleted: "{p} deleted from inventory",
+            msgUpdated: "Stock updated: {p}",
+            msgAdded: "Product added: {p}",
+            modalInfoOut: "You are about to remove stock from <b>{p}</b>.<br>Current stock: <b>{s}</b>.",
+            modalInfoIn: "You are about to add stock to <b>{p}</b>.<br>Current stock: <b>{s}</b>."
+        }
+    };
+
+    let currentLang = 'es';
+    const STORAGE_KEY = 'products';
+    let products = [];
+    let selectedIndex = null;
+    let modalMode = 'out'; // 'out' o 'in'
+
+    const inventoryTable = document.getElementById('inventoryTable');
+    const form = document.getElementById('productForm');
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        document.getElementById('btn-es').classList.toggle('bg-orange-600', lang === 'es');
+        document.getElementById('btn-es').classList.toggle('text-white', lang === 'es');
+        document.getElementById('btn-es').classList.toggle('text-slate-400', lang === 'en');
+        
+        document.getElementById('btn-en').classList.toggle('bg-orange-600', lang === 'en');
+        document.getElementById('btn-en').classList.toggle('text-white', lang === 'en');
+        document.getElementById('btn-en').classList.toggle('text-slate-400', lang === 'es');
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) el.innerText = translations[lang][key];
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) el.placeholder = translations[lang][key];
+        });
+
+        render();
+    }
+
+    function loadData() {
+        products = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        updateStats();
+        setLanguage('es');
+    }
+
+    function saveData() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+        updateStats();
+    }
+
+    function updateStats() {
+        const total = products.length;
+        const value = products.reduce((acc, p) => acc + (Number(p.price) * Number(p.stock)), 0);
+        const low = products.filter(p => Number(p.stock) <= 5).length;
+        document.getElementById('statTotalItems').innerText = total;
+        document.getElementById('statTotalValue').innerText = `$${value.toLocaleString()}`;
+        document.getElementById('statLowStock').innerText = low;
+    }
+
+    function render() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        inventoryTable.innerHTML = '';
+        const t = translations[currentLang];
+
+        const filteredProducts = products.filter(p => 
+            p.name.toLowerCase().includes(searchTerm) || 
+            p.brand.toLowerCase().includes(searchTerm)
+        );
+
+        if (filteredProducts.length === 0) {
+            inventoryTable.innerHTML = `
+                <tr>
+                    <td colspan="4" class="px-6 py-20 text-center">
+                        <div class="flex flex-col items-center opacity-30">
+                            <i data-lucide="box-select" class="w-12 h-12 mb-4"></i>
+                            <p class="font-medium">${t.noProducts}</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            lucide.createIcons();
+            return;
+        }
+
+        filteredProducts.forEach((p) => {
+            const isLow = Number(p.stock) <= 5;
+            const realIndex = products.findIndex(orig => orig.name === p.name);
+            
+            inventoryTable.innerHTML += `
+                <tr class="hover:bg-slate-50/50 transition-colors group">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <img src="${p.img}" onerror="this.src='https://via.placeholder.com/40'" class="w-10 h-10 rounded-lg object-cover bg-slate-100">
+                            <div>
+                                <p class="font-bold text-sm">${p.name}</p>
+                                <p class="text-xs text-slate-400 font-medium">${p.brand}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-semibold">$${Number(p.price).toFixed(2)}</td>
+                    <td class="px-6 py-4">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-bold ${isLow ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}">
+                            ${p.stock} ${t.units}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex justify-end gap-1">
+                            <button onclick="openStockModal(${realIndex}, 'in')" class="p-2 hover:bg-white hover:shadow-md rounded-lg text-slate-400 hover:text-green-600 transition-all">
+                                <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="openStockModal(${realIndex}, 'out')" class="p-2 hover:bg-white hover:shadow-md rounded-lg text-slate-400 hover:text-red-500 transition-all">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        });
+        lucide.createIcons();
+    }
+
+    function openStockModal(index, mode) {
+        selectedIndex = index;
+        modalMode = mode;
+        const product = products[index];
+        const t = translations[currentLang];
+        
+        // Ajustar UI del modal según el modo
+        const iconContainer = document.getElementById('modalIconContainer');
+        const iconEl = document.getElementById('modalIcon');
+        const titleText = document.getElementById('modalTitleText');
+        const labelAmount = document.getElementById('modalLabelAmount');
+        const confirmBtn = document.getElementById('modalConfirmBtn');
+        const inputField = document.getElementById('stockAmount');
+
+        if (mode === 'in') {
+            iconContainer.className = "p-3 bg-green-100 text-green-600 rounded-2xl";
+            iconEl.setAttribute('data-lucide', 'package-plus');
+            titleText.innerText = t.modalTitleIn;
+            labelAmount.innerText = t.labelAdd;
+            document.getElementById('stockInfo').innerHTML = t.modalInfoIn.replace('{p}', product.name).replace('{s}', product.stock);
+            confirmBtn.className = "flex-[2] bg-green-600 text-white py-4 rounded-2xl font-bold hover:bg-green-700 transition-all";
+            inputField.className = "w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none font-bold text-lg";
+        } else {
+            iconContainer.className = "p-3 bg-red-100 text-red-600 rounded-2xl";
+            iconEl.setAttribute('data-lucide', 'package-minus');
+            titleText.innerText = t.modalTitleOut;
+            labelAmount.innerText = t.labelDiscount;
+            document.getElementById('stockInfo').innerHTML = t.modalInfoOut.replace('{p}', product.name).replace('{s}', product.stock);
+            confirmBtn.className = "flex-[2] bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all";
+            inputField.className = "w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-red-500 outline-none font-bold text-lg";
+        }
+
+        lucide.createIcons();
+        document.getElementById('stockAmount').value = '';
+        const modal = document.getElementById('stockModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => modal.querySelector('div').style.transform = 'scale(1)', 10);
+    }
+
+    function closeStockModal() {
+        const modal = document.getElementById('stockModal');
+        modal.querySelector('div').style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 150);
+    }
+
+    function confirmStockAction() {
+        const amount = Number(document.getElementById('stockAmount').value);
+        if (!amount || amount <= 0) return;
+        const product = products[selectedIndex];
+        const t = translations[currentLang];
+
+        if (modalMode === 'in') {
+            product.stock += amount;
+            showToast(t.msgAddedQty.replace('{n}', amount).replace('{p}', product.name));
+        } else {
+            if (amount < product.stock) {
+                product.stock -= amount;
+                showToast(t.msgRemoved.replace('{n}', amount).replace('{p}', product.name));
+            } else {
+                const name = product.name;
+                products.splice(selectedIndex, 1);
+                showToast(t.msgDeleted.replace('{p}', name));
+            }
+        }
+
+        saveData();
+        render();
+        closeStockModal();
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const t = translations[currentLang];
+        const data = {
+            name: document.getElementById('name').value.trim(),
+            brand: document.getElementById('brand').value.trim(),
+            price: Number(document.getElementById('price').value),
+            img: document.getElementById('img').value.trim(),
+            stock: Number(document.getElementById('stock').value)
+        };
+
+        const existing = products.find(p => p.name.toLowerCase() === data.name.toLowerCase());
+        if (existing) {
+            existing.stock += data.stock;
+            existing.price = data.price;
+            existing.brand = data.brand;
+            existing.img = data.img;
+            showToast(t.msgUpdated.replace('{p}', data.name));
+        } else {
+            products.push(data);
+            showToast(t.msgAdded.replace('{p}', data.name));
+        }
+
+        saveData();
+        render();
+        form.reset();
+        document.getElementById('name').focus();
+    });
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMsg').innerText = msg;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+            toast.classList.add('translate-y-20', 'opacity-0');
+        }, 3000);
+    }
+
+    loadData();
+</script>
+
+</body>
+</html>
