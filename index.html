@@ -426,21 +426,19 @@
         </div>
     </section>
 
-    <section class="relative py-32 overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10"></div>
-        
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-12 gap-12 items-start">
-                
-                <div class="col-span-12 lg:col-span-4">
-                    <div class="mb-12">
+    <section class="relative py-20 md:py-32 overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 md:w-1/3 h-full bg-slate-50 -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
+                <!-- Sidebar -->
+                <div class="col-span-1 lg:col-span-4 w-full">
+                    <div class="mb-10 md:mb-12">
                         <span data-lang="es" class="text-[10px] font-extrabold tracking-[0.6em] text-orange-600 uppercase">Marco Legal</span>
-                        <h2 data-lang="es" class="text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none">Transparencia <br><span class="font-extrabold italic">Absoluta.</span></h2>
+                        <h2 data-lang="es" class="text-3xl md:text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none">Transparencia <br><span class="font-extrabold italic">Absoluta.</span></h2>
                         <span data-lang="en" class="text-[10px] font-extrabold tracking-[0.6em] text-orange-600 uppercase hidden">Legal Framework</span>
-                        <h2 data-lang="en" class="text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none hidden">Absolute <br><span class="font-extrabold italic">Transparency.</span></h2>
+                        <h2 data-lang="en" class="text-3xl md:text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none hidden">Absolute <br><span class="font-extrabold italic">Transparency.</span></h2>
                     </div>
-                    
-                    <nav data-lang="es" class="flex flex-col space-y-8">
+                    <nav data-lang="es" class="flex flex-col space-y-4 md:space-y-8">
                         <button onclick="switchTab('condiciones')" id="btn-condiciones" class="nav-link active text-xs font-bold uppercase tracking-widest text-left">
                             01. Condiciones de Servicio
                         </button>
@@ -451,8 +449,7 @@
                             03. Tratamiento de Datos
                         </button>
                     </nav>
-
-                    <nav data-lang="en" class="flex flex-col space-y-8 hidden">
+                    <nav data-lang="en" class="flex flex-col space-y-4 md:space-y-8 hidden">
                         <button onclick="switchTab('condiciones')" id="btn-condiciones-en" class="nav-link active text-xs font-bold uppercase tracking-widest text-left">
                             01. Terms of Service
                         </button>
@@ -462,29 +459,29 @@
                         <button onclick="switchTab('privacidad')" id="btn-privacidad-en" class="nav-link text-xs font-bold uppercase tracking-widest text-left">
                             03. Data Handling
                         </button>
-        
+                    </nav>
                 </div>
-
-                <div class="col-span-12 lg:col-span-8 glass-panel rounded-[2rem] p-12 lg:p-20 shadow-2xl shadow-slate-200/50">
-                    
+                <!-- Content -->
+                <div class="col-span-1 lg:col-span-8 glass-panel rounded-2xl md:rounded-[2rem] p-6 sm:p-8 md:p-12 lg:p-20 shadow-2xl shadow-slate-200/50 w-full">
                     <div id="condiciones" class="content-fade active">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-8 h-[1px] bg-slate-200"></div>
+                        <div class="flex items-center gap-2 md:gap-4 mb-6 md:mb-8">
+                            <div class="w-6 md:w-8 h-[1px] bg-slate-200"></div>
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Estatutos de Operación</span>
                         </div>
-                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
-                            En <span   class="text-slate-900 font-bold">MODERNA</span>, la ingeniería no termina en el motor; se extiende a nuestra ética contractual. Cada proceso está diseñado para garantizar que su inversión mantenga su valor e integridad.
+                        <p data-lang="es" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-10">
+                            En <span class="text-slate-900 font-bold">MODERNA</span>, la ingeniería no termina en el motor; se extiende a nuestra ética contractual. Cada proceso está diseñado para garantizar que su inversión mantenga su valor e integridad.
                         </p>
-                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                        <p data-lang="en" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-10">
                             At <span class="text-slate-900 font-bold">MODERNA</span>, engineering doesn't stop at the engine; it extends to our contractual ethics. Every process is designed to ensure your investment maintains its value and integrity.
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <div class="space-y-3">
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                            <div class="space-y-2 md:space-y-3">
                                 <h4 data-lang="es" class="text-slate-900 font-bold text-xs uppercase tracking-widest">Certificación de Obra</h4>
-                                <p  data-lang="es" class="text-slate-500 text-sm font-light leading-relaxed">Garantía extendida de 180 días en reparaciones mecánicas complejas.</p>
+                                <p data-lang="es" class="text-slate-500 text-sm font-light leading-relaxed">Garantía extendida de 180 días en reparaciones mecánicas complejas.</p>
                                 <h4 data-lang="en" class="text-slate-900 font-bold text-xs uppercase tracking-widest hidden">Work Certification</h4>
                                 <p data-lang="en" class="text-slate-500 text-sm font-light leading-relaxed hidden">Extended 180-day warranty on complex mechanical repairs.</p>
                             </div>
-                            <div class="space-y-3">
+                            <div class="space-y-2 md:space-y-3">
                                 <h4 data-lang="es" class="text-slate-900 font-bold text-xs uppercase tracking-widest">Insumos Premium</h4>
                                 <p data-lang="es" class="text-slate-500 text-sm font-light leading-relaxed">Uso exclusivo de componentes certificados por fabricantes originales.</p>
                                 <h4 data-lang="en" class="text-slate-900 font-bold text-xs uppercase tracking-widest hidden">Premium Supplies</h4>
@@ -492,45 +489,42 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="seguridad" class="content-fade">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-8 h-[1px] bg-slate-200"></div>
+                        <div class="flex items-center gap-2 md:gap-4 mb-6 md:mb-8">
+                            <div class="w-6 md:w-8 h-[1px] bg-slate-200"></div>
                             <span data-lang="es" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Resguardo de Activos</span>
                             <span data-lang="en" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest hidden">Asset Protection</span>
                         </div>
-                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-8">
+                        <p data-lang="es" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-8">
                             Su vehículo es custodiado bajo sistemas de seguridad perimetral y vigilancia biométrica 24/7.
                         </p>
-                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-8">
+                        <p data-lang="en" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-8">
                             Your vehicle is guarded by perimeter security systems and biometric surveillance 24/7.
                         </p>
-                        <div class="bg-slate-900 text-white p-8 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <i data-lucide="shield-check" class="text-orange-500 w-6 h-6 shrink-0"></i>
+                        <div class="bg-slate-900 text-white p-4 md:p-8 rounded-xl md:rounded-2xl">
+                            <div class="flex items-start gap-3 md:gap-4">
+                                <i data-lucide="shield-check" class="text-orange-500 w-5 h-5 md:w-6 md:h-6 shrink-0"></i>
                                 <div>
-                                    <h4 data-lang="es" class="font-bold text-sm uppercase mb-2">Póliza de Resguardo</h4>
-                                    <h4 data-lang="en" class="font-bold text-sm uppercase mb-2">Security Policy</h4>
-                                    <p data-lang="es" class="text-slate-400 text-xs leading-relaxed">Cobertura integral durante la permanencia del vehículo en nuestras instalaciones.</p>
-                                    <p data-lang="en" class="text-slate-400 text-xs leading-relaxed">Full coverage during the vehicle's stay in our facilities.</p>
+                                    <h4 data-lang="es" class="font-bold text-xs md:text-sm uppercase mb-1 md:mb-2">Póliza de Resguardo</h4>
+                                    <h4 data-lang="en" class="font-bold text-xs md:text-sm uppercase mb-1 md:mb-2">Security Policy</h4>
+                                    <p data-lang="es" class="text-slate-400 text-[11px] md:text-xs leading-relaxed">Cobertura integral durante la permanencia del vehículo en nuestras instalaciones.</p>
+                                    <p data-lang="en" class="text-slate-400 text-[11px] md:text-xs leading-relaxed">Full coverage during the vehicle's stay in our facilities.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div id="privacidad" class="content-fade">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-8 h-[1px] bg-slate-200"></div>
+                        <div class="flex items-center gap-2 md:gap-4 mb-6 md:mb-8">
+                            <div class="w-6 md:w-8 h-[1px] bg-slate-200"></div>
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Privacidad Digital</span>
                         </div>
-                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                        <p data-lang="es" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-10">
                             Sus datos técnicos y personales son encriptados. No compartimos historiales de mantenimiento con terceros sin autorización explícita.
                         </p>
-                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                        <p data-lang="en" class="text-base md:text-xl text-slate-600 font-light leading-relaxed mb-6 md:mb-10">
                             Your technical and personal data is encrypted. We do not share maintenance histories with third parties without explicit authorization.
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>
