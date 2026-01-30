@@ -55,11 +55,6 @@
             box-shadow: 0 10px 20px rgba(255, 77, 0, 0.3);
         }
 
-        .btn-whatsapp {
-            background-color: var(--whatsapp);
-            transition: all 0.3s ease;
-        }
-
         .product-card {
             transition: all 0.4s ease;
             background: white;
@@ -126,6 +121,15 @@
             animation: pulse 2s infinite;
         }
 
+        .map-container {
+            filter: grayscale(100%) invert(90%) contrast(90%);
+            transition: filter 0.5s ease;
+        }
+
+        .map-container:hover {
+            filter: grayscale(0%) invert(0%) contrast(100%);
+        }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -178,12 +182,14 @@
             <div class="brand text-2xl font-black italic">MODERNA<span class="text-orange-600">.</span></div>
             
             <div class="hidden md:flex space-x-8 font-semibold text-sm">
+                <a href="#empresa" data-lang="es">Empresa</a>
+                <a href="#empresa" data-lang="en">About</a>
                 <a href="#tienda" data-lang="es">Tienda</a>
                 <a href="#tienda" data-lang="en">Store</a>
-                <a href="#servicios" data-lang="es">Servicios</a>
-                <a href="#servicios" data-lang="en">Services</a>
-                <a href="#promos" data-lang="es">Promos</a>
-                <a href="#promos" data-lang="en">Promos</a>
+                <a href="#agendar" data-lang="es">Citas</a>
+                <a href="#agendar" data-lang="en">Booking</a>
+                <a href="#ubicacion" data-lang="es">Ubicación</a>
+                <a href="#ubicacion" data-lang="en">Location</a>
             </div>
 
             <div class="flex items-center space-x-6">
@@ -219,194 +225,294 @@
         </div>
     </section>
 
-    <!-- Tienda de Productos (2 Filas) -->
-    <section id="tienda" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between mb-12" data-aos="fade-up">
-            <h2 class="text-3xl font-black">
-                <span data-lang="es">Productos Destacados</span>
-                <span data-lang="en">Featured Products</span>
-            </h2>
-            <div class="h-[1px] flex-grow mx-8 bg-gray-200 hidden md:block"></div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <!-- Fila 1 -->
-            <div class="product-card group" data-aos="fade-up">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Aceite Sintético 5W-30', 45, 'https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Aceite Sintético 5W-30</h4>
-                    <span class="font-black text-lg">$45.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Filtro Aire HighFlow', 25, 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Filtro Aire HighFlow</h4>
-                    <span class="font-black text-lg">$25.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Bujías Iridium X4', 60, 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Bujías Iridium X4</h4>
-                    <span class="font-black text-lg">$60.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1517524008436-bbdb53c51596?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Kit Limpieza Pro', 35, 'https://images.unsplash.com/photo-1517524008436-bbdb53c51596?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Kit Limpieza Pro</h4>
-                    <span class="font-black text-lg">$35.00</span>
-                </div>
-            </div>
-            <!-- Fila 2 -->
-            <div class="product-card group" data-aos="fade-up">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Pastillas Cerámicas', 90, 'https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Pastillas Cerámicas</h4>
-                    <span class="font-black text-lg">$90.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1563200020-0370f1a603c6?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Aditivo Combustible', 15, 'https://images.unsplash.com/photo-1563200020-0370f1a603c6?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Aditivo Combustible</h4>
-                    <span class="font-black text-lg">$15.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Líquido Frenos Dot4', 18, 'https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Líquido Frenos Dot4</h4>
-                    <span class="font-black text-lg">$18.00</span>
-                </div>
-            </div>
-            <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
-                <div class="h-48 bg-gray-100 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <button onclick="addToCart('Escobillas Pro', 40, 'https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
-                        <i data-lucide="plus"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-sm mb-2">Escobillas Pro</h4>
-                    <span class="font-black text-lg">$40.00</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Agendar y WhatsApp -->
-    <section id="agendar" class="py-24 max-w-5xl mx-auto px-6">
-        <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
-            <!-- Formulario Tradicional -->
-            <div class="p-10 md:p-16">
-                <h2 class="text-3xl font-black mb-8 italic">
-                    <span data-lang="es">Agendar por Correo</span>
-                    <span data-lang="en">Book by Email</span>
+    <!-- Sección Sobre la Empresa -->
+    <section id="empresa" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="text-orange-600 font-black text-xs uppercase tracking-[0.3em] mb-4 block">Nuestra Historia</span>
+                <h2 class="text-4xl font-black mb-6 italic leading-tight">
+                    <span data-lang="es">Ingeniería que desafía los límites.</span>
+                    <span data-lang="en">Engineering that defies limits.</span>
                 </h2>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Tu Nombre" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all">
-                    <input type="email" placeholder="Email" class="w-full p-4 bg-gray-50 rounded-xl focus:ring-2 focus:ring-orange-600 outline-none transition-all">
-                    <textarea placeholder="¿Qué necesita tu auto?" class="w-full p-4 bg-gray-50 rounded-xl h-32 focus:ring-2 focus:ring-orange-600 outline-none transition-all"></textarea>
-                    <button class="btn-primary w-full text-white py-4 rounded-xl font-bold tracking-widest uppercase">Solicitar Turno</button>
-                </form>
-            </div>
-
-            <!-- Contacto Rápido WhatsApp -->
-            <div class="bg-dark text-white p-10 md:p-16 flex flex-col justify-center text-center">
-                <div class="mb-8">
-                    <div class="w-20 h-20 bg-[#25D366]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="message-circle" class="w-10 h-10 text-[#25D366]"></i>
-                    </div>
-                    <h2 class="text-3xl font-black mb-4 tracking-tighter">
-                        <span data-lang="es">Atención Inmediata</span>
-                        <span data-lang="en">Fast Support</span>
-                    </h2>
-                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                        <span data-lang="es">Recibe un presupuesto estimado y agenda tu cita en menos de 2 minutos vía WhatsApp.</span>
-                        <span data-lang="en">Get an estimated quote and book your appointment in less than 2 minutes via WhatsApp.</span>
+                <div class="space-y-6 text-gray-600 leading-relaxed">
+                    <p>
+                        <span data-lang="es">Fundada con la visión de transformar el mantenimiento automotriz en una experiencia de alta gama, <strong>MODERNA</strong> nació de la pasión por la precisión mecánica y la tecnología de vanguardia.</span>
+                        <span data-lang="en">Founded with the vision of transforming automotive maintenance into a high-end experience, <strong>MODERNA</strong> was born from a passion for mechanical precision and cutting-edge technology.</span>
+                    </p>
+                    <p>
+                        <span data-lang="es">No solo reparamos vehículos; optimizamos el rendimiento a través de diagnósticos digitales y componentes de grado competitivo. En Bytes Technology trabajamos bajo un estándar de "Cero Defectos", asegurando que cada auto sea una muestra de perfección técnica.</span>
+                        <span data-lang="en">We don't just repair vehicles; we optimize performance through digital diagnostics and competitive-grade components. At Bytes Technology, we work under a "Zero Defect" standard, ensuring every car is a testament to technical perfection.</span>
                     </p>
                 </div>
-                
-                <a href="https://wa.me/1234567890?text=Hola!%20Me%20gustaría%20agendar%20una%20cita%20en%20el%20taller." target="_blank" class="bg-[#25D366] hover:scale-105 transition-transform text-white py-5 px-8 rounded-full font-black flex items-center justify-center space-x-3 text-lg">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i>
-                    <span>WHATSAPP DIRECTO</span>
-                </a>
-                <p class="mt-8 text-[10px] text-gray-500 uppercase tracking-[0.2em]">Respuesta promedio: 5 minutos</p>
+            </div>
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                <div class="space-y-4">
+                    <div class="h-48 rounded-3xl bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-dark p-8 rounded-3xl text-white">
+                        <h4 class="text-3xl font-black text-orange-600">15+</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Años de Experiencia</p>
+                    </div>
+                </div>
+                <div class="space-y-4 mt-8">
+                    <div class="bg-orange-600 p-8 rounded-3xl text-white">
+                        <h4 class="text-3xl font-black">10k</h4>
+                        <p class="text-[10px] uppercase tracking-widest opacity-80">Clientes Felices</p>
+                    </div>
+                    <div class="h-48 rounded-3xl bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e5b0c7a2f?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Mejorado -->
-    <footer class="bg-white pt-24 pb-12 border-t">
+    <!-- Tienda de Productos (8 productos) -->
+    <section id="tienda" class="py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-16">
-                <!-- Branding -->
-                <div class="mb-8 md:mb-0 text-center md:text-left">
-                    <div class="brand text-3xl font-black italic mb-2">MODERNA<span class="text-orange-600">.</span></div>
-                    <p class="text-gray-400 text-xs font-medium max-w-xs">
-                        Taller mecánico de precisión y tienda de repuestos de alto rendimiento.
-                    </p>
-                </div>
-
-                <!-- Redes Sociales -->
-                <div class="flex flex-col items-center md:items-end">
-                    <div class="flex space-x-6 mb-4">
-                        <a href="https://instagram.com" class="social-link" title="Instagram">
-                            <i data-lucide="instagram" class="w-6 h-6"></i>
-                        </a>
-                        <a href="https://twitter.com" class="social-link" title="X (Twitter)">
-                            <i data-lucide="twitter" class="w-6 h-6"></i>
-                        </a>
-                        <a href="mailto:contacto@moderna.com" class="social-link" title="Email">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
-                        </a>
-                    </div>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Síguenos en nuestras redes</p>
-                </div>
+            <div class="flex items-center justify-between mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-black italic">
+                    <span data-lang="es">Performance Store</span>
+                    <span data-lang="en">Performance Store</span>
+                </h2>
+                <div class="h-[1px] flex-grow mx-8 bg-gray-200 hidden md:block"></div>
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Colección 2024</span>
             </div>
 
-            <!-- Copyright & Credits -->
-            <div class="flex flex-col md:flex-row justify-between items-center border-t pt-8 space-y-4 md:space-y-0">
-                <p class="text-[10px] text-gray-400 font-bold tracking-widest uppercase">
-                    &copy; 2024 MODERNA TALLER AUTOMOTRIZ. TODOS LOS DERECHOS RESERVADOS.
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Fila 1 -->
+                <div class="product-card group" data-aos="fade-up">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Aceite Sintético 5W-30', 45, 'https://images.unsplash.com/photo-1635773054018-22c3750f5d41?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Aceite Sintético 5W-30</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">Premium Gold</p>
+                        <span class="font-black text-xl text-orange-600">$45.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1597893110200-a9a3b2b93708?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Batería Ion-Lithium', 120, 'https://images.unsplash.com/photo-1597893110200-a9a3b2b93708?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Batería Ion-Lithium</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">Ultra Endurance</p>
+                        <span class="font-black text-xl text-orange-600">$120.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Filtro de Aire Deportivo', 35, 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Filtro Aire Sport</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">High Flow</p>
+                        <span class="font-black text-xl text-orange-600">$35.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Pastillas de Freno', 85, 'https://images.unsplash.com/photo-1600706432502-77a0e2e327fc?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Pastillas Cerámicas</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">Extreme Stop</p>
+                        <span class="font-black text-xl text-orange-600">$85.00</span>
+                    </div>
+                </div>
+
+                <!-- Fila 2 -->
+                <div class="product-card group" data-aos="fade-up">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Kit de Luces LED', 55, 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Kit Luces LED X</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">6000K Pure White</p>
+                        <span class="font-black text-xl text-orange-600">$55.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Aditivo de Motor', 20, 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Aditivo Compresión</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">Nano Tech</p>
+                        <span class="font-black text-xl text-orange-600">$20.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Escobillas Pro', 40, 'https://images.unsplash.com/photo-1615906659444-1ae227b0e9d1?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Limpia Parabrisas</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">All-Weather</p>
+                        <span class="font-black text-xl text-orange-600">$40.00</span>
+                    </div>
+                </div>
+
+                <div class="product-card group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <button onclick="addToCart('Scanner OBD2 WiFi', 95, 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=400&auto=format&fit=crop')" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-orange-600 hover:text-white transition-colors">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-sm mb-1">Scanner Diagnóstico</h4>
+                        <p class="text-[10px] text-gray-400 mb-3 uppercase font-bold">Bytes Tech Link</p>
+                        <span class="font-black text-xl text-orange-600">$95.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Agendado -->
+    <section id="agendar" class="py-24 max-w-4xl mx-auto px-6">
+        <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100" data-aos="zoom-in">
+            <div class="bg-dark p-12 text-center text-white">
+                <h2 class="text-3xl font-black italic mb-4 uppercase tracking-tighter">
+                    <span data-lang="es">Reserva tu Espacio</span>
+                    <span data-lang="en">Book Your Slot</span>
+                </h2>
+                <p class="text-gray-400 text-sm max-w-md mx-auto">
+                    <span data-lang="es">Selecciona el servicio y la fecha que mejor te convenga. Nuestro equipo te confirmará en minutos.</span>
+                    <span data-lang="en">Select the service and date that suits you best. Our team will confirm in minutes.</span>
                 </p>
+            </div>
+            
+            <form class="p-12 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-2">Nombre Completo</label>
+                        <input type="text" placeholder="John Doe" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-600 transition-all outline-none">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-2">Teléfono</label>
+                        <input type="tel" placeholder="+58 412..." class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-600 transition-all outline-none">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-2">Tipo de Servicio</label>
+                    <select class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-600 transition-all outline-none appearance-none">
+                        <option>Mantenimiento Preventivo</option>
+                        <option>Diagnóstico Computarizado</option>
+                        <option>Sistema de Frenos</option>
+                        <option>Instalación de Performance</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-2">Fecha</label>
+                        <input type="date" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-600 transition-all outline-none">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-2">Hora</label>
+                        <input type="time" class="w-full bg-gray-50 border-none p-4 rounded-2xl focus:ring-2 focus:ring-orange-600 transition-all outline-none">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary w-full text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-sm mt-4">
+                    <span data-lang="es">Confirmar Cita</span>
+                    <span data-lang="en">Confirm Booking</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de Ubicación y Mapa -->
+    <section id="ubicacion" class="py-24 bg-dark text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-black mb-8 italic">
+                        <span data-lang="es">Donde Estamos</span>
+                        <span data-lang="en">Our Location</span>
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-lg mb-1 uppercase tracking-wider">Dirección</h4>
+                                <p class="text-gray-400">Av. Principal de la Ciudad, Sector Automotriz, Local 42.<br>Valencia, Venezuela.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-lg mb-1 uppercase tracking-wider">Horario</h4>
+                                <p class="text-gray-400 italic">Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -inset-2 bg-orange-600 rounded-[2rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity"></div>
+                    <div class="relative bg-white p-2 rounded-[2rem] shadow-2xl overflow-hidden h-[450px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.8361734281693!2d-68.0039296!3d10.2116667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDEyJzQyLjAiTiA2OMKwMDAnMTQuMSJX!5e0!3m2!1ses!2sve!4v1700000000000!5m2!1ses!2sve" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-container rounded-[1.8rem]">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-12 border-t">
+        <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16">
+                <div class="mb-8 md:mb-0">
+                    <div class="brand text-3xl font-black italic mb-2">MODERNA<span class="text-orange-600">.</span></div>
+                    <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Driven by Innovation.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="social-link"><i data-lucide="mail"></i></a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center border-t pt-8 space-y-4 md:space-y-0">
+                <p class="text-[10px] text-gray-400 font-bold tracking-widest uppercase">&copy; 2024 MODERNA TALLER AUTOMOTRIZ.</p>
                 <div class="flex items-center space-x-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
                     <span>DESIGNED BY</span>
                     <span class="text-orange-600 font-black">BYTES TECHNOLOGY</span>
@@ -433,9 +539,7 @@
                 cart.push({ name, price, img, quantity: 1 });
             }
             updateCartUI();
-            if(!document.getElementById('cartDrawer').classList.contains('open')) {
-                toggleCart();
-            }
+            if(!document.getElementById('cartDrawer').classList.contains('open')) toggleCart();
         }
 
         function removeFromCart(name) {
@@ -447,15 +551,10 @@
             const container = document.getElementById('cartItems');
             const countBadge = document.getElementById('cartCount');
             const totalEl = document.getElementById('cartTotal');
-            
             container.innerHTML = '';
-            let total = 0;
-            let count = 0;
-
+            let total = 0, count = 0;
             if (cart.length === 0) {
-                container.innerHTML = `<p class="text-gray-400 text-center italic mt-10">
-                    <span data-lang="es">${currentLang === 'es' ? 'El carrito está vacío' : 'Your cart is empty'}</span>
-                </p>`;
+                container.innerHTML = '<p class="text-gray-400 text-center italic mt-10">El carrito está vacío</p>';
             } else {
                 cart.forEach(item => {
                     total += item.price * item.quantity;
@@ -463,16 +562,14 @@
                     container.innerHTML += `
                         <div class="flex items-center space-x-4 bg-gray-50 p-3 rounded-xl">
                             <img src="${item.img}" class="w-16 h-16 object-cover rounded-lg">
-                            <div class="flex-grow">
+                            <div class="flex-grow text-left">
                                 <h4 class="text-sm font-bold">${item.name}</h4>
-                                <p class="text-xs text-gray-500 font-bold">$${item.price} x ${item.quantity}</p>
+                                <p class="text-xs text-gray-500">$${item.price} x ${item.quantity}</p>
                             </div>
-                            <button onclick="removeFromCart('${item.name}')" class="text-red-500 p-2 hover:bg-red-50 rounded-full transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
-                        </div>
-                    `;
+                            <button onclick="removeFromCart('${item.name}')" class="text-red-500 p-2"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>`;
                 });
             }
-
             countBadge.innerText = count;
             totalEl.innerText = `$${total.toFixed(2)}`;
             lucide.createIcons();
@@ -480,22 +577,9 @@
 
         function setLanguage(lang) {
             currentLang = lang;
-            const body = document.body;
-            const btnEs = document.getElementById('btn-es');
-            const btnEn = document.getElementById('btn-en');
-
-            if (lang === 'en') {
-                body.classList.add('lang-en');
-                body.classList.remove('lang-es');
-                btnEn.classList.add('active');
-                btnEs.classList.remove('active');
-            } else {
-                body.classList.add('lang-es');
-                body.classList.remove('lang-en');
-                btnEs.classList.add('active');
-                btnEn.classList.remove('active');
-            }
-            updateCartUI();
+            document.body.className = lang === 'en' ? 'lang-en' : 'lang-es';
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
 
         window.onload = function() {
