@@ -130,6 +130,44 @@
             filter: grayscale(0%) invert(0%) contrast(100%);
         }
 
+        /* Estilos adicionales para la nueva sección Legal */
+        .nav-link {
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link.active {
+            color: var(--dark);
+            padding-left: 1rem;
+        }
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: full;
+            transform: translateY(-50%);
+        }
+        .content-fade {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        .content-fade.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -139,15 +177,12 @@
 </head>
 <body class="lang-es">
 
-    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-float bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center">
         <i data-lucide="message-circle" class="w-7 h-7"></i>
     </a>
 
-    <!-- Overlay Carrito -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 
-    <!-- Drawer Carrito -->
     <div class="cart-drawer p-8 flex flex-col" id="cartDrawer">
         <div class="flex justify-between items-center mb-8">
             <h3 class="text-xl font-black">
@@ -176,7 +211,6 @@
         </div>
     </div>
 
-    <!-- Navegación -->
     <nav class="fixed w-full z-50 glass">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="brand text-2xl font-black italic">MODERNA<span class="text-orange-600">.</span></div>
@@ -211,7 +245,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-bg flex items-center justify-center text-center text-white px-6 pt-16">
         <div data-aos="zoom-out" data-aos-duration="1200">
             <h1 class="text-4xl md:text-7xl mb-4">
@@ -225,7 +258,6 @@
         </div>
     </section>
 
-    <!-- Sección Sobre la Empresa -->
     <section id="empresa" class="py-24 max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div data-aos="fade-right">
@@ -252,13 +284,15 @@
                     </div>
                     <div class="bg-dark p-8 rounded-3xl text-white">
                         <h4 class="text-3xl font-black text-orange-600">15+</h4>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Años de Experiencia</p>
+                        <p data-lang="es" class="text-[10px] uppercase tracking-widest text-gray-400">Años de Experiencia</p>
+                        <p data-lang="en" class="text-[10px] uppercase tracking-widest text-gray-400">Years of Experience</p>
                     </div>
                 </div>
                 <div class="space-y-4 mt-8">
                     <div class="bg-orange-600 p-8 rounded-3xl text-white">
                         <h4 class="text-3xl font-black">10k</h4>
-                        <p class="text-[10px] uppercase tracking-widest opacity-80">Clientes Felices</p>
+                        <p data-lang="es" class="text-[10px] uppercase tracking-widest opacity-80">Clientes Felices</p>
+                        <p data-lang="en" class="text-[10px] uppercase tracking-widest opacity-80">Happy Customers</p>
                     </div>
                     <div class="h-48 rounded-3xl bg-gray-200 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1530046339160-ce3e5b0c7a2f?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
@@ -268,8 +302,7 @@
         </div>
     </section>
 
-    <!-- Tienda de Productos (8 productos) -->
-     <section id="tienda" class="py-32 bg-gray-50">
+    <section id="tienda" class="py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="text-4xl font-black italic text-gray-900">Performance Store</h2>
@@ -309,68 +342,81 @@
         </div>
     </section>
 
-    <!-- Sección de Agendado -->
     <section id="agendar" class="py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="bg-gray-900 rounded-[3.5rem] p-2 shadow-2xl overflow-hidden" data-aos="zoom-in">
                 <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
-                    <!-- Info VIP -->
                     <div class="lg:col-span-2 bg-gray-800 p-12 text-white flex flex-col justify-between">
                         <div>
-                            <h2 class="text-3xl font-black italic leading-tight mb-8">Reserva tu<br><span class="text-orange-600">Espacio VIP</span></h2>
+                            <h2 data-lang="es" class="text-3xl font-black italic leading-tight mb-8">Reserva tu<br><span class="text-orange-600">Espacio VIP</span></h2>
+                            <h2 data-lang="en" class="text-3xl font-black italic leading-tight mb-8">Book your<br><span class="text-orange-600">VIP Space</span></h2>
                             <ul class="space-y-6">
                                 <li class="flex items-center space-x-4">
                                     <div class="bg-orange-600/20 p-2 rounded-lg text-orange-500"><i data-lucide="check" class="w-4 h-4"></i></div>
-                                    <span class="text-xs font-bold uppercase tracking-widest">Prioridad en Recepción</span>
+                                    <span data-lang="es" class="text-xs font-bold uppercase tracking-widest">Prioridad en Recepción</span>
+                                    <span data-lang="en" class="text-xs font-bold uppercase tracking-widest">Reception Priority</span>
                                 </li>
                                 <li class="flex items-center space-x-4">
                                     <div class="bg-orange-600/20 p-2 rounded-lg text-orange-500"><i data-lucide="check" class="w-4 h-4"></i></div>
-                                    <span class="text-xs font-bold uppercase tracking-widest">Diagnóstico Digital</span>
+                                    <span data-lang="es" class="text-xs font-bold uppercase tracking-widest">Diagnóstico Digital</span>
+                                    <span data-lang="en" class="text-xs font-bold uppercase tracking-widest">Digital Diagnosis</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="mt-12 p-6 bg-gray-900/50 rounded-2xl border border-gray-700">
-                            <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest leading-relaxed">Confirmación inmediata vía WhatsApp para todos nuestros clientes registrados.</p>
+                            <p data-lang="es" class="text-[9px] text-gray-400 font-black uppercase tracking-widest leading-relaxed">Confirmación inmediata vía WhatsApp para todos nuestros clientes registrados.</p>
+                            <p data-lang="en" class="text-[9px] text-gray-400 font-black uppercase tracking-widest leading-relaxed">Immediate confirmation via WhatsApp for all our registered customers.</p>
                         </div>
                     </div>
 
-                    <!-- Formulario Moderno -->
                     <div class="lg:col-span-3 bg-white p-12 rounded-[3.2rem]">
                         <form class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Nombre Completo</label>
-                                    <input type="text" placeholder="Ej. Carlos Ruiz" class="input-modern">
+                                    <label data-lang="es" class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Nombre Completo</label>
+                                    
+                                    <label data-lang="en" class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                                    <input type="text" placeholder="E.g. Carlos Ruiz" class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">WhatsApp de Contacto</label>
-                                    <input type="tel" placeholder="+58 412..." class="input-modern">
+                                    <label data-lang="es" class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">WhatsApp de Contacto</label>
+                                    
+                                    <label data-lang="en" class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">WhatsApp Contact</label>
+                                    <input type="tel" placeholder="+58 412..." class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
                                 </div>
                             </div>
                             <div class="space-y-2">
                                 <label class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Tipo de Servicio</label>
-                                <select class="input-modern">
+                                <select data-lang="es" class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
                                     <option value="" disabled selected>Seleccione Especialidad</option>
                                     <option>Mantenimiento General Pro</option>
-                                    <option>Scanner & Inyección</option>
+                                    <option>Scanner E Inyección</option>
                                     <option>Suspensión & Frenos</option>
                                     <option>Performance & Repro</option>
+                                </select>
+
+                                 <select data-lang="en" class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
+                                    <option value="" disabled selected>Seleccione Especialidad</option>
+                                    <option>General Maintenance Pro</option>
+                                    <option>Scanner & Injection</option>
+                                    <option>Suspension & Brakes</option>
+                                    <option>Performance & ECU Tune</option>
                                 </select>
                             </div>
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Fecha Preferida</label>
-                                    <input type="date" class="input-modern">
+                                    <input type="date" class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-[9px] font-black uppercase tracking-widest text-gray-400 ml-1">Bloque Horario</label>
-                                    <select class="input-modern">
+                                    <select class="w-full bg-gray-50 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-orange-600 outline-none">
                                         <option>Mañana (8:00 AM)</option>
                                         <option>Tarde (1:00 PM)</option>
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn-primary w-full py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] mt-4 shadow-xl">
+                            <button type="submit" class="btn-primary w-full py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] mt-4 shadow-xl text-white">
                                 Agendar Cita Ahora
                             </button>
                         </form>
@@ -380,65 +426,21 @@
         </div>
     </section>
 
-    <!-- Sección de Ubicación y Mapa -->
-    <section id="ubicacion" class="py-24 bg-dark text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-4xl font-black mb-8 italic">
-                        <span data-lang="es">Donde Estamos</span>
-                        <span data-lang="en">Our Location</span>
-                    </h2>
-                    <div class="space-y-8">
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
-                                <i data-lucide="map-pin" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-black text-lg mb-1 uppercase tracking-wider">Dirección</h4>
-                                <p class="text-gray-400">Av. Principal de la Ciudad, Sector Automotriz, Local 42.<br>Valencia, Venezuela.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
-                                <i data-lucide="clock" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-black text-lg mb-1 uppercase tracking-wider">Horario</h4>
-                                <p class="text-gray-400 italic">Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group" data-aos="fade-left">
-                    <div class="absolute -inset-2 bg-orange-600 rounded-[2rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity"></div>
-                    <div class="relative bg-white p-2 rounded-[2rem] shadow-2xl overflow-hidden h-[450px]">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.8361734281693!2d-68.0039296!3d10.2116667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDEyJzQyLjAiTiA2OMKwMDAnMTQuMSJX!5e0!3m2!1ses!2sve!4v1700000000000!5m2!1ses!2sve" 
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-container rounded-[1.8rem]">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <section class="relative py-32 overflow-hidden">
-        <!-- Decoración de fondo minimalista -->
+    <section class="relative py-32 overflow-hidden">
         <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10"></div>
         
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-12 gap-12 items-start">
                 
-                <!-- Encabezado y Navegación Left -->
                 <div class="col-span-12 lg:col-span-4">
                     <div class="mb-12">
-                        <span class="text-[10px] font-extrabold tracking-[0.6em] text-orange-600 uppercase">Marco Legal</span>
-                        <h2 class="text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none">Transparencia <br><span class="font-extrabold italic">Absoluta.</span></h2>
+                        <span data-lang="es" class="text-[10px] font-extrabold tracking-[0.6em] text-orange-600 uppercase">Marco Legal</span>
+                        <h2 data-lang="es" class="text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none">Transparencia <br><span class="font-extrabold italic">Absoluta.</span></h2>
+                        <span data-lang="en" class="text-[10px] font-extrabold tracking-[0.6em] text-orange-600 uppercase hidden">Legal Framework</span>
+                        <h2 data-lang="en" class="text-5xl font-extralight tracking-tighter text-slate-900 mt-4 leading-none hidden">Absolute <br><span class="font-extrabold italic">Transparency.</span></h2>
                     </div>
                     
-                    <nav class="flex flex-col space-y-8">
+                    <nav data-lang="es" class="flex flex-col space-y-8">
                         <button onclick="switchTab('condiciones')" id="btn-condiciones" class="nav-link active text-xs font-bold uppercase tracking-widest text-left">
                             01. Condiciones de Servicio
                         </button>
@@ -449,97 +451,138 @@
                             03. Tratamiento de Datos
                         </button>
                     </nav>
+
+                    <nav data-lang="en" class="flex flex-col space-y-8 hidden">
+                        <button onclick="switchTab('condiciones')" id="btn-condiciones-en" class="nav-link active text-xs font-bold uppercase tracking-widest text-left">
+                            01. Terms of Service
+                        </button>
+                        <button onclick="switchTab('seguridad')" id="btn-seguridad-en" class="nav-link text-xs font-bold uppercase tracking-widest text-left">
+                            02. Security Protocols
+                        </button>
+                        <button onclick="switchTab('privacidad')" id="btn-privacidad-en" class="nav-link text-xs font-bold uppercase tracking-widest text-left">
+                            03. Data Handling
+                        </button>
+        
                 </div>
 
-                <!-- Contenedor de Información Right -->
                 <div class="col-span-12 lg:col-span-8 glass-panel rounded-[2rem] p-12 lg:p-20 shadow-2xl shadow-slate-200/50">
                     
-                    <!-- Tab: Condiciones -->
                     <div id="condiciones" class="content-fade active">
                         <div class="flex items-center gap-4 mb-8">
                             <div class="w-8 h-[1px] bg-slate-200"></div>
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Estatutos de Operación</span>
                         </div>
-                        <p class="text-xl text-slate-600 font-light leading-relaxed mb-10">
-                            En <span class="text-slate-900 font-bold">MODERNA</span>, la ingeniería no termina en el motor; se extiende a nuestra ética contractual. Cada proceso está diseñado para garantizar que su inversión mantenga su valor e integridad.
+                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                            En <span   class="text-slate-900 font-bold">MODERNA</span>, la ingeniería no termina en el motor; se extiende a nuestra ética contractual. Cada proceso está diseñado para garantizar que su inversión mantenga su valor e integridad.
                         </p>
+                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                            At <span class="text-slate-900 font-bold">MODERNA</span>, engineering doesn't stop at the engine; it extends to our contractual ethics. Every process is designed to ensure your investment maintains its value and integrity.
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div class="space-y-3">
-                                <h4 class="text-slate-900 font-bold text-xs uppercase tracking-widest">Certificación de Obra</h4>
-                                <p class="text-slate-500 text-sm font-light leading-relaxed">Garantía extendida de 180 días en reparaciones mecánicas complejas.</p>
+                                <h4 data-lang="es" class="text-slate-900 font-bold text-xs uppercase tracking-widest">Certificación de Obra</h4>
+                                <p  data-lang="es" class="text-slate-500 text-sm font-light leading-relaxed">Garantía extendida de 180 días en reparaciones mecánicas complejas.</p>
+                                <h4 data-lang="en" class="text-slate-900 font-bold text-xs uppercase tracking-widest hidden">Work Certification</h4>
+                                <p data-lang="en" class="text-slate-500 text-sm font-light leading-relaxed hidden">Extended 180-day warranty on complex mechanical repairs.</p>
                             </div>
                             <div class="space-y-3">
-                                <h4 class="text-slate-900 font-bold text-xs uppercase tracking-widest">Insumos Premium</h4>
-                                <p class="text-slate-500 text-sm font-light leading-relaxed">Uso exclusivo de componentes certificados por fabricantes originales.</p>
+                                <h4 data-lang="es" class="text-slate-900 font-bold text-xs uppercase tracking-widest">Insumos Premium</h4>
+                                <p data-lang="es" class="text-slate-500 text-sm font-light leading-relaxed">Uso exclusivo de componentes certificados por fabricantes originales.</p>
+                                <h4 data-lang="en" class="text-slate-900 font-bold text-xs uppercase tracking-widest hidden">Premium Supplies</h4>
+                                <p data-lang="en" class="text-slate-500 text-sm font-light leading-relaxed hidden">Exclusive use of components certified by original manufacturers.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tab: Seguridad -->
                     <div id="seguridad" class="content-fade">
                         <div class="flex items-center gap-4 mb-8">
                             <div class="w-8 h-[1px] bg-slate-200"></div>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Resguardo de Activos</span>
+                            <span data-lang="es" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Resguardo de Activos</span>
+                            <span data-lang="en" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest hidden">Asset Protection</span>
                         </div>
-                        <p class="text-xl text-slate-600 font-light leading-relaxed mb-8">
+                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-8">
                             Su vehículo es custodiado bajo sistemas de seguridad perimetral y vigilancia biométrica 24/7.
+                        </p>
+                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-8">
+                            Your vehicle is guarded by perimeter security systems and biometric surveillance 24/7.
                         </p>
                         <div class="bg-slate-900 text-white p-8 rounded-2xl">
                             <div class="flex items-start gap-4">
                                 <i data-lucide="shield-check" class="text-orange-500 w-6 h-6 shrink-0"></i>
                                 <div>
-                                    <p class="text-sm font-light leading-relaxed italic opacity-80">"Contamos con una póliza de responsabilidad civil integral que cubre el 100% del valor comercial de su vehículo dentro de nuestras instalaciones."</p>
+                                    <h4 data-lang="es" class="font-bold text-sm uppercase mb-2">Póliza de Resguardo</h4>
+                                    <h4 data-lang="en" class="font-bold text-sm uppercase mb-2">Security Policy</h4>
+                                    <p data-lang="es" class="text-slate-400 text-xs leading-relaxed">Cobertura integral durante la permanencia del vehículo en nuestras instalaciones.</p>
+                                    <p data-lang="en" class="text-slate-400 text-xs leading-relaxed">Full coverage during the vehicle's stay in our facilities.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tab: Privacidad -->
                     <div id="privacidad" class="content-fade">
                         <div class="flex items-center gap-4 mb-8">
                             <div class="w-8 h-[1px] bg-slate-200"></div>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Confidencialidad</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Privacidad Digital</span>
                         </div>
-                        <p class="text-xl text-slate-600 font-light leading-relaxed">
-                            Ciframos el historial de mantenimiento de su flota para asegurar que la información técnica sea un activo privado suyo.
+                        <p data-lang="es" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                            Sus datos técnicos y personales son encriptados. No compartimos historiales de mantenimiento con terceros sin autorización explícita.
                         </p>
+                        <p data-lang="en" class="text-xl text-slate-600 font-light leading-relaxed mb-10">
+                            Your technical and personal data is encrypted. We do not share maintenance histories with third parties without explicit authorization.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="py-24 bg-dark text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-black mb-8 italic">
+                        <span data-lang="es" style="color: #0a0a0a;">Donde Estamos</span>
+                        <span data-lang="en"style="color: #0a0a0a;">Our Location</span>
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 data-lang="es" class="font-black text-lg mb-1 uppercase tracking-wider"style="color: #0a0a0a;">Dirección</h4>
+                                <h4 data-lang="en" class="font-black text-lg mb-1 uppercase tracking-wider"style="color: #0a0a0a;">Address</h4>
+                                <p class="text-gray-400">Av. Principal de la Ciudad, Sector Automotriz, Local 42.<br>Valencia, Venezuela.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-600 p-3 rounded-xl mt-1">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 data-lang="es" class="font-black text-lg mb-1 uppercase tracking-wider" style="color: #0a0a0a;">Horario</h4>
+                                <h4 data-lang="en" class="font-black text-lg mb-1 uppercase tracking-wider" style="color: #0a0a0a;">Hours</h4>
+                                <p class="text-gray-400 italic">Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group" data-aos="fade-left">
+                    <div class="absolute -inset-2 bg-orange-600 rounded-[2rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity"></div>
+                    <div class="relative bg-white p-2 rounded-[2rem] shadow-2xl overflow-hidden h-[450px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.367144747448!2d-68.0041235!3d10.2311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDEzJzUyLjAiTiA2OMKwMDAnMTQuOCJX!5e0!3m2!1ses!2sve!4v1620000000000!5m2!1ses!2sve" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="map-container rounded-[1.8rem]">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script>
-            // Lógica de cambio de pestañas integrada en la sección
-            function switchTab(id) {
-                // Desactivar todos los contenidos con animación de salida
-                document.querySelectorAll('.content-fade').forEach(c => {
-                    c.style.opacity = '0';
-                    c.style.transform = 'scale(0.98)';
-                    setTimeout(() => c.classList.remove('active'), 300);
-                });
-                
-                // Quitar estado activo de los botones
-                document.querySelectorAll('.nav-link').forEach(t => t.classList.remove('active'));
-                
-                // Activar nueva pestaña con delay para permitir la salida de la anterior
-                setTimeout(() => {
-                    const activeTab = document.getElementById(id);
-                    activeTab.classList.add('active');
-                    // Pequeño timeout para activar la transición CSS
-                    setTimeout(() => {
-                        activeTab.style.opacity = '1';
-                        activeTab.style.transform = 'scale(1)';
-                    }, 50);
-                    document.getElementById('btn-' + id).classList.add('active');
-                }, 350);
-            }
-        </script>
     </section>
 
-    <!-- Footer -->
-   <footer class="bg-slate-900 pt-24 pb-12 border-t border-slate-800 text-white">
+    <footer class="bg-slate-900 pt-24 pb-12 border-t border-slate-800 text-white">
         <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
-            
             <div class="flex flex-col md:flex-row justify-between items-center mb-16">
                 <div class="mb-8 md:mb-0">
                     <div class="brand text-3xl font-black italic mb-2 tracking-tighter">
@@ -559,7 +602,7 @@
 
             <div class="flex flex-col md:flex-row justify-between items-center border-t border-slate-800 pt-8 space-y-4 md:space-y-0">
                 <p class="text-[10px] text-slate-400 font-bold tracking-widest uppercase">
-                    &copy; 2024 MODERNA TALLER AUTOMOTRIZ.
+                    © 2024 MODERNA TALLER AUTOMOTRIZ.
                 </p>
                 
                 <div class="flex items-center space-x-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
@@ -571,6 +614,7 @@
             </div>
         </div>
     </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         let cart = [];
@@ -613,7 +657,7 @@
                         <div class="flex items-center space-x-4 bg-gray-50 p-3 rounded-xl">
                             <img src="${item.img}" class="w-16 h-16 object-cover rounded-lg">
                             <div class="flex-grow text-left">
-                                <h4 class="text-sm font-bold">${item.name}</h4>
+                                <h4 class="text-sm font-bold text-slate-900">${item.name}</h4>
                                 <p class="text-xs text-gray-500">$${item.price} x ${item.quantity}</p>
                             </div>
                             <button onclick="removeFromCart('${item.name}')" class="text-red-500 p-2"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
@@ -630,6 +674,20 @@
             document.body.className = lang === 'en' ? 'lang-en' : 'lang-es';
             document.getElementById('btn-es').classList.toggle('active', lang === 'es');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+
+        // Función para cambiar pestañas de Marco Legal
+        function switchTab(tabId) {
+            // Remover activos de botones
+            document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+            // Remover activos de contenidos
+            document.querySelectorAll('.content-fade').forEach(content => content.classList.remove('active'));
+            
+            // Activar seleccionados
+            document.getElementById('btn-' + tabId).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+            
+            lucide.createIcons(); // Refrescar iconos si hay nuevos en el tab
         }
 
         window.onload = function() {
