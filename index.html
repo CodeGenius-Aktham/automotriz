@@ -70,25 +70,19 @@
             transition: all 0.3s ease;
         }
         .whatsapp-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+        .bg-brand-steel {
+    background-color: #151c2a;
+}
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-    <!-- Top Info Bar -->
-    <div class="bg-brand-dark text-white py-2 text-xs md:text-sm">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <span data-key="top-bar-msg">Especialistas en Camiones Pesados y Vehículos de Gasolina</span>
-            <div class="flex space-x-4">
-                <button onclick="changeLanguage('es')" class="hover:text-red-500 font-bold transition">ESP</button>
-                <span class="text-gray-600">|</span>
-                <button onclick="changeLanguage('en')" class="hover:text-red-500 font-bold transition">ENG</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="bg-brand-blue text-white sticky top-0 z-50 shadow-2xl">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Header (No longer sticky) -->
+    <header class="bg-brand-blue text-white shadow-2xl relative z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Logo Section -->
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 shadow-inner border-2 border-red-600">
                     <i class="fas fa-tools text-brand-blue text-3xl md:text-4xl flex justify-center items-center h-full"></i>
@@ -99,12 +93,22 @@
                 </div>
             </div>
 
-            <nav class="hidden lg:flex space-x-8 items-center font-bold uppercase text-sm">
-                <a href="#about" class="nav-link" data-key="nav-about">Nosotros</a>
-                <a href="#services" class="nav-link" data-key="nav-services">Servicios</a>
-                <a href="#guarantee" class="nav-link" data-key="nav-guarantee">Garantía</a>
-                <a href="#financing" class="bg-red-600 px-4 py-2 rounded text-white hover:bg-red-700 transition" data-key="nav-finance">Financiación</a>
-            </nav>
+            <!-- Navigation and Language -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <nav class="flex space-x-6 items-center font-bold uppercase text-xs md:text-sm">
+                    <a href="#about" class="nav-link" data-key="nav-about">Nosotros</a>
+                    <a href="#services" class="nav-link" data-key="nav-services">Servicios</a>
+                    <a href="#guarantee" class="nav-link" data-key="nav-guarantee">Garantía</a>
+                    <a href="#financing" class="bg-red-600 px-3 py-2 rounded text-white hover:bg-red-700 transition" data-key="nav-finance">Financiación</a>
+                </nav>
+                
+                <!-- Language Switcher Integrated -->
+                <div class="flex items-center space-x-3 bg-brand-dark px-3 py-1.5 rounded-full border border-gray-700">
+                    <button onclick="changeLanguage('es')" class="text-xs font-bold hover:text-red-500 transition focus:text-red-500">ESP</button>
+                    <span class="text-gray-600 text-xs">|</span>
+                    <button onclick="changeLanguage('en')" class="text-xs font-bold hover:text-red-500 transition focus:text-red-500">ENG</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -115,7 +119,8 @@
             <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto font-light" data-key="hero-sub">Diagnóstico avanzado y reparación profesional para flotas comerciales y vehículos particulares.</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
                 <a href="#services" class="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg" data-key="hero-btn-1">Nuestros Servicios</a>
-                <a href="https://wa.me/13466406254" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all" data-key="hero-btn-2">Cotizar Ahora</a>
+                <!-- Cambiado hover:bg-white por hover:bg-orange-500 y hover:border-orange-500 para visibilidad -->
+                <a href="https://wa.me/13466406254" class="bg-transparent border-2 border-white hover:bg-orange-500 hover:border-orange-500 px-10 py-4 rounded-full font-bold text-lg transition-all" data-key="hero-btn-2">Cotizar Ahora</a>
             </div>
         </div>
     </section>
@@ -142,41 +147,31 @@
 
             <!-- Contenido Camiones -->
             <div id="content-trucks" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-microchip"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-1-title">Diagnóstico Computarizado</h4>
                     <p class="text-gray-600 leading-relaxed" data-key="t-serv-1-desc">Utilizamos software de nivel OEM para identificar fallas en sistemas DEF, DPF y EGR, evitando el tiempo de inactividad innecesario de su flota.</p>
-                    <ul class="mt-4 space-y-2 text-sm text-gray-500 font-semibold">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Forced Regeneration</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Fault Code Clearing</li>
-                    </ul>
                 </div>
-                <!-- Servicio 2 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-engine"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-2-title">Overhaul de Motores</h4>
                     <p class="text-gray-600 leading-relaxed" data-key="t-serv-2-desc">Reconstrucción completa de motores Cummins, Detroit, PACCAR y CAT. Rectificación de culatas, cambio de pistones y camisas.</p>
                 </div>
-                <!-- Servicio 3 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-bolt"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-3-title">Electricidad Pesada</h4>
                     <p class="text-gray-600 leading-relaxed" data-key="t-serv-3-desc">Reparación de cableados complejos, alternadores industriales y sistemas de arranque para maquinaria pesada y camiones clase 8.</p>
                 </div>
-                <!-- Servicio 4 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-cogs"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-4-title">Transmisión y Diferencial</h4>
                     <p class="text-gray-600 leading-relaxed" data-key="t-serv-4-desc">Mantenimiento y reparación de cajas Eaton Fuller y sistemas de tracción para soportar cargas máximas sin fallas.</p>
                 </div>
-                <!-- Servicio 5 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-wind"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-5-title">Sistemas de Aire (Frenos)</h4>
                     <p class="text-gray-600 leading-relaxed" data-key="t-serv-5-desc">Instalación y calibración de secadores de aire, válvulas y cámaras de freno para garantizar la seguridad en carretera.</p>
                 </div>
-                <!-- Servicio 6 -->
                 <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
                     <div class="text-red-600 text-4xl mb-6"><i class="fas fa-oil-can"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-6-title">Mantenimiento de Flotas</h4>
@@ -186,25 +181,21 @@
 
             <!-- Contenido Carros -->
             <div id="content-cars" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Carro 1 -->
                 <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
                     <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-laptop-medical"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-1-title">Check Engine & ABS</h4>
                     <p class="text-gray-600" data-key="c-serv-1-desc">Escaneo profundo de códigos de error, diagnóstico de sensores de oxígeno, ABS y sistemas de control de tracción.</p>
                 </div>
-                <!-- Carro 2 -->
                 <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
                     <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-snowflake"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-2-title">Aire Acondicionado</h4>
                     <p class="text-gray-600" data-key="c-serv-2-desc">Recarga de refrigerante R134a/R1234yf, detección de fugas por vacío y reemplazo de compresores de A/C.</p>
                 </div>
-                <!-- Carro 3 -->
                 <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
                     <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-drum-steelpan"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-3-title">Frenos y Suspensión</h4>
                     <p class="text-gray-600" data-key="c-serv-3-desc">Cambio de pastillas, rectificación de discos, reemplazo de amortiguadores y terminales de dirección.</p>
                 </div>
-                <!-- Carro 4 -->
                 <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
                     <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-sync"></i></div>
                     <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-4-title">Tune-Up Completo</h4>
@@ -264,18 +255,224 @@
         </div>
     </section>
 
-    <!-- Financing -->
-    <section id="financing" class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase" data-key="fin-title">Financiación Flexible</h3>
-            <p class="text-gray-500 mb-12 text-lg" data-key="fin-sub">No dejes que el presupuesto detenga tu negocio. Aplica en minutos.</p>
-            <div class="flex flex-wrap justify-center gap-12 items-center grayscale hover:grayscale-0 transition duration-500">
-                <a href="https://americanfirstfinance.com/" target="_blank" class="w-40 md:w-56"><img src="https://americanfirstfinance.com/wp-content/themes/aff/assets/img/logo.svg" alt="AFF"></a>
-                <a href="https://www.acima.com/en" target="_blank" class="text-3xl font-black text-blue-800">ACIMA</a>
-                <a href="https://snapfinance.com/" target="_blank" class="text-3xl font-bold text-green-500 italic">Snap! <span class="text-gray-400 font-normal">Finance</span></a>
+    <section id="gallery" class="py-24 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase">
+                Nuestro Taller en Acción
+            </h3>
+            <p class="text-gray-500 text-lg">
+                Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
+            </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1586864387789-628af9feed72?auto=format&fit=crop&w=900&q=80"
+                     alt="Taller mecánico"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1597007066704-67aa7a54c3b4?auto=format&fit=crop&w=900&q=80"
+                     alt="Mecánico trabajando"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1601933470928-cbcbcd56f6a8?auto=format&fit=crop&w=900&q=80"
+                     alt="Reparación de camiones"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80"
+                     alt="Herramientas profesionales"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1515923163075-4c58d9903c2d?auto=format&fit=crop&w=900&q=80"
+                     alt="Área de servicio"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80"
+                     alt="Flota atendida"
+                     class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+    <!-- Financing -->
+   <section id="financing" class="py-24 bg-white relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-red-600 opacity-5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 -left-32 w-96 h-96 bg-blue-900 opacity-5 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase" data-key="fin-title">
+                Financiación Flexible
+            </h3>
+            <p class="text-gray-500 text-lg" data-key="fin-sub">
+                No dejes que el presupuesto detenga tu negocio. Soluciones rápidas para mantener tu unidad en la carretera.
+            </p>
+        </div>
+
+        <!-- Financing Options -->
+        <div class="flex flex-wrap justify-center gap-14 items-center mb-20">
+
+            <!-- American First Finance -->
+            <a href="https://americanfirstfinance.com/" target="_blank"
+               class="text-3xl font-black text-blue-900
+                      md:grayscale md:hover:grayscale-0
+                      transition duration-300 text-center">
+                American First<br>
+                <span class="font-normal text-gray-500">Finance</span>
+            </a>
+
+            <!-- ACIMA -->
+            <a href="https://www.acima.com/en" target="_blank"
+               class="text-3xl font-black text-blue-800
+                      md:grayscale md:hover:grayscale-0
+                      transition duration-300 text-center">
+                ACIMA
+            </a>
+
+            <!-- Snap Finance -->
+            <a href="https://snapfinance.com/" target="_blank"
+               class="text-3xl font-bold italic text-green-500
+                      md:grayscale md:hover:grayscale-0
+                      transition duration-300 text-center">
+                Snap!
+                <span class="text-gray-400 font-normal">Finance</span>
+            </a>
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
+                <i class="fas fa-clock text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Aprobación Rápida</h4>
+                <p class="text-gray-600">
+                    Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
+                <i class="fas fa-file-signature text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Proceso Sencillo</h4>
+                <p class="text-gray-600">
+                    Sin trámites complicados ni papeleo excesivo. Todo claro desde el inicio.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
+                <i class="fas fa-truck-moving text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Sigue en la Ruta</h4>
+                <p class="text-gray-600">
+                    Invierte hoy en la reparación y paga cómodamente mientras sigues generando.
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-xl">
+            <h4 class="text-3xl font-black mb-4">
+                ¿Necesitas reparar hoy y pagar después?
+            </h4>
+            <p class="text-gray-300 mb-8 text-lg">
+                Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.
+            </p>
+            <a href="https://wa.me/13466406254"
+               class="inline-block bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition shadow-lg">
+                Aplicar por WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="safety" class="py-24 bg-brand-steel text-white relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-600 opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 -left-32 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h3 class="text-4xl font-black mb-4 uppercase">
+                Política de Seguridad y Calidad
+            </h3>
+            <p class="text-gray-300 text-lg">
+                Protocolos estrictos diseñados para proteger a nuestros clientes, técnicos y vehículos.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div class="bg-brand-dark/40 p-8 rounded-2xl">
+                <h4 class="text-2xl font-bold mb-4 text-red-500">
+                    Compromiso con la Seguridad
+                </h4>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    En Mechanic World aplicamos protocolos de seguridad industrial en cada servicio.
+                    Nuestros técnicos utilizan equipo de protección personal (PPE) y procedimientos
+                    certificados para minimizar riesgos operativos.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Cada unidad es inspeccionada antes y después del servicio para garantizar
+                    condiciones óptimas de seguridad en carretera.
+                </p>
+            </div>
+
+            <div class="bg-brand-dark/40 p-8 rounded-2xl">
+                <h4 class="text-2xl font-bold mb-4 text-red-500">
+                    Calidad, Transparencia y Responsabilidad
+                </h4>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Utilizamos repuestos certificados y herramientas calibradas.
+                    Documentamos cada reparación y explicamos al cliente el trabajo realizado
+                    antes de la entrega del vehículo.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Nuestro objetivo es extender la vida útil del vehículo
+                    y garantizar la satisfacción total del cliente.
+                </p>
+            </div>
+        </div>
+
+        <!-- Safety Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20 text-center">
+            <div>
+                <i class="fas fa-hard-hat text-4xl text-red-500 mb-4"></i>
+                <p class="font-bold">Personal Certificado</p>
+            </div>
+            <div>
+                <i class="fas fa-clipboard-check text-4xl text-red-500 mb-4"></i>
+                <p class="font-bold">Procesos Controlados</p>
+            </div>
+            <div>
+                <i class="fas fa-shield-alt text-4xl text-red-500 mb-4"></i>
+                <p class="font-bold">Protección Total</p>
+            </div>
+            <div>
+                <i class="fas fa-thumbs-up text-4xl text-red-500 mb-4"></i>
+                <p class="font-bold">Responsabilidad Garantizada</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 
     <!-- Footer -->
     <footer class="bg-brand-dark text-white pt-20 pb-10">
@@ -314,7 +511,6 @@
     <script>
         const langData = {
             'es': {
-                'top-bar-msg': 'Especialistas en Camiones Pesados y Vehículos de Gasolina',
                 'header-tag': 'Especialidad Diesel y Gas',
                 'nav-about': 'Nosotros',
                 'nav-services': 'Servicios',
@@ -328,46 +524,45 @@
                 'tab-trucks-text': 'CAMIONES (DIESEL)',
                 'tab-cars-text': 'CARROS (GAS)',
                 't-serv-1-title': 'Diagnóstico Computarizado',
-                't-serv-1-desc': 'Utilizamos software de nivel OEM para identificar fallas en sistemas DEF, DPF y EGR, evitando el tiempo de inactividad innecesario de su flota.',
+                't-serv-1-desc': 'Utilizamos software de nivel OEM para identificar fallas en sistemas DEF, DPF y EGR.',
                 't-serv-2-title': 'Overhaul de Motores',
-                't-serv-2-desc': 'Reconstrucción completa de motores Cummins, Detroit, PACCAR y CAT. Rectificación de culatas, cambio de pistones y camisas.',
+                't-serv-2-desc': 'Reconstrucción completa de motores Cummins, Detroit, PACCAR y CAT.',
                 't-serv-3-title': 'Electricidad Pesada',
-                't-serv-3-desc': 'Reparación de cableados complejos, alternadores industriales y sistemas de arranque para maquinaria pesada y camiones clase 8.',
+                't-serv-3-desc': 'Reparación de cableados complejos y sistemas de arranque.',
                 't-serv-4-title': 'Transmisión y Diferencial',
-                't-serv-4-desc': 'Mantenimiento y reparación de cajas Eaton Fuller y sistemas de tracción para soportar cargas máximas sin fallas.',
+                't-serv-4-desc': 'Mantenimiento y reparación de cajas Eaton Fuller.',
                 't-serv-5-title': 'Sistemas de Aire (Frenos)',
-                't-serv-5-desc': 'Instalación y calibración de secadores de aire, válvulas y cámaras de freno para garantizar la seguridad en carretera.',
+                't-serv-5-desc': 'Instalación y calibración de secadores y válvulas de aire.',
                 't-serv-6-title': 'Mantenimiento de Flotas',
-                't-serv-6-desc': 'Planes de mantenimiento preventivo personalizados para empresas, incluyendo cambios de aceite industrial y engrase general.',
+                't-serv-6-desc': 'Planes preventivos personalizados para empresas.',
                 'c-serv-1-title': 'Check Engine & ABS',
-                'c-serv-1-desc': 'Escaneo profundo de códigos de error, diagnóstico de sensores de oxígeno, ABS y sistemas de control de tracción.',
+                'c-serv-1-desc': 'Escaneo profundo y diagnóstico de sensores.',
                 'c-serv-2-title': 'Aire Acondicionado',
-                'c-serv-2-desc': 'Recarga de refrigerante R134a/R1234yf, detección de fugas por vacío y reemplazo de compresores de A/C.',
+                'c-serv-2-desc': 'Recarga de refrigerante y reemplazo de compresores.',
                 'c-serv-3-title': 'Frenos y Suspensión',
-                'c-serv-3-desc': 'Cambio de pastillas, rectificación de discos, reemplazo de amortiguadores y terminales de dirección.',
+                'c-serv-3-desc': 'Cambio de pastillas y amortiguadores.',
                 'c-serv-4-title': 'Tune-Up Completo',
-                'c-serv-4-desc': 'Cambio de bujías, limpieza de inyectores y reemplazo de filtros de aire y combustible para máxima eficiencia.',
+                'c-serv-4-desc': 'Bujías, inyectores y filtros para máxima eficiencia.',
                 'about-title': 'Nuestra Pasión es la <span class="text-red-600">Excelencia</span> Mecánica',
-                'about-p1': 'En Mechanic World, hemos construido un legado basado en la honestidad y la precisión técnica. No solo arreglamos vehículos; restauramos la confianza de quienes dependen de su transporte para trabajar y vivir.',
-                'about-p2': 'Contamos con técnicos certificados y herramientas de última generación para enfrentar los desafíos de los motores diesel modernos.',
+                'about-p1': 'En Mechanic World, hemos construido un legado basado en la honestidad.',
+                'about-p2': 'Contamos con técnicos certificados y herramientas de última generación.',
                 'stat-1': 'Años Exp',
                 'stat-2': 'Clientes',
                 'stat-3': 'Servicio de Emergencia 24/7',
                 'guar-main-title': 'Política de Garantía',
                 'guar-1-title': 'Garantía en Mano de Obra',
-                'guar-1-desc': 'Respaldamos cada tornillo que apretamos. Si surge un inconveniente relacionado con nuestra instalación, lo solucionamos sin costo adicional para usted.',
+                'guar-1-desc': 'Respaldamos cada trabajo realizado sin costo adicional.',
                 'guar-2-title': 'Garantía en Repuestos',
-                'guar-2-desc': 'Trabajamos con proveedores líderes. Todas las partes instaladas cuentan con la garantía oficial del fabricante.',
+                'guar-2-desc': 'Partes con garantía oficial del fabricante.',
                 'fin-title': 'Financiación Flexible',
-                'fin-sub': 'No dejes que el presupuesto detenga tu negocio. Aplica en minutos.',
-                'footer-desc': 'Excelencia mecánica en Houston y alrededores. Tu seguridad y la potencia de tu motor son nuestra prioridad número uno.',
+                'fin-sub': 'Aplica en minutos para tu reparación.',
+                'footer-desc': 'Excelencia mecánica en Houston. Tu prioridad es la nuestra.',
                 'footer-links': 'Enlaces',
                 'footer-contact': 'Contacto',
-                'footer-emergency': 'Emergencias 24 Horas Disponibles',
-                'footer-copy': '© 2026 Mechanic World - Professional Diesel & Gas Solutions. Built for Power.'
+                'footer-emergency': 'Emergencias 24 Horas',
+                'footer-copy': '© 2026 Mechanic World.'
             },
             'en': {
-                'top-bar-msg': 'Specialists in Heavy Duty Trucks and Gasoline Vehicles',
                 'header-tag': 'Diesel & Gas Specialty',
                 'nav-about': 'About Us',
                 'nav-services': 'Services',
@@ -381,43 +576,43 @@
                 'tab-trucks-text': 'TRUCKS (DIESEL)',
                 'tab-cars-text': 'CARS (GAS)',
                 't-serv-1-title': 'Computer Diagnostics',
-                't-serv-1-desc': 'We use OEM-level software to identify faults in DEF, DPF, and EGR systems, avoiding unnecessary fleet downtime.',
+                't-serv-1-desc': 'We use OEM software to identify faults in DEF, DPF, and EGR systems.',
                 't-serv-2-title': 'Engine Overhaul',
-                't-serv-2-desc': 'Complete reconstruction of Cummins, Detroit, PACCAR, and CAT engines. Cylinder head machining, piston, and sleeve replacement.',
+                't-serv-2-desc': 'Complete reconstruction of Cummins, Detroit, PACCAR, and CAT engines.',
                 't-serv-3-title': 'Heavy Duty Electric',
-                't-serv-3-desc': 'Repair of complex wiring, industrial alternators, and starting systems for heavy machinery and class 8 trucks.',
+                't-serv-3-desc': 'Repair of complex wiring and starting systems.',
                 't-serv-4-title': 'Transmission & Differential',
-                't-serv-4-desc': 'Maintenance and repair of Eaton Fuller gearboxes and traction systems to support maximum loads without failure.',
+                't-serv-4-desc': 'Maintenance and repair of Eaton Fuller gearboxes.',
                 't-serv-5-title': 'Air Systems (Brakes)',
-                't-serv-5-desc': 'Installation and calibration of air dryers, valves, and brake chambers to ensure road safety.',
+                't-serv-5-desc': 'Installation and calibration of air dryers and valves.',
                 't-serv-6-title': 'Fleet Maintenance',
-                't-serv-6-desc': 'Customized preventive maintenance plans for companies, including industrial oil changes and general greasing.',
+                't-serv-6-desc': 'Customized preventive maintenance plans for companies.',
                 'c-serv-1-title': 'Check Engine & ABS',
-                'c-serv-1-desc': 'Deep scanning of error codes, diagnostics for oxygen sensors, ABS, and traction control systems.',
+                'c-serv-1-desc': 'Deep scanning and sensor diagnostics.',
                 'c-serv-2-title': 'Air Conditioning',
-                'c-serv-2-desc': 'R134a/R1234yf refrigerant recharge, vacuum leak detection, and A/C compressor replacement.',
+                'c-serv-2-desc': 'Refrigerant recharge and compressor replacement.',
                 'c-serv-3-title': 'Brakes & Suspension',
-                'c-serv-3-desc': 'Brake pad replacement, disc resurfacing, shock absorber replacement, and steering tie rod ends.',
+                'c-serv-3-desc': 'Brake pad and shock absorber replacement.',
                 'c-serv-4-title': 'Full Tune-Up',
-                'c-serv-4-desc': 'Spark plug replacement, fuel injector cleaning, and air/fuel filter replacement for maximum efficiency.',
+                'c-serv-4-desc': 'Spark plugs, injectors, and filters for max efficiency.',
                 'about-title': 'Our Passion is Mechanical <span class="text-red-600">Excellence</span>',
-                'about-p1': 'At Mechanic World, we have built a legacy based on honesty and technical precision. We don’t just fix vehicles; we restore the trust of those who depend on their transport.',
-                'about-p2': 'We have certified technicians and state-of-the-art tools to face the challenges of modern diesel engines.',
+                'about-p1': 'At Mechanic World, we have built a legacy based on honesty.',
+                'about-p2': 'We have certified technicians and state-of-the-art tools.',
                 'stat-1': 'Years Exp',
                 'stat-2': 'Customers',
                 'stat-3': '24/7 Emergency Service',
                 'guar-main-title': 'Warranty Policy',
                 'guar-1-title': 'Labor Warranty',
-                'guar-1-desc': 'We back every bolt we tighten. If an issue arises related to our installation, we solve it at no additional cost to you.',
+                'guar-1-desc': 'We back every job performed at no extra cost.',
                 'guar-2-title': 'Parts Warranty',
-                'guar-2-desc': 'We work with leading suppliers. All installed parts come with the official manufacturer’s warranty.',
+                'guar-2-desc': 'Parts with official manufacturer warranty.',
                 'fin-title': 'Flexible Financing',
-                'fin-sub': 'Don’t let the budget stop your business. Apply in minutes.',
-                'footer-desc': 'Mechanical excellence in Houston and surrounding areas. Your safety and engine power are our number one priority.',
+                'fin-sub': 'Apply in minutes for your repair.',
+                'footer-desc': 'Mechanical excellence in Houston. Your priority is ours.',
                 'footer-links': 'Links',
                 'footer-contact': 'Contact',
-                'footer-emergency': '24 Hour Emergencies Available',
-                'footer-copy': '© 2026 Mechanic World - Professional Diesel & Gas Solutions. Built for Power.'
+                'footer-emergency': '24 Hour Emergencies',
+                'footer-copy': '© 2026 Mechanic World.'
             }
         };
 
@@ -425,7 +620,6 @@
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (langData[lang][key]) {
-                    // Si el contenido tiene HTML (como el span rojo), usar innerHTML
                     if (langData[lang][key].includes('<span')) {
                         el.innerHTML = langData[lang][key];
                     } else {
