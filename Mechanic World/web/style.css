@@ -1,0 +1,67 @@
+  :root {
+            --brand-blue: #0a1d37;
+            --brand-red: #d32f2f;
+            --brand-silver: #f4f4f4;
+            --brand-dark: #050e1a;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .bg-brand-dark { background-color: var(--brand-dark); }
+        .text-brand-red { color: var(--brand-red); }
+        .border-brand-red { border-color: var(--brand-red); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(10, 29, 55, 0.9), rgba(5, 14, 26, 0.95)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--brand-red);
+            transition: width .3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .active-tab {
+            background-color: var(--brand-red) !important;
+            color: white !important;
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+        .bg-brand-steel {
+    background-color: #151c2a;
+}
