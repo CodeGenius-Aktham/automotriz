@@ -5,7 +5,7 @@ const langData = {
         'nav-services': 'Servicios',
         'nav-guarantee': 'Garantía',
         'nav-finance': 'Financiación',
-        'hero-title': 'Damos certeza <br><span class="text-red-600">a cada kilometro</span>',
+        'hero-title': 'Damos certeza <br><span class="text-red-600">a cada kilómetro</span>',
         'hero-sub': 'Diagnóstico avanzado y reparación profesional para flotas comerciales y vehículos particulares.',
         'hero-btn-1': 'Nuestros Servicios',
         'hero-btn-2': 'Cotizar Ahora',
