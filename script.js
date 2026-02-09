@@ -97,7 +97,7 @@ const langData = {
         'nav-services': 'Services',
         'nav-guarantee': 'Warranty',
         'nav-finance': 'Financing',
-        'hero-title': 'Your Truck is <br><span class="text-red-600">Our World</span>',
+        'hero-title': 'We give certainty <br><span class="text-red-600">To every kilometer</span>',
         'hero-sub': 'Advanced diagnostics and professional repair for commercial fleets and private vehicles.',
         'hero-btn-1': 'Our Services',
         'hero-btn-2': 'Get Quote',
