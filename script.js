@@ -6,7 +6,7 @@ const langData = {
         'nav-guarantee': 'Garantía',
         'nav-finance': 'Financiación',
         'hero-title': 'Damos certeza <br><span class="text-red-600">a cada kilómetro</span>',
-        'hero-sub': 'Diagnóstico avanzado y reparación profesional para flotas comerciales y vehículos particulares.',
+        'hero-sub': 'Ingeniería de alto rendimiento para el motor que te mueve. Especialistas en Diesel Pesado y Sistemas de Gasolina de Precisión.',
         'hero-btn-1': 'Nuestros Servicios',
         'hero-btn-2': 'Cotizar Ahora',
         'services-main-title': 'Especialidades Mecánicas',
@@ -45,6 +45,16 @@ const langData = {
         'guar-2-desc': 'Partes con garantía oficial del fabricante.',
         'fin-title': 'Financiación Flexible',
         'fin-sub': 'Aplica en minutos para tu reparación.',
+        'dual-t-sub': 'División de Carga Pesada',
+        'dual-t-i1': 'Overhaul de motores Cummins/CAT',
+        'dual-t-i2': 'Sistemas DEF/DPF y Diagnóstico OEM',
+        'dual-t-i3': 'Reparación de cableados complejos',
+        'dual-t-btn': 'Servicio Industrial',
+        'dual-c-sub': 'División de Vehículos Particulares',
+        'dual-c-i1': 'Diagnóstico de Check Engine',
+        'dual-c-i2': 'Aire Acondicionado y Suspensión',
+        'dual-c-i3': 'Tune-Up y Eficiencia',
+        'dual-c-btn': 'Servicio Particular',
 
         // Financing Section
         'fin-benefit-1-title': 'Aprobación Rápida',
@@ -57,6 +67,13 @@ const langData = {
         'fin-cta-desc': 'Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.',
         'fin-cta-btn': 'Aplicar por WhatsApp',
 
+        'about-tag': 'EXPERTO DUAL',
+        'about-title': 'Ingeniería sin límites: <br><span class="text-red-600">Diesel & Gasolina</span>',
+        'about-p1': 'En Mechanic World, hemos eliminado la barrera entre el servicio industrial y el particular. Entendemos que la precisión requerida para un <strong>Overhaul de camión Clase 8</strong> es la misma rigurosidad que necesita el motor de tu <strong>vehículo diario</strong>.',
+        'about-p2': 'Nuestra infraestructura está diseñada para operar simultáneamente con flotas pesadas y sistemas de inyección de alta precisión para autos, garantizando honestidad técnica en cada diagnóstico.',
+        'stat-1': 'Años Exp. Multi-Plataforma',
+        'stat-2': 'Conductores y Flotas',
+        'stat-3': 'Rescate en tiempo RECORD',
 
         'safety-title': 'Política de Seguridad y Calidad',
         'safety-subtitle': 'Protocolos estrictos diseñados para proteger a nuestros clientes, técnicos y vehículos.',
@@ -74,6 +91,10 @@ const langData = {
         'gallery-title': 'Nuestro Taller en Acción',  // ES
         'gallery-desc': 'Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.',  // ES
 
+        'dpf-title': 'Limpieza Avanzada de <br><span class="text-red-600">Sistemas de Emisiones</span>',
+        'dpf-desc': 'Utilizamos tecnología de nivel industrial para restaurar componentes críticos. Nuestra máquina <strong>DPF 5.0</strong> elimina hasta el 99% de hollín y cenizas, evitando reemplazos costosos.',
+        'dpf-universal': 'Servicio disponible para: Automóviles, furgonetas, remolques y camiones pesados.',
+        'dpf-badge-tech': 'Tecnología de Punta',
 
         // Footer
         'footer-brand': 'MECHANIC WORLD',
@@ -98,7 +119,7 @@ const langData = {
         'nav-guarantee': 'Warranty',
         'nav-finance': 'Financing',
         'hero-title': 'We give certainty <br><span class="text-red-600">To every kilometer</span>',
-        'hero-sub': 'Advanced diagnostics and professional repair for commercial fleets and private vehicles.',
+        'hero-sub': 'High-performance engineering for the engine that drives you. Specialists in Heavy-Duty Diesel and Precision Gasoline Systems.',
         'hero-btn-1': 'Our Services',
         'hero-btn-2': 'Get Quote',
         'services-main-title': 'Mechanical Specialties',
@@ -141,7 +162,13 @@ const langData = {
         'gallery-title': 'Our Workshop in Action',
         'gallery-desc': 'Modern facilities, certified technicians, and professional processes in every service.',
 
-
+        'about-tag': 'DUAL EXPERTISE',
+        'about-title': 'Engineering without limits: <br><span class="text-red-600">Diesel & Gasoline</span>',
+        'about-p1': 'At Mechanic World, we have removed the barrier between industrial and personal service. We understand that the precision required for a <strong>Class 8 truck Overhaul</strong> is the same rigor needed for your <strong>daily driver</strong>.',
+        'about-p2': 'Our infrastructure is designed to simultaneously operate with heavy-duty fleets and high-precision injection systems for cars, guaranteeing technical honesty in every diagnosis.',
+        'stat-1': 'Years Multi-Platform Exp.',
+        'stat-2': 'Drivers and Fleets',
+        'stat-3': 'RECORD time Rescue',
         // Financing Section
         'fin-benefit-1-title': 'Quick Approval',
         'fin-benefit-1-desc': 'Response in minutes so your truck or car can get back on the road without delays.',
@@ -153,7 +180,19 @@ const langData = {
         'fin-cta-desc': 'Our team helps you apply and choose the best financing option for you.',
         'fin-cta-btn': 'Apply via WhatsApp',
 
+        'dual-t-sub': 'Heavy Duty Division',
+        'dual-t-i1': 'Cummins/CAT Engine Overhaul',
+        'dual-t-i2': 'DEF/DPF Systems & OEM Diagnostics',
+        'dual-t-i3': 'Complex Wiring Repair',
+        'dual-t-btn': 'Industrial Service',
+        'dual-c-sub': 'Passenger Vehicle Division',
+        'dual-c-i1': 'Check Engine Diagnostics',
+        'dual-c-i2': 'A/C & Suspension Service',
+        'dual-c-i3': 'Tune-Up & Efficiency',
+        'dual-c-btn': 'Personal Service',
 
+
+        
         'safety-title': 'Safety & Quality Policy',
         'safety-subtitle': 'Strict protocols designed to protect our clients, technicians, and vehicles.',
         'safety-commitment-title': 'Commitment to Safety',
@@ -167,6 +206,10 @@ const langData = {
         'safety-highlight-3': 'Total Protection',
         'safety-highlight-4': 'Guaranteed Responsibility',
 
+        'dpf-title': 'Advanced <br><span class="text-red-600">Emission System Cleaning</span>',
+        'dpf-desc': 'We use industrial-grade technology to restore critical components. Our <strong>DPF 5.0</strong> machine removes up to 99% of soot and ash, avoiding costly replacements.',
+        'dpf-universal': 'Service available for: Cars, vans, trailers, and heavy-duty trucks.',
+        'dpf-badge-tech': 'State-of-the-art Tech',
 
         'footer-brand': 'MECHANIC WORLD',
         'footer-desc': 'Mechanical excellence in Houston and surroundings. Your safety and engine power are our top priority.',
@@ -185,11 +228,14 @@ const langData = {
 function changeLanguage(lang) {
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
-        if (langData[lang][key]) {
-            if (langData[lang][key].includes('<span')) {
-                el.innerHTML = langData[lang][key];
+        const translation = langData[lang][key];
+        
+        if (translation) {
+            // Si la traducción contiene HTML (como <span> o <br>), usamos innerHTML
+            if (translation.includes('<')) {
+                el.innerHTML = translation;
             } else {
-                el.innerText = langData[lang][key];
+                el.textContent = translation;
             }
         }
     });
