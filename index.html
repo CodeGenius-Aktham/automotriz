@@ -21,8 +21,7 @@
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 shadow-inner border-2 border-red-600">
                     <img src="imagenes/logo.png" alt="Mechanic World Logo" class="w-full h-full object-contain">
-                    <i
-                        class=" text-brand-blue text-3xl md:text-4xl flex justify-center items-center h-full"></i>
+                    <i class=" text-brand-blue text-3xl md:text-4xl flex justify-center items-center h-full"></i>
                 </div>
                 <div>
                     <h1 class="text-2xl md:text-3xl font-black tracking-tighter leading-none">MECHANIC <span
@@ -55,20 +54,43 @@
     </header>
 
     <!-- Hero -->
-    <section class="relative h-[80vh] flex items-center justify-center text-white hero-gradient">
-        <div class="container mx-auto px-4 text-center z-10">
-            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase italic leading-tight" data-key="hero-title">Damos certeza <br><span class="text-red-600">a cada kilómetro</span></h2>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto font-light" data-key="hero-sub">Diagnóstico avanzado y
-                reparación profesional para flotas comerciales y vehículos particulares.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
+    <section class="relative min-h-screen flex items-center justify-center text-white hero-gradient overflow-hidden">
+
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-red-600 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 text-center z-10">
+
+
+
+            <h2 class="text-6xl md:text-8xl lg:text-8xl font-black mb-10 uppercase italic leading-[0.9] tracking-tighter"
+                data-key="hero-title">
+                Damos certeza <br>
+                <span class="text-red-600">a cada kilómetro</span>
+            </h2>
+
+            <p class="text-lg md:text-2xl lg:text-3xl mb-14 max-w-4xl mx-auto font-light leading-relaxed opacity-90"
+                data-key="hero-sub">
+                Ingeniería de alto rendimiento para el motor que te mueve. <br class="hidden md:block">
+                Especialistas en Diesel Pesado y Sistemas de Gasolina de Precisión.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                 <a href="#services"
-                    class="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg"
-                    data-key="hero-btn-1">Nuestros Servicios</a>
-                <!-- Cambiado hover:bg-white por hover:bg-orange-500 y hover:border-orange-500 para visibilidad -->
+                    class="w-full sm:w-auto bg-red-600 hover:bg-red-700 px-12 py-5 rounded-full font-black text-xl transition-all shadow-[0_10px_40px_-10px_rgba(220,38,38,0.5)] hover:-translate-y-1 active:scale-95"
+                    data-key="hero-btn-1">
+                    Nuestros Servicios
+                </a>
+
                 <a href="https://wa.me/13466406254"
-                    class="bg-transparent border-2 border-white hover:bg-red-500 hover:border-red-500 px-10 py-4 rounded-full font-bold text-lg transition-all"
-                    data-key="hero-btn-2">Cotizar Ahora</a>
+                    class="w-full sm:w-auto bg-transparent border-2 border-white/80 hover:bg-white hover:text-brand-blue px-12 py-5 rounded-full font-black text-xl transition-all hover:-translate-y-1 active:scale-95"
+                    data-key="hero-btn-2">
+                    Cotizar Ahora
+                </a>
             </div>
+
+
         </div>
     </section>
 
@@ -80,6 +102,63 @@
                     Especialidades Mecánicas</h3>
                 <div class="w-24 h-1 bg-red-600 mx-auto"></div>
             </div>
+
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+
+                        <div class="bg-brand-blue p-10 text-white hover:bg-opacity-95 transition">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fas fa-truck-moving text-4xl text-red-600"></i>
+                                <h3 class="text-3xl font-black uppercase">
+                                    DIESEL <br>
+                                    <span class="text-sm font-light tracking-widest text-gray-400 italic"
+                                        data-key="dual-t-sub">Heavy Duty Division</span>
+                                </h3>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-t-i1">Overhaul de motores Cummins/CAT</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-t-i2">Sistemas DEF/DPF y Diagnóstico OEM</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-t-i3">Reparación de cableados complejos</span></li>
+                            </ul>
+                            <a href="#services" onclick="toggleTab('trucks')"
+                                class="inline-block border-2 border-red-600 px-6 py-2 rounded-full font-bold transition hover:bg-red-600"
+                                data-key="dual-t-btn">Servicio Industrial</a>
+                        </div>
+
+                        <div class="bg-gray-50 p-10 text-brand-blue hover:bg-gray-100 transition">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fas fa-car text-4xl text-red-600"></i>
+                                <h3 class="text-3xl font-black uppercase">
+                                    GASOLINE <br>
+                                    <span class="text-sm font-light tracking-widest text-gray-500 italic"
+                                        data-key="dual-c-sub">Passenger Vehicle Division</span>
+                                </h3>
+                            </div>
+                            <ul class="space-y-4 mb-8 text-gray-600">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-c-i1">Diagnóstico de Check Engine</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-c-i2">Aire Acondicionado y Suspensión</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                        data-key="dual-c-i3">Tune-Up y Eficiencia</span></li>
+                            </ul>
+                            <a href="#services" onclick="toggleTab('cars')"
+                                class="inline-block border-2 border-brand-blue px-6 py-2 rounded-full font-bold transition hover:bg-brand-blue hover:text-white hover:bg-red-600 "
+                                data-key="dual-c-btn">Servicio Particular</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <br>
+            <br>
+
 
             <!-- Selector de Categoría -->
             <div class="flex justify-center mb-12">
@@ -174,37 +253,143 @@
                 </div>
             </div>
         </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+       <div class="container mx-auto px-4">
+    <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+        
+        <div class="w-full lg:w-5/12 relative group mx-auto max-w-[400px]" data-aos="fade-right">
+            
+            <div class="absolute -inset-2 bg-red-600/15 rounded-[2.5rem] blur-2xl group-hover:bg-red-600/25 transition-all duration-500"></div>
+            
+            <div class="relative bg-brand-dark rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white aspect-[9/16] h-[580px] md:h-[680px]">
+                <video 
+                    class="w-full h-full object-cover" 
+                    controls 
+                    playsinline
+                    preload="metadata"
+                    poster="imagenes/image.png">
+                    <source src="video/dpf-cleaning-demo.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+
+            <div class="absolute -bottom-4 -right-4 bg-brand-blue text-white p-5 rounded-2xl shadow-2xl border-b-4 border-red-600 transform group-hover:scale-105 transition-transform hidden md:block z-20">
+                <p class="text-[10px] uppercase tracking-widest font-bold mb-1 opacity-80" data-key="dpf-badge-tech">Tecnología de Punta</p>
+                <p class="text-lg font-black italic">DPF 5.0 Cleaning</p>
+            </div>
+        </div>
+
+        <div class="lg:w-7/12" data-aos="fade-left">
+            <div class="mb-4 flex items-center gap-2">
+                <span class="h-px w-8 bg-red-600"></span>
+                <span class="text-red-600 font-bold uppercase tracking-wider text-sm" data-key="dpf-tag">Certificación de Emisiones</span>
+            </div>
+
+            <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase italic leading-tight text-brand-blue" data-key="dpf-title">
+                Limpieza Avanzada de <br><span class="text-red-600">Sistemas de Emisiones</span>
+            </h2>
+
+            <p class="text-gray-600 text-lg md:text-xl mb-8 leading-relaxed" data-key="dpf-desc">
+                Utilizamos tecnología de nivel industrial para restaurar componentes críticos. Nuestra máquina <strong>DPF 5.0</strong> elimina hasta el 99% de hollín y cenizas, evitando reemplazos costosos y multas ambientales.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-red-600 transition-colors">
+                    <div class="bg-red-50 p-2 rounded-lg"><i class="fas fa-microchip text-red-600"></i></div>
+                    <span class="font-bold text-brand-blue">DPF / SCR / DOC</span>
+                </div>
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-red-600 transition-colors">
+                    <div class="bg-red-50 p-2 rounded-lg"><i class="fas fa-atom text-red-600"></i></div>
+                    <span class="font-bold text-brand-blue">CAT / Intercooler</span>
+                </div>
+            </div>
+
+            <div class="bg-brand-blue p-8 rounded-3xl text-white shadow-lg relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 transform translate-x-4 -translate-y-4 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform">
+                    <i class="fas fa-truck-moving text-6xl"></i>
+                </div>
+                <p class="flex items-center gap-4 relative z-10 italic text-lg" data-key="dpf-universal">
+                    <i class="fas fa-check-circle text-red-600 text-2xl"></i>
+                    Servicio disponible para: Automóviles, furgonetas, remolques y camiones pesados.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-brand-dark text-white overflow-hidden">
-        <div class="container mx-auto px-4">
+    <section id="about" class="py-24 bg-brand-dark text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-red-600/5 -skew-x-12 transform translate-x-1/4"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-600 opacity-20 rounded-full blur-3xl"></div>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-tight" data-key="about-title">Nuestra Pasión
-                        es la <span class="text-red-600">Excelencia</span> Mecánica</h3>
-                    <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-key="about-p1">En Mechanic World, hemos
-                        construido un legado basado en la honestidad y la precisión técnica. No solo arreglamos
-                        vehículos; restauramos la confianza de quienes dependen de su transporte para trabajar y vivir.
+
+                <div class="lg:w-1/2">
+                    <div class="mb-6 inline-block">
+                        <span class="text-red-600 font-bold tracking-[0.2em] uppercase text-sm"
+                            data-key="about-tag">Dual Expertise</span>
+                        <div class="h-1 w-12 bg-red-600 mt-1"></div>
+                    </div>
+
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-tight uppercase italic"
+                        data-key="about-title">
+                        Ingeniería sin límites: <br>
+                        <span class="text-red-600">Diesel & Gasolina</span>
+                    </h3>
+
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-key="about-p1">
+                        En Mechanic World, hemos eliminado la barrera entre el servicio industrial y el particular.
+                        Entendemos que la precisión requerida para un <strong>Overhaul de camión Clase 8</strong> es la
+                        misma rigurosidad que necesita el motor de tu <strong>vehículo diario</strong>.
                     </p>
-                    <p class="text-gray-300 text-lg leading-relaxed" data-key="about-p2">Contamos con técnicos
-                        certificados y herramientas de última generación para enfrentar los desafíos de los motores
-                        diesel modernos y los complejos sistemas electrónicos de los autos actuales.</p>
+
+                    <p class="text-gray-300 text-lg leading-relaxed border-l-4 border-red-600 pl-6 italic"
+                        data-key="about-p2">
+                        Nuestra infraestructura está diseñada para operar simultáneamente con flotas pesadas y sistemas
+                        de inyección de alta precisión para autos, garantizando honestidad técnica en cada diagnóstico.
+                    </p>
                 </div>
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="bg-brand-blue p-8 rounded-2xl text-center shadow-xl border border-gray-700">
-                        <span class="block text-4xl font-black text-red-600 mb-2">15+</span>
-                        <span class="text-sm uppercase tracking-widest font-bold" data-key="stat-1">Años Exp</span>
+
+                <div class="lg:w-1/2 grid grid-cols-2 gap-6">
+                    <div
+                        class="bg-brand-blue/40 backdrop-blur-sm p-8 rounded-2xl text-center border border-white/10 hover:border-red-600 transition-colors">
+                        <i class="fas fa-tools text-red-600 text-2xl mb-4"></i>
+                        <span class="block text-4xl font-black text-white mb-2">15+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-gray-400" data-key="stat-1">Años
+                            Exp. Multi-Plataforma</span>
                     </div>
-                    <div class="bg-brand-blue p-8 rounded-2xl text-center shadow-xl border border-gray-700">
-                        <span class="block text-4xl font-black text-red-600 mb-2">5k+</span>
-                        <span class="text-sm uppercase tracking-widest font-bold" data-key="stat-2">Clientes</span>
+
+                    <div
+                        class="bg-brand-blue/40 backdrop-blur-sm p-8 rounded-2xl text-center border border-white/10 hover:border-red-600 transition-colors">
+                        <i class="fas fa-users text-red-600 text-2xl mb-4"></i>
+                        <span class="block text-4xl font-black text-white mb-2">5k+</span>
+                        <span class="text-xs uppercase tracking-widest font-bold text-gray-400"
+                            data-key="stat-2">Conductores y Flotas</span>
                     </div>
-                    <div class="bg-brand-blue p-8 rounded-2xl text-center shadow-xl border border-gray-700 col-span-2">
-                        <span class="block text-xl font-bold" data-key="stat-3">Servicio de Emergencia 24/7</span>
+
+                    <div
+                        class="bg-red-600 p-8 rounded-2xl text-center shadow-2xl col-span-2 group overflow-hidden relative">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity">
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                            <i class="fas fa-clock text-3xl animate-pulse"></i>
+                            <span class="text-xl md:text-2xl font-black uppercase italic" data-key="stat-3">Rescate en
+                                tiempo RECORD</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -252,41 +437,35 @@
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/carro-elevado.webp"
-                        alt="Taller mecánico"
+                    <img src="imagenes/carro-elevado.webp" alt="Taller mecánico"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/fotocarro.webp"
-                        alt="Mecánico trabajando"
+                    <img src="imagenes/fotocarro.webp" alt="Mecánico trabajando"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/imagen-rueda.webp"
-                        alt="Reparación de camiones"
+                    <img src="imagenes/imagen-rueda.webp" alt="Reparación de camiones"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/imagen-carros.webp"
-                        alt="Herramientas profesionales"
+                    <img src="imagenes/imagen-carros.webp" alt="Herramientas profesionales"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                <img src="imagenes/webmec.webp"
-                    alt="Área de servicio - Motor Diesel"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
+                    <img src="imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
+                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                </div>
 
-            <!-- Segunda Imagen: Flota atendida / Diagnóstico -->
-            <div class="overflow-hidden rounded-2xl shadow-lg group">
-                <img src="imagenes/IMG_9370.jpeg"
-                    alt="Flota atendida - Especialista"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
+                <!-- Segunda Imagen: Flota atendida / Diagnóstico -->
+                <div class="overflow-hidden rounded-2xl shadow-lg group">
+                    <img src="imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
+                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                </div>
             </div>
         </div>
     </section>
@@ -510,8 +689,3 @@
 
 
 </html>
-
-
-
-
-
