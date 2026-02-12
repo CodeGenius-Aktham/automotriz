@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechanic World | Professional Diesel & Gas Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="imagenes/logo.png">
+    <link rel="icon" type="image/png" href="Recursos/imagenes/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -20,7 +20,7 @@
             <!-- Logo Section -->
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 shadow-inner border-2 border-red-600">
-                    <img src="imagenes/logo.png" alt="Mechanic World Logo" class="w-full h-full object-contain">
+                    <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo" class="w-full h-full object-contain">
                     <i class=" text-brand-blue text-3xl md:text-4xl flex justify-center items-center h-full"></i>
                 </div>
                 <div>
@@ -277,8 +277,8 @@
                     controls 
                     playsinline
                     preload="metadata"
-                    poster="imagenes/image.png">
-                    <source src="videos/dpf-cleaning-demo.mp4" type="video/mp4">
+                    poster="Recursos/imagenes/image.png">
+                    <source src="Recursos/video/dpf-cleaning-demo.mp4" type="video/mp4">
                     Tu navegador no soporta videos.
                 </video>
             </div>
@@ -437,37 +437,45 @@
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/carro-elevado.webp" alt="Taller mecánico"
+                    <img src="Recursos/imagenes/carro-elevado.webp" alt="Taller mecánico"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/fotocarro.webp" alt="Mecánico trabajando"
+                    <img src="Recursos/imagenes/fotocarro.webp" alt="Mecánico trabajando"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/imagen-rueda.webp" alt="Reparación de camiones"
+                    <img src="Recursos/imagenes/imagen-rueda.webp" alt="Reparación de camiones"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/imagen-carros.webp" alt="Herramientas profesionales"
+                    <img src="Recursos/imagenes/imagen-carros.webp" alt="Herramientas profesionales"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
+                    <img src="Recursos/imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
 
                 <!-- Segunda Imagen: Flota atendida / Diagnóstico -->
                 <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
+                    <img src="Recursos/imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
                         class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
                 </div>
             </div>
         </div>
+
+        <div class="mt-16 text-center">
+    <a href="galery.html" 
+       class="inline-block bg-brand-blue text-white font-bold py-4 px-10 rounded-full shadow-xl hover:bg-blue-800 transform hover:-translate-y-1 transition duration-300 uppercase tracking-wider"
+       data-key="gallery-button">
+        Ver Trabajos y Maquinaria
+    </a>
+</div>
     </section>
 
 
@@ -517,6 +525,98 @@
                 </a>
             </div>
 
+ <!-- Marcas Aliadas (Carrusel Infinito) -->
+<div class="mb-24 overflow-hidden group">
+    <p class="text-center text-gray-500 font-extrabold uppercase tracking-widest text-sm mb-10" data-key="brands-title">
+        Respaldados por las mejores marcas
+    </p>
+    
+    <!-- Contenedor del Slider -->
+    <div class="relative flex overflow-x-hidden py-4">
+        <!-- Primer set de logos -->
+        <div class="flex animate-marquee whitespace-nowrap items-center gap-16 px-8">
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/cat.jpg" alt="CAT" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="h-14 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="h-12 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="h-14 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/JCB.jpg" alt="JCB" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/CASE.jpg" alt="CASE" class="h-14 w-auto object-contain">
+            </div>
+        </div>
+
+        <!-- Segundo set de logos (Duplicado para el efecto infinito) -->
+        <div class="flex absolute top-0 animate-marquee2 whitespace-nowrap items-center gap-16 px-8 py-4">
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/cat.jpg" alt="CAT" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="h-14 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="h-12 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="h-14 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/JCB.jpg" alt="JCB" class="h-16 w-auto object-contain">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                <img src="Recursos/logos/CASE.jpg" alt="CASE" class="h-14 w-auto object-contain">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Estilos necesarios para la animación infinita */
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+}
+
+.animate-marquee2 {
+    animation: marquee2 40s linear infinite;
+}
+
+/* Pausar al pasar el mouse */
+.group:hover .animate-marquee,
+.group:hover .animate-marquee2 {
+    animation-play-state: paused;
+}
+</style>
             <!-- Benefits Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
                 <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
@@ -689,4 +789,3 @@
 
 
 </html>
-
