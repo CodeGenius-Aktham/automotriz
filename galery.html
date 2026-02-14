@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Trabajos y Maquinaria | Mechanic World</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="Recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script>
@@ -88,8 +87,7 @@
         <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-4">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 shadow-inner border-2 border-brand-red">
-                     <a href="index.html"> <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo" class="w-full h-full object-contain"></a>
-
+                   <a href="index.html"> <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo" class="w-full h-full object-contain"></a>
                 </div>
                 <div>
                     <h1 class="text-2xl md:text-3xl font-black tracking-tighter leading-none">MECHANIC <span class="text-brand-red">WORLD</span></h1>
@@ -117,7 +115,6 @@
     <!-- Hero Gallery -->
     <section class="relative py-20 flex items-center justify-center text-white hero-gradient overflow-hidden">
         <div class="container mx-auto px-6 text-center z-10">
-            <!-- Título sincronizado con hero-title pero adaptado a Galería -->
             <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter" data-key="gallery-title">
                 Nuestro Taller <span class="text-brand-red">en Acción</span>
             </h2>
@@ -126,9 +123,9 @@
                 Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
             </p>
             <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <button onclick="filterSelection('all')" class="filter-btn active-tab px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red">Todos</button>
+                <button onclick="filterSelection('all')" class="filter-btn active-tab px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="nav-all">Todos</button>
                 <button onclick="filterSelection('trabajos')" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="nav-services">Trabajos</button>
-                <button onclick="filterSelection('maquinaria')" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red">Maquinaria</button>
+                <button onclick="filterSelection('maquinaria')" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="brands-title">Tecnologías</button>
             </div>
         </div>
     </section>
@@ -138,239 +135,91 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="gallery-container">
                 
-                <!-- Item Trabajo (Video con Pantalla Completa) -->
+                <!-- VIDEOS DE TRABAJOS -->
+                <!-- Video 1 -->
                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
                     <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="Recursos/imagenes/carro-elevado.webp">
                             <source src="Recursos/video/Video-recurso-1.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
                         </video>
-                        
-                        <!-- Overlay Informativo -->
                         <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
+                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-expand text-white"></i></div>
                                 <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
                             </div>
                         </div>
                         <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                </div>
-
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
-                            <source src="Recursos/video/Video-recurso-2.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
-                        </video>
-                        
-                        <!-- Overlay Informativo -->
-                        <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
-                                <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                 
-                </div>
-
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
-                            <source src="Recursos/video/Video-recurso-3.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
-                        </video>
-                        
-                        <!-- Overlay Informativo -->
-                        <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
-                                <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                   
-                </div>
-
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
-                            <source src="Recursos/video/Video-recurso-4.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
-                        </video>
-                        
-                        <!-- Overlay Informativo -->
-                        <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
-                                <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                   
-                </div>
-
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
-                            <source src="Recursos/video/Video-recurso-5.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
-                        </video>
-                        
-                        <!-- Overlay Informativo -->
-                        <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
-                                <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                  
-                </div>
-
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" 
-                               autoplay 
-                               muted 
-                               loop 
-                               playsinline
-                               poster="Recursos/imagenes/carro-elevado.webp">
-                            <source src="Recursos/video/Video-recurso-6.mp4" type="video/mp4">
-                            Tu navegador no soporta videos.
-                        </video>
-                        
-                        <!-- Overlay Informativo -->
-                        <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-expand text-white"></i>
-                                </div>
-                                <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                  
-                </div>
-               
-        
-
-
-                <!-- Maquinaria Ejemplo -->
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-1.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-2.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-3.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-4.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                  <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-5.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/fotos-recurso-6.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-7.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/fotos-recurso-8.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/fotos-recurso-9.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/fotos-recurso-10.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/foto-recurso-11.jpeg" alt="Scanner" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                  <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64">
-                        <img src="Recursos/imagenes/Foto-recurso-12.png" alt="Scanner" class="w-full h-full object-cover">
                     </div>
                 </div>
 
                 
+
+                <!-- Más Videos de Trabajos -->
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-2.mp4" type="video/mp4"></video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-3.mp4" type="video/mp4"></video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-5.mp4" type="video/mp4"></video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-6.mp4" type="video/mp4"></video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/dpf-cleaning-demo.mp4" type="video/mp4"></video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+                <!-- IMÁGENES DE TRABAJOS (1 AL 9) -->
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-1.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-2.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-3.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+
+                <!-- Continuación de Imágenes de Trabajos -->
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-6.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-7.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-8.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-9.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                </div>
+
+                <!-- MAQUINARIA / TECNOLOGÍAS -->
+                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-10.jpeg" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/image.png" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                </div>
+                <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="h-64"><img src="Recursos/imagenes/Foto-recurso-12.png" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                </div>
 
             </div>
         </div>
@@ -396,18 +245,13 @@
                 <h4 class="text-lg font-bold mb-6 uppercase tracking-widest text-brand-red" data-key="hero-btn-2">Contacto</h4>
                 <p class="text-gray-400 mb-2">Houston, Texas</p>
                 <div class="flex space-x-4">
-                      <a href="https://www.facebook.com/mechanicworldhtx"
-                        class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"
-                        data-key="footer-fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/mechanicworldhtx?fbclid=IwY2xjawPwjBZleHRuA2FlbQIxMABicmlkETFkbjIweEJ3M3UzM25oWUFDc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnSEiIEou-ZeCYkfOfFEtC88vftpjwiKW5T94su5hmbRfEpLZXSxx11EHaHT_aem_D-gINAPWPhvdu05IrcHg_w"
-                        class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"
-                        data-key="footer-ig"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.facebook.com/mechanicworldhtx" class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mechanicworldhtx" class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
         <p class="text-center mt-10 text-gray-600 text-sm">© 2026 Mechanic World - Professional Diesel & Gas Solutions. Built for Power.</p>
     </footer>
-
 
     <!-- Fixed WhatsApp -->
     <a href="https://wa.me/13466406254" class="whatsapp-btn shadow-2xl">
@@ -415,19 +259,14 @@
     </a>
 
     <script>
-        // Función para filtrar categorías
         function filterSelection(category) {
             const items = document.querySelectorAll('.gallery-item');
             const buttons = document.querySelectorAll('.filter-btn');
 
-            buttons.forEach(btn => {
-                btn.classList.remove('active-tab');
-                if ((category === 'all' && btn.innerText === 'TODOS') || 
-                    (category === 'trabajos' && btn.innerText === 'TRABAJOS') || 
-                    (category === 'maquinaria' && btn.innerText === 'MAQUINARIA')) {
-                    btn.classList.add('active-tab');
-                }
-            });
+            buttons.forEach(btn => btn.classList.remove('active-tab'));
+            
+            // Lógica para marcar botón activo
+            event.target.classList.add('active-tab');
 
             items.forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
@@ -438,25 +277,14 @@
             });
         }
 
-        // Función para pantalla completa
         function openFullscreen(element) {
             const video = element.querySelector('video');
             if (!video) return;
-
-            // Intentar abrir en pantalla completa el elemento video
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) { /* Safari */
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { /* IE11 */
-                video.msRequestFullscreen();
-            }
-
-            // Opcional: Activar sonido al entrar en pantalla completa
+            if (video.requestFullscreen) video.requestFullscreen();
+            else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
             video.muted = false;
         }
 
-        // Al salir de pantalla completa, volver a silenciar (opcional)
         document.addEventListener('fullscreenchange', () => {
             if (!document.fullscreenElement) {
                 const videos = document.querySelectorAll('video');
@@ -464,7 +292,6 @@
             }
         });
 
-          // --- SISTEMA DE TRADUCCIÓN ---
         const langData = {
             'es': {
                 'header-tag': 'Especialidad Diesel y Gas',
@@ -474,8 +301,10 @@
                 'nav-finance': 'Financiación',
                 'gallery-title': 'Nuestro Taller <span class="text-brand-red">en Acción</span>',
                 'gallery-desc': 'Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.',
-                'about-p1': 'Excelencia mecánica en Houston y alrededores. Tu seguridad y la potencia de tu motor son nuestra prioridad número uno.',
-                'hero-btn-2': 'Contacto'
+                'about-p1': 'Excelencia mecánica en Houston y alrededores.',
+                'hero-btn-2': 'Contacto',
+                'nav-all': 'Todos',
+                'brands-title': 'Tecnologías'
             },
             'en': {
                 'header-tag': 'Diesel & Gas Specialty',
@@ -484,23 +313,22 @@
                 'nav-guarantee': 'Guarantee',
                 'nav-finance': 'Financing',
                 'gallery-title': 'Our Shop <span class="text-brand-red">in Action</span>',
-                'gallery-desc': 'Modern facilities, certified technicians, and professional processes in every service.',
-                'about-p1': 'Mechanical excellence in Houston and surroundings. Your safety and engine power are our number one priority.',
-                'hero-btn-2': 'Contact'
+                'gallery-desc': 'Modern facilities and certified technicians.',
+                'about-p1': 'Mechanical excellence in Houston.',
+                'hero-btn-2': 'Contact',
+                'nav-all': 'All',
+                'brands-title': 'Technologies'
             }
         };
 
         function changeLanguage(lang) {
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
-                if (langData[lang][key]) {
-                    element.innerHTML = langData[lang][key];
-                }
+                if (langData[lang][key]) element.innerHTML = langData[lang][key];
             });
             localStorage.setItem('selectedLang', lang);
         }
 
-        // Cargar lenguaje preferido al iniciar
         window.onload = () => {
             const savedLang = localStorage.getItem('selectedLang') || 'es';
             changeLanguage(savedLang);
