@@ -14,46 +14,59 @@
 
 <body class="bg-gray-50 text-gray-900">
 
-    <!-- Header (No longer sticky) -->
-    <header class="bg-brand-blue text-white shadow-2xl relative z-50">
-        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <!-- Logo Section -->
-            <div class="flex items-center space-x-4">
-                <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg p-1 shadow-inner border-2 border-red-600">
-                    <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo"
-                        class="w-full h-full object-contain">
-                    <i class=" text-brand-blue text-3xl md:text-4xl flex justify-center items-center h-full"></i>
-                </div>
-                <div>
-                    <h1 class="text-2xl md:text-3xl font-black tracking-tighter leading-none">MECHANIC <span
-                            class="text-red-600">WORLD</span></h1>
-                    <p class="text-[10px] md:text-xs uppercase tracking-widest text-gray-300" data-key="header-tag">
-                        Diesel & Gas Specialty</p>
-                </div>
+  <!-- Header (No longer sticky) -->
+<header class="bg-brand-blue text-white shadow-2xl relative z-50">
+    <div class="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center gap-6">
+        
+        <!-- BLOCK 1: BRAND IDENTITY (Left side) -->
+        <div class="flex items-center space-x-3 md:space-x-4 group">
+            
+            <!-- Logo 1: logo2.png (Optimized & Large) -->
+            <div class="relative w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg shadow-inner border-2 border-red-600 overflow-hidden flex items-center justify-center p-1">
+                <img src="Recursos/logos/logo2.png" alt="Mechanic World Logo Primary"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105">
             </div>
 
-            <!-- Navigation and Language -->
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <nav class="flex space-x-6 items-center font-bold uppercase text-xs md:text-sm">
-                    <a href="#about" class="nav-link" data-key="nav-about">Nosotros</a>
-                    <a href="#services" class="nav-link" data-key="nav-services">Servicios</a>
-                    <a href="#guarantee" class="nav-link" data-key="nav-guarantee">Garantía</a>
-                    <a href="#financing" class="bg-red-600 px-3 py-2 rounded text-white hover:bg-red-700 transition"
-                        data-key="nav-finance">Financiación</a>
-                </nav>
-
-                <!-- Language Switcher Integrated -->
-                <div class="flex items-center space-x-3 bg-brand-dark px-3 py-1.5 rounded-full border border-gray-700">
-                    <button onclick="changeLanguage('es')"
-                        class="text-xs font-bold hover:text-red-500 transition focus:text-red-500">ESP</button>
-                    <span class="text-gray-600 text-xs">|</span>
-                    <button onclick="changeLanguage('en')"
-                        class="text-xs font-bold hover:text-red-500 transition focus:text-red-500">ENG</button>
-                </div>
+            <!-- Logo 2: logo.png (Optimized & Large) -->
+            <div class="relative w-14 h-14 md:w-20 md:h-20 bg-white rounded-lg shadow-inner border-2 border-red-600 overflow-hidden flex items-center justify-center p-1">
+                <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo Secondary"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105">
+            </div>
+            
+            <div class="flex flex-col ml-2">
+                <h1 class="text-2xl md:text-3xl font-black tracking-tighter leading-none">
+                    MECHANIC <span class="text-red-600">WORLD</span>
+                </h1>
+                <p class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400" data-key="header-tag">
+                    Diesel & Gas Specialty
+                </p>
             </div>
         </div>
-    </header>
 
+        <!-- SPACER: Empuja la navegación al lado derecho -->
+        <div class="hidden lg:block flex-grow"></div>
+
+        <!-- BLOCK 2: NAVIGATION & ACTIONS (Right side) -->
+        <div class="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
+            <nav class="flex flex-wrap justify-center space-x-4 md:space-x-6 items-center font-bold uppercase text-xs md:text-sm">
+                <a href="#about" class="hover:text-red-500 transition-colors" data-key="nav-about">Nosotros</a>
+                <a href="#services" class="hover:text-red-500 transition-colors" data-key="nav-services">Servicios</a>
+                <a href="#guarantee" class="hover:text-red-500 transition-colors" data-key="nav-guarantee">Garantía</a>
+                <a href="#financing" class="bg-red-600 px-4 py-2 rounded text-white hover:bg-red-700 transition transform hover:-translate-y-0.5 shadow-lg"
+                    data-key="nav-finance">Financiación</a>
+            </nav>
+
+            <!-- Language Switcher -->
+            <div class="flex items-center space-x-3 bg-black/30 px-4 py-2 rounded-full border border-white/10">
+                <button onclick="changeLanguage('es')"
+                    class="text-[10px] md:text-xs font-bold hover:text-red-500 transition focus:text-red-500 outline-none">ESP</button>
+                <span class="text-gray-600 text-xs">|</span>
+                <button onclick="changeLanguage('en')"
+                    class="text-[10px] md:text-xs font-bold hover:text-red-500 transition focus:text-red-500 outline-none">ENG</button>
+            </div>
+        </div>
+    </div>
+</header>
     <!-- Hero -->
     <section class="relative min-h-screen flex items-center justify-center text-white hero-gradient overflow-hidden">
 
