@@ -159,7 +159,7 @@
 
             <br>
             <br>
-            
+
 
 
             <!-- Selector de Categoría -->
@@ -265,222 +265,240 @@
         <br>
         <br>
 
-        
-    <!-- Marcas Aliadas (Carrusel Infinito) -->
-            <div class="mb-24 overflow-hidden group">
-                <p
-                    class="text-center text-gray-500 font-extrabold uppercase tracking-widest text-[10px] md:text-sm mb-10 px-4" data-key="brands-title">
-                    Maquinaria pesada
-                </p>
 
-                <!-- Contenedor del Slider con Máscara de Degradado -->
-                <div class="relative flex overflow-x-hidden py-4 fade-mask">
-                    <!-- Primer set de logos -->
-                    <div class="flex animate-marquee whitespace-nowrap items-center gap-6 md:gap-12 px-4">
-                        <div class="logo-box">
-                            <img src="Recursos/logos/cat.jpg" alt="CAT" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/JCB.jpg" alt="JCB" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/CASE.jpg" alt="CASE" class="logo-render">
-                        </div>
+        <!-- Marcas Aliadas (Carrusel Infinito) -->
+        <div class="mb-24 overflow-hidden group">
+            <p class="text-center text-gray-500 font-extrabold uppercase tracking-widest text-[10px] md:text-sm mb-10 px-4"
+                data-key="brands-title">
+                Maquinaria pesada
+            </p>
+
+            <!-- Contenedor del Slider con Máscara de Degradado -->
+            <div class="relative flex overflow-x-hidden py-4 fade-mask">
+                <!-- Primer set de logos -->
+                <div class="flex animate-marquee whitespace-nowrap items-center gap-6 md:gap-12 px-4">
+                    <div class="logo-box">
+                        <img src="Recursos/logos/cat.jpg" alt="CAT" class="logo-render">
                     </div>
-
-                    <!-- Segundo set de logos (Copia exacta para el loop infinito) -->
-                    <div
-                        class="flex absolute top-0 animate-marquee2 whitespace-nowrap items-center gap-6 md:gap-12 px-4 py-4">
-                        <div class="logo-box">
-                            <img src="Recursos/logos/cat.jpg" alt="CAT" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/JCB.jpg" alt="JCB" class="logo-render">
-                        </div>
-                        <div class="logo-box">
-                            <img src="Recursos/logos/CASE.jpg" alt="CASE" class="logo-render">
-                        </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/JCB.jpg" alt="JCB" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/CASE.jpg" alt="CASE" class="logo-render">
                     </div>
                 </div>
-            </div>
 
-            <style>
-                /* Contenedor individual de cada logo */
-                .logo-box {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: white;
-                    border-radius: 0.75rem;
-                    /* rounded-xl */
-                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-                    /* shadow-sm */
-                    border: 1px solid #f3f4f6;
-                    /* border-gray-100 */
-                    width: 120px;
-                    /* Ancho fijo para móvil */
-                    height: 70px;
-                    /* Alto fijo para móvil */
-                    flex-shrink: 0;
-                }
-
-                /* Imagen dentro del contenedor */
-                .logo-render {
-                    width: 100%;
-                    height: 100%;
-                    padding: 0.75rem;
-                    object-fit: contain;
-                }
-
-                /* Media query para pantallas medianas (tablets/PC) */
-                @media (min-width: 768px) {
-                    .logo-box {
-                        width: 180px;
-                        height: 100px;
-                    }
-
-                    .logo-render {
-                        padding: 1.25rem;
-                    }
-                }
-
-                /* Máscara de desvanecimiento lateral */
-                .fade-mask {
-                    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-                    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-                }
-
-                /* Animación 1: Del centro a la izquierda */
-                @keyframes marquee {
-                    0% {
-                        transform: translateX(0);
-                    }
-
-                    100% {
-                        transform: translateX(-100%);
-                    }
-                }
-
-                /* Animación 2: De la derecha al centro */
-                @keyframes marquee2 {
-                    0% {
-                        transform: translateX(100%);
-                    }
-
-                    100% {
-                        transform: translateX(0);
-                    }
-                }
-
-                .animate-marquee {
-                    animation: marquee 25s linear infinite;
-                }
-
-                .animate-marquee2 {
-                    animation: marquee2 25s linear infinite;
-                }
-
-                /* Ajuste de velocidad para pantallas grandes */
-                @media (min-width: 768px) {
-
-                    .animate-marquee,
-                    .animate-marquee2 {
-                        animation-duration: 40s;
-                    }
-                }
-
-                /* Pausa la animación al interactuar */
-                .group:hover .animate-marquee,
-                .group:hover .animate-marquee2 {
-                    animation-play-state: paused;
-                }
-            </style>
-
-        <section id="gallery" class="py-24 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase" data-key="gallery-title">
-                    Nuestro Taller en Acción
-                </h3>
-                <p class="text-gray-500 text-lg" data-key="gallery-desc">
-                    Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
-                </p>
-            </div>
-
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/carro-elevado.webp" alt="Taller mecánico"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/fotocarro.webp" alt="Mecánico trabajando"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/imagen-rueda.webp" alt="Reparación de camiones"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/imagen-carros.webp" alt="Herramientas profesionales"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-                </div>
-
-                <!-- Segunda Imagen: Flota atendida / Diagnóstico -->
-                <div class="overflow-hidden rounded-2xl shadow-lg group">
-                    <img src="Recursos/imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
-                        class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                <!-- Segundo set de logos (Copia exacta para el loop infinito) -->
+                <div
+                    class="flex absolute top-0 animate-marquee2 whitespace-nowrap items-center gap-6 md:gap-12 px-4 py-4">
+                    <div class="logo-box">
+                        <img src="Recursos/logos/cat.jpg" alt="CAT" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/John Deere.jpg" alt="John Deere" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Komatsu.jpg" alt="Komatsu" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Volvo.jpg" alt="Volvo" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Liebherr.jpg" alt="Liebherr" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/Hitachi.jpg" alt="Hitachi" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/JCB.jpg" alt="JCB" class="logo-render">
+                    </div>
+                    <div class="logo-box">
+                        <img src="Recursos/logos/CASE.jpg" alt="CASE" class="logo-render">
+                    </div>
                 </div>
             </div>
         </div>
 
+        <style>
+            /* Contenedor individual de cada logo */
+            .logo-box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                border-radius: 0.75rem;
+                /* rounded-xl */
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                /* shadow-sm */
+                border: 1px solid #f3f4f6;
+                /* border-gray-100 */
+                width: 120px;
+                /* Ancho fijo para móvil */
+                height: 70px;
+                /* Alto fijo para móvil */
+                flex-shrink: 0;
+            }
+
+            /* Imagen dentro del contenedor */
+            .logo-render {
+                width: 100%;
+                height: 100%;
+                padding: 0.75rem;
+                object-fit: contain;
+            }
+
+            /* Media query para pantallas medianas (tablets/PC) */
+            @media (min-width: 768px) {
+                .logo-box {
+                    width: 180px;
+                    height: 100px;
+                }
+
+                .logo-render {
+                    padding: 1.25rem;
+                }
+            }
+
+            /* Máscara de desvanecimiento lateral */
+            .fade-mask {
+                mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+                -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            }
+
+            /* Animación 1: Del centro a la izquierda */
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            /* Animación 2: De la derecha al centro */
+            @keyframes marquee2 {
+                0% {
+                    transform: translateX(100%);
+                }
+
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            .animate-marquee {
+                animation: marquee 25s linear infinite;
+            }
+
+            .animate-marquee2 {
+                animation: marquee2 25s linear infinite;
+            }
+
+            /* Ajuste de velocidad para pantallas grandes */
+            @media (min-width: 768px) {
+
+                .animate-marquee,
+                .animate-marquee2 {
+                    animation-duration: 40s;
+                }
+            }
+
+            /* Pausa la animación al interactuar */
+            .group:hover .animate-marquee,
+            .group:hover .animate-marquee2 {
+                animation-play-state: paused;
+            }
+        </style>
+<!-- 
+  Cambios realizados:
+  1. Se eliminó 'bg-gray-100' y se añadieron clases de posicionamiento relativo y fondo.
+  2. Se añadió un div absoluto para la superposición (overlay) oscura.
+  3. Se cambiaron los colores de texto a blanco para contrastar con el fondo.
+-->
+
+<section id="gallery" class="relative py-24 bg-fixed bg-cover bg-center" 
+         style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&q=80&w=1920');">
+    
+    <!-- Capa de superposición para mejorar el contraste del texto -->
+    <div class="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h3 class="text-4xl font-black text-white mb-4 uppercase" data-key="gallery-title">
+                Nuestro Taller en Acción
+            </h3>
+            <p class="text-gray-200 text-lg" data-key="gallery-desc">
+                Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
+            </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Imagen 1 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/carro-elevado.webp" alt="Taller mecánico"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Imagen 2 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/fotocarro.webp" alt="Mecánico trabajando"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Imagen 3 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/imagen-rueda.webp" alt="Reparación de camiones"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Imagen 4 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/imagen-carros.webp" alt="Herramientas profesionales"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Imagen 5 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <!-- Imagen 6 -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                <img src="Recursos/imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
+                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+        </div>
+
+        <!-- Botón de Acción -->
         <div class="mt-16 text-center">
             <a href="galery.html"
-                class="inline-block bg-brand-blue text-white font-bold py-4 px-10 rounded-full shadow-xl hover:bg-blue-800 transform hover:-translate-y-1 transition duration-300 uppercase tracking-wider"
+                class="inline-block bg-white text-brand-blue font-bold py-4 px-10 rounded-full shadow-xl hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300 uppercase tracking-wider"
                 data-key="gallery-button">
                 Ver Trabajos y Maquinaria
             </a>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
@@ -651,173 +669,104 @@
         </div>
     </section>
 
+
+
+
+
+   <section id="financing" class="relative py-24 bg-fixed bg-cover bg-center overflow-hidden" 
+         style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1920');">
     
+    <!-- Reducción de opacidad para que la imagen de la camioneta sea la protagonista (bg-white/40) -->
+    <div class="absolute inset-0 bg-white/40"></div>
+    <!-- Degradado más sutil para no tapar la foto -->
+    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/20 to-transparent"></div>
 
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Header -->
+         <div class=" bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+            <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase drop-shadow-sm" data-key="fin-title">
+                Financiación Flexible
+            </h3>
+            <p class=" text-lg font-bold g-white/30 backdrop-blur-sm inline-block px-4 py-1 rounded-lg" data-key="fin-sub">
+                No dejes que el presupuesto detenga tu negocio. Soluciones rápidas para mantener tu unidad en la carretera.
+            </p>
+        </div>
 
+        <br>
 
-    <!-- Financing -->
-    <section id="financing" class="py-24 bg-white relative overflow-hidden">
-        <!-- Decorative background -->
-        <div class="absolute -top-20 -right-20 w-96 h-96 bg-red-600 opacity-5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 -left-32 w-96 h-96 bg-blue-900 opacity-5 rounded-full blur-3xl"></div>
+        <!-- Financing Options -->
+        <div class="flex flex-wrap justify-center gap-14 items-center mb-20 bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-inner border border-white/40">
+            <!-- American First Finance -->
+            <a href="https://americanfirstfinance.com/" target="_blank" class="text-3xl font-black text-blue-900 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-1">
+                American First<br>
+                <span class="font-normal text-gray-500">Finance</span>
+            </a>
 
-        <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase" data-key="fin-title">
-                    Financiación Flexible
-                </h3>
-                <p class="text-gray-500 text-lg" data-key="fin-sub">
-                    No dejes que el presupuesto detenga tu negocio. Soluciones rápidas para mantener tu unidad en la
-                    carretera.
+            <!-- ACIMA -->
+            <a href="https://www.acima.com/en" target="_blank" class="text-3xl font-black text-blue-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-2">
+                ACIMA
+            </a>
+
+            <!-- Snap Finance -->
+            <a href="https://snapfinance.com/" target="_blank" class="text-3xl font-bold italic text-green-600 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-3">
+                Snap!
+                <span class="text-gray-500 font-normal">Finance</span>
+            </a>
+
+            <!-- Synchrony -->
+            <a href="https://www.synchrony.com/" target="_blank" class="text-3xl font-bold text-gray-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center flex flex-col items-center" data-key="fin-option-4">
+                <span class="flex items-center">
+                    <span class="w-2 h-8 bg-yellow-400 mr-2 inline-block"></span>
+                    synchrony
+                </span>
+            </a>
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
+            <!-- Tarjetas con mayor desenfoque (backdrop-blur-xl) para resaltar sobre la foto clara -->
+            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                <i class="fas fa-clock text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-1-title">Aprobación Rápida</h4>
+                <p class="text-gray-800 font-medium" data-key="fin-benefit-1-desc">
+                    Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.
                 </p>
             </div>
 
-            <!-- Financing Options -->
-            <div class="flex flex-wrap justify-center gap-14 items-center mb-20">
-
-                <!-- American First Finance -->
-                <a href="https://americanfirstfinance.com/" target="_blank" class="text-3xl font-black text-blue-900
-                      md:grayscale md:hover:grayscale-0
-                      transition duration-300 text-center" data-key="fin-option-1">
-                    American First<br>
-                    <span class="font-normal text-gray-500">Finance</span>
-                </a>
-
-                <!-- ACIMA -->
-                <a href="https://www.acima.com/en" target="_blank" class="text-3xl font-black text-blue-800
-                      md:grayscale md:hover:grayscale-0
-                      transition duration-300 text-center" data-key="fin-option-2">
-                    ACIMA
-                </a>
-
-                <!-- Snap Finance -->
-                <a href="https://snapfinance.com/" target="_blank" class="text-3xl font-bold italic text-green-500
-                      md:grayscale md:hover:grayscale-0
-                      transition duration-300 text-center" data-key="fin-option-3">
-                    Snap!
-                    <span class="text-gray-400 font-normal">Finance</span>
-                </a>
-            </div>
-
-            
-
-
-            <!-- Benefits Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
-                    <i class="fas fa-clock text-4xl text-red-600 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2" data-key="fin-benefit-1-title">Aprobación Rápida</h4>
-                    <p class="text-gray-600" data-key="fin-benefit-1-desc">
-                        Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
-                    <i class="fas fa-file-signature text-4xl text-red-600 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2" data-key="fin-benefit-2-title">Proceso Sencillo</h4>
-                    <p class="text-gray-600" data-key="fin-benefit-2-desc">
-                        Sin trámites complicados ni papeleo excesivo. Todo claro desde el inicio.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm text-center hover:shadow-md transition">
-                    <i class="fas fa-truck-moving text-4xl text-red-600 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2" data-key="fin-benefit-3-title">Sigue en la Ruta</h4>
-                    <p class="text-gray-600" data-key="fin-benefit-3-desc">
-                        Invierte hoy en la reparación y paga cómodamente mientras sigues generando.
-                    </p>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-xl">
-                <h4 class="text-3xl font-black mb-4" data-key="fin-cta-title">
-                    ¿Necesitas reparar hoy y pagar después?
-                </h4>
-                <p class="text-gray-300 mb-8 text-lg" data-key="fin-cta-desc">
-                    Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.
+            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                <i class="fas fa-file-signature text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-2-title">Proceso Sencillo</h4>
+                <p class="text-gray-800 font-medium" data-key="fin-benefit-2-desc">
+                    Sin trámites complicados ni papeleo excesivo. Todo claro desde el inicio.
                 </p>
-                <a href="https://wa.me/13466406254"
-                    class="inline-block bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition shadow-lg"
-                    data-key="fin-cta-btn">
-                    Aplicar por WhatsApp
-                </a>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                <i class="fas fa-truck-moving text-4xl text-red-600 mb-4"></i>
+                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-3-title">Sigue en la Ruta</h4>
+                <p class="text-gray-800 font-medium" data-key="fin-benefit-3-desc">
+                    Invierte hoy en la reparación y paga cómodamente mientras sigues generando.
+                </p>
             </div>
         </div>
-    </section>
 
-
-    <section id="safety" class="py-24 bg-brand-steel text-white relative overflow-hidden">
-        <!-- Decorative elements -->
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-600 opacity-10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 -left-32 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-
-        <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h3 class="text-4xl font-black mb-4 uppercase" data-key="safety-title">
-                    Política de Seguridad y Calidad
-                </h3>
-                <p class="text-gray-300 text-lg" data-key="safety-subtitle">
-                    Protocolos estrictos diseñados para proteger a nuestros clientes, técnicos y vehículos.
-                </p>
-            </div>
-
-            <!-- Content Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <div class="bg-brand-dark/40 p-8 rounded-2xl">
-                    <h4 class="text-2xl font-bold mb-4 text-red-500" data-key="safety-commitment-title">
-                        Compromiso con la Seguridad
-                    </h4>
-                    <p class="text-gray-300 leading-relaxed mb-6" data-key="safety-commitment-p1">
-                        En Mechanic World aplicamos protocolos de seguridad industrial en cada servicio.
-                        Nuestros técnicos utilizan equipo de protección personal (PPE) y procedimientos
-                        certificados para minimizar riesgos operativos.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed" data-key="safety-commitment-p2">
-                        Cada unidad es inspeccionada antes y después del servicio para garantizar
-                        condiciones óptimas de seguridad en carretera.
-                    </p>
-                </div>
-
-                <div class="bg-brand-dark/40 p-8 rounded-2xl">
-                    <h4 class="text-2xl font-bold mb-4 text-red-500" data-key="safety-quality-title">
-                        Calidad, Transparencia y Responsabilidad
-                    </h4>
-                    <p class="text-gray-300 leading-relaxed mb-6" data-key="safety-quality-p1">
-                        Utilizamos repuestos certificados y herramientas calibradas.
-                        Documentamos cada reparación y explicamos al cliente el trabajo realizado
-                        antes de la entrega del vehículo.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed" data-key="safety-quality-p2">
-                        Nuestro objetivo es extender la vida útil del vehículo
-                        y garantizar la satisfacción total del cliente.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Safety Highlights -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20 text-center">
-                <div>
-                    <i class="fas fa-hard-hat text-4xl text-red-500 mb-4"></i>
-                    <p class="font-bold" data-key="safety-highlight-1">Personal Certificado</p>
-                </div>
-                <div>
-                    <i class="fas fa-clipboard-check text-4xl text-red-500 mb-4"></i>
-                    <p class="font-bold" data-key="safety-highlight-2">Procesos Controlados</p>
-                </div>
-                <div>
-                    <i class="fas fa-shield-alt text-4xl text-red-500 mb-4"></i>
-                    <p class="font-bold" data-key="safety-highlight-3">Protección Total</p>
-                </div>
-                <div>
-                    <i class="fas fa-thumbs-up text-4xl text-red-500 mb-4"></i>
-                    <p class="font-bold" data-key="safety-highlight-4">Responsabilidad Garantizada</p>
-                </div>
-            </div>
+        <!-- CTA -->
+        <div class="bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+            <h4 class="text-3xl font-black mb-4 relative z-10" data-key="fin-cta-title">
+                ¿Necesitas reparar hoy y pagar después?
+            </h4>
+            <p class="text-gray-300 mb-8 text-lg relative z-10" data-key="fin-cta-desc">
+                Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.
+            </p>
+            <a href="https://wa.me/13466406254"
+                class="inline-block bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition shadow-lg relative z-10 transform hover:scale-105"
+                data-key="fin-cta-btn">
+                Aplicar por WhatsApp
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
