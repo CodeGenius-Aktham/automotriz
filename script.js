@@ -5,7 +5,7 @@ const langData = {
         'nav-services': 'Servicios',
         'nav-guarantee': 'Garantía',
         'nav-finance': 'Financiación',
-        'hero-title': 'Damos certeza <br><span class="text-red-600">a cada kilómetro</span>',
+        'hero-title': 'Damos certeza <br><span class="text-red-600">a cada milla</span>',
         'hero-sub': 'Ingeniería de alto rendimiento para el motor que te mueve. Especialistas en Diesel Pesado y Sistemas de Gasolina de Precisión.',
         'hero-btn-1': 'Nuestros Servicios',
         'hero-btn-2': 'Cotizar Ahora',
@@ -95,7 +95,8 @@ const langData = {
         'dpf-desc': 'Utilizamos tecnología de nivel industrial para restaurar componentes críticos. Nuestra máquina <strong>DPF 5.0</strong> elimina hasta el 99% de hollín y cenizas, evitando reemplazos costosos.',
         'dpf-universal': 'Servicio disponible para: Automóviles, furgonetas, remolques y camiones pesados.',
         'dpf-badge-tech': 'Tecnología de Punta',
-
+    
+        'brands-title': 'maquinaria pesada',
         // Footer
         'footer-brand': 'MECHANIC WORLD',
         'footer-desc': 'Excelencia mecánica en Houston y alrededores. Tu seguridad y la potencia de tu motor son nuestra prioridad número uno.',
@@ -105,6 +106,7 @@ const langData = {
         'footer-link-guarantee': 'Garantía',
         'footer-link-financing': 'Financiación',
         'footer-contact': 'Contacto',
+
         'footer-location': 'Houston, Texas',
         'footer-emergency': 'Emergencias 24 Horas Disponibles',
         'footer-fb': 'Facebook',
@@ -118,7 +120,7 @@ const langData = {
         'nav-services': 'Services',
         'nav-guarantee': 'Warranty',
         'nav-finance': 'Financing',
-        'hero-title': 'We give certainty <br><span class="text-red-600">To every kilometer</span>',
+        'hero-title': 'We give certainty <br><span class="text-red-600">To every mile</span>',
         'hero-sub': 'High-performance engineering for the engine that drives you. Specialists in Heavy-Duty Diesel and Precision Gasoline Systems.',
         'hero-btn-1': 'Our Services',
         'hero-btn-2': 'Get Quote',
@@ -158,6 +160,8 @@ const langData = {
         'guar-2-desc': 'Parts with official manufacturer warranty.',
         'fin-title': 'Flexible Financing',
         'fin-sub': 'Apply in minutes for your repair.',
+
+        'brands-title':'heavy machinery',
 
         'gallery-title': 'Our Workshop in Action',
         'gallery-desc': 'Modern facilities, certified technicians, and professional processes in every service.',
