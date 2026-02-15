@@ -14,64 +14,65 @@
 
 <body class="bg-gray-50 text-gray-900">
 
-  <!-- Header (No longer sticky) -->
-<!-- Header Optimizado -->
+<!-- Header Refinado: Enfoque en Jerarquía Visual y Layout Lineal -->
 <header class="bg-brand-blue text-white shadow-2xl relative z-50">
     <div class="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center gap-6">
         
-        <!-- BLOCK 1: BRAND IDENTITY -->
-        <div class="flex items-center space-x-4 md:space-x-6 group">
+        <!-- BLOCK 1: BRAND IDENTITY (Jerarquía de Logos) -->
+        <div class="flex items-center space-x-5 md:space-x-7 group">
             
-            <!-- Contenedores de Logo: Se elimina el fondo blanco y se maximiza el espacio -->
-            <div class="flex items-center space-x-2 md:space-x-3">
-                <!-- Logo 1 -->
-                <div class="relative w-16 h-16 md:w-24 md:h-24 overflow-hidden flex items-center justify-center">
+            <div class="flex items-end space-x-3">
+                <!-- Logo 1: PRIMARY (Escalado superior) -->
+                <div class="relative w-20 h-20 md:w-32 md:h-32 overflow-hidden flex items-center justify-center">
                     <img src="Recursos/logos/logo2.png" 
                          alt="Mechanic World Logo Primary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-md">
+                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl">
                 </div>
 
-                <!-- Logo 2 -->
-                <div class="relative w-16 h-16 md:w-24 md:h-24 overflow-hidden flex items-center justify-center">
+                <!-- Logo 2: SECONDARY (Escalado subordinado) -->
+                <div class="relative w-12 h-12 md:w-16 md:h-16 overflow-hidden flex items-center justify-center opacity-80">
                     <img src="Recursos/imagenes/logo.png" 
                          alt="Mechanic World Logo Secondary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-md">
+                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 filter grayscale-[20%] hover:grayscale-0">
                 </div>
             </div>
             
-            <div class="flex flex-col border-l-2 border-red-600 pl-4">
-                <h1 class="text-2xl md:text-4xl font-black tracking-tighter leading-none">
+            <!-- Identidad Textual -->
+            <div class="flex flex-col border-l-4 border-red-600 pl-5">
+                <h1 class="text-3xl md:text-5xl font-black tracking-tighter leading-none italic">
                     MECHANIC <span class="text-red-600">WORLD</span>
                 </h1>
-                <p class="text-[10px] md:text-sm uppercase tracking-[0.2em] text-gray-400 font-semibold" data-key="header-tag">
+                <p class="text-[11px] md:text-sm uppercase tracking-[0.3em] text-gray-400 font-bold" data-key="header-tag">
                     Diesel & Gas Specialty
                 </p>
             </div>
         </div>
 
-        <div class="hidden lg:block flex-grow"></div>
-
-        <!-- BLOCK 2: NAVIGATION & ACTIONS -->
-        <div class="flex flex-col md:flex-row items-center gap-8 w-full lg:w-auto">
-            <nav class="flex flex-wrap justify-center space-x-6 md:space-x-8 items-center font-bold uppercase text-xs md:text-sm tracking-wide">
-                <a href="#about" class="hover:text-red-500 transition-colors duration-300" data-key="nav-about">Nosotros</a>
-                <a href="#services" class="hover:text-red-500 transition-colors duration-300" data-key="nav-services">Servicios</a>
-                <a href="#guarantee" class="hover:text-red-500 transition-colors duration-300" data-key="nav-guarantee">Garantía</a>
-                <a href="#financing" class="bg-red-600 px-6 py-2.5 rounded-sm text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:-translate-y-1 shadow-xl border-2 border-transparent hover:border-red-600"
+        <!-- BLOCK 2: NAVIGATION & ACTIONS (Unificado en una sola línea) -->
+        <div class="flex flex-row items-center gap-4 md:gap-8 w-full lg:w-auto justify-center lg:justify-end">
+            <!-- Navegación Lineal -->
+            <nav class="flex flex-row items-center space-x-4 md:space-x-6 font-bold uppercase text-[10px] md:text-xs tracking-wider">
+                <a href="#about" class="hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-about">Nosotros</a>
+                <a href="#services" class="hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-services">Servicios</a>
+                <a href="#guarantee" class="hidden sm:inline-block hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-guarantee">Garantía</a>
+                
+                <!-- CTA Principal -->
+                <a href="#financing" class="bg-red-600 px-5 py-2 rounded-sm text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-transparent hover:border-red-600 whitespace-nowrap"
                     data-key="nav-finance">Financiación</a>
             </nav>
 
-            <!-- Language Switcher -->
-            <div class="flex items-center space-x-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded border border-white/10">
+            <!-- Language Switcher (Compacto) -->
+            <div class="flex items-center space-x-2 bg-white/5 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 ml-2">
                 <button onclick="changeLanguage('es')"
-                    class="text-[10px] md:text-xs font-bold hover:text-red-500 transition-colors focus:text-red-500 outline-none">ESP</button>
-                <span class="text-gray-700 text-xs">|</span>
+                    class="text-[9px] md:text-[11px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ES</button>
+                <span class="text-gray-700 text-[10px]">|</span>
                 <button onclick="changeLanguage('en')"
-                    class="text-[10px] md:text-xs font-bold hover:text-red-500 transition-colors focus:text-red-500 outline-none">ENG</button>
+                    class="text-[9px] md:text-[11px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">EN</button>
             </div>
         </div>
     </div>
 </header>
+
 
 
 
