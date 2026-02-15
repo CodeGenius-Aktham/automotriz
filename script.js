@@ -90,7 +90,7 @@ const langData = {
 
         'gallery-title': 'Nuestro Taller en Acción',  // ES
         'gallery-desc': 'Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.',  // ES
-
+        'gallery-button': 'Ver Trabajos y Tecnologías',
         'dpf-title': 'Limpieza Avanzada de <br><span class="text-red-600">Sistemas de Emisiones</span>',
         'dpf-desc': 'Utilizamos tecnología de nivel industrial para restaurar componentes críticos. Nuestra máquina <strong>DPF 5.0</strong> elimina hasta el 99% de hollín y cenizas, evitando reemplazos costosos.',
         'dpf-universal': 'Servicio disponible para: Automóviles, furgonetas, remolques y camiones pesados.',
@@ -165,7 +165,7 @@ const langData = {
 
         'gallery-title': 'Our Workshop in Action',
         'gallery-desc': 'Modern facilities, certified technicians, and professional processes in every service.',
-
+        'gallery-button': 'View jobs and technologies',
         'about-tag': 'DUAL EXPERTISE',
         'about-title': 'Engineering without limits: <br><span class="text-red-600">Diesel & Gasoline</span>',
         'about-p1': 'At Mechanic World, we have removed the barrier between industrial and personal service. We understand that the precision required for a <strong>Class 8 truck Overhaul</strong> is the same rigor needed for your <strong>daily driver</strong>.',
