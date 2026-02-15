@@ -96,7 +96,7 @@ const langData = {
         'dpf-universal': 'Servicio disponible para: Automóviles, furgonetas, remolques y camiones pesados.',
         'dpf-badge-tech': 'Tecnología de Punta',
     
-        'brands-title': 'maquinaria pesada',
+        'brands-title': 'Servivios a maquinaria pesada',
         // Footer
         'footer-brand': 'MECHANIC WORLD',
         'footer-desc': 'Excelencia mecánica en Houston y alrededores. Tu seguridad y la potencia de tu motor son nuestra prioridad número uno.',
@@ -161,7 +161,7 @@ const langData = {
         'fin-title': 'Flexible Financing',
         'fin-sub': 'Apply in minutes for your repair.',
 
-        'brands-title':'heavy machinery',
+        'brands-title':'Heavy machinery services',
 
         'gallery-title': 'Our Workshop in Action',
         'gallery-desc': 'Modern facilities, certified technicians, and professional processes in every service.',
