@@ -14,58 +14,141 @@
 
 <body class="bg-gray-50 text-gray-900">
 
-<header class="bg-brand-blue text-white shadow-2xl relative z-50">
-    <div class="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center gap-6">
-        
-        <div class="flex items-center space-x-5 md:space-x-7 group">
-            
-            <div class="flex items-center space-x-4">
-                <div class="relative w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
-                    <img src="Recursos/logos/logo2.png" 
-                         alt="Mechanic World Logo Primary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl">
+    <!-- Contenedor Raíz: Todo el Header en un único bloque -->
+    <div class="header-wrapper w-full">
+        <!-- Definición de animaciones encapsuladas y ultra limpias -->
+        <style>
+            /* Animación Logo 1: Desplazamiento lateral sutil con suavizado cúbico */
+            @keyframes logo-slide-clean {
+                0% {
+                    transform: translateX(-5px);
+                    opacity: 0.8;
+                }
+
+                50% {
+                    transform: translateX(0px);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateX(-5px);
+                    opacity: 0.8;
+                }
+            }
+
+            /* Animación Logo 2: Elevación vertical minimalista */
+            @keyframes logo-rise-clean {
+                0% {
+                    transform: translateY(2px);
+                }
+
+                50% {
+                    transform: translateY(-2px);
+                }
+
+                100% {
+                    transform: translateY(2px);
+                }
+            }
+
+            .animate-clean-slide {
+                animation: logo-slide-clean 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            }
+
+            .animate-clean-rise {
+                animation: logo-rise-clean 6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+            }
+
+            .gpu-optimized {
+                backface-visibility: hidden;
+                transform: translateZ(0);
+                will-change: transform;
+            }
+
+            /* Utilidad para navegación fluida */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+        <header class="bg-[#0a192f] text-white shadow-2xl relative z-50 w-full overflow-hidden border-b border-white/5">
+            <div
+                class="container mx-auto px-4 py-2 md:py-3 flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-8">
+
+                <!-- Bloque de Identidad: Logos y Título -->
+                <div class="flex items-center gap-4 md:gap-8 group">
+
+                    <!-- Contenedor de Logos con animaciones separadas y limpias -->
+                    <div class="flex items-center space-x-4 md:space-x-6">
+                        <!-- Logo Primario: Desplazamiento Horizontal Suave -->
+                        <div
+                            class="relative w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center animate-clean-slide gpu-optimized">
+                            <a href="index.html"> <img src="Recursos/logos/logo2.png" alt="Mechanic World Principal"
+                                    onerror="this.src='https://via.placeholder.com/150x150?text=L1'"
+                                    class="w-full h-full object-contain transition-all duration-700 group-hover:scale-105 filter drop-shadow-[0_4px_10px_rgba(220,38,38,0.3)]"></a>
+                        </div>
+
+                        <!-- Logo Secundario: Elevación Vertical Suave -->
+                        <div
+                            class="relative w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 flex items-center justify-center animate-clean-rise gpu-optimized">
+                            <a href="index.html"> <img src="Recursos/imagenes/logo.png" alt="Mechanic World Secundario"
+                                    onerror="this.src='https://via.placeholder.com/100x100?text=L2'"
+                                    class="w-full h-full object-contain transition-all duration-700 group-hover:scale-105 filter drop-shadow-[0_4px_10px_rgba(255,255,255,0.1)]"></a>
+                        </div>
+                    </div>
+
+                    <!-- Texto de Marca -->
+                    <div class="flex flex-col border-l-4 border-red-600 pl-4 py-1">
+                        <h1 class="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter leading-none italic">
+                            MECHANIC <span class="text-red-600">WORLD</span>
+                        </h1>
+                        <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-gray-400 font-bold mt-1"
+                            data-key="header-tag">
+                            Diesel & Gas Specialty
+                        </p>
+                    </div>
                 </div>
 
-                <div class="relative w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
-                    <img src="Recursos/imagenes/logo.png" 
-                         alt="Mechanic World Logo Secondary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl">
+                <!-- Navegación y Acciones: Compacto en una línea -->
+                <div
+                    class="flex flex-row items-center gap-4 md:gap-6 w-full lg:w-auto justify-between lg:justify-end border-t lg:border-t-0 border-white/10 pt-2 lg:pt-0">
+
+                    <nav
+                        class="flex flex-row items-center gap-3 md:gap-6 font-bold uppercase text-[9px] md:text-xs tracking-wider overflow-x-auto no-scrollbar">
+                        <a href="#about" class="hover:text-red-500 transition-colors whitespace-nowrap"
+                            data-key="nav-about">Nosotros</a>
+                        <a href="#services" class="hover:text-red-500 transition-colors whitespace-nowrap"
+                            data-key="nav-services">Servicios</a>
+                        <a href="#guarantee"
+                            class="hidden sm:inline-block hover:text-red-500 transition-colors whitespace-nowrap"
+                            data-key="nav-guarantee">Garantía</a>
+
+                        <!-- Botón de Financiación -->
+                        <a href="#financing"
+                            class="bg-red-600 px-4 py-2 md:px-6 md:py-2.5 rounded-full text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg border border-transparent hover:border-red-600 text-center whitespace-nowrap"
+                            data-key="nav-finance">
+                            Financiación
+                        </a>
+                    </nav>
+
+                    <!-- Selector de Idioma -->
+                    <div
+                        class="flex items-center space-x-2 bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shrink-0">
+                        <button onclick="changeLanguage('es')"
+                            class="text-[10px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ES</button>
+                        <span class="text-gray-600 text-[10px]">|</span>
+                        <button onclick="changeLanguage('en')"
+                            class="text-[10px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">EN</button>
+                    </div>
                 </div>
             </div>
-            
-            <div class="flex flex-col border-l-4 border-red-600 pl-5">
-                <h1 class="text-3xl md:text-5xl font-black tracking-tighter leading-none italic">
-                    MECHANIC <span class="text-red-600">WORLD</span>
-                </h1>
-                <p class="text-[11px] md:text-sm uppercase tracking-[0.3em] text-gray-400 font-bold" data-key="header-tag">
-                    Diesel & Gas Specialty
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-row items-center gap-4 md:gap-8 w-full lg:w-auto justify-center lg:justify-end">
-            <nav class="flex flex-row items-center space-x-4 md:space-x-6 font-bold uppercase text-[10px] md:text-xs tracking-wider">
-                <a href="#about" class="hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-about">Nosotros</a>
-                <a href="#services" class="hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-services">Servicios</a>
-                <a href="#guarantee" class="hidden sm:inline-block hover:text-red-500 transition-colors duration-300 whitespace-nowrap" data-key="nav-guarantee">Garantía</a>
-                
-                <a href="#financing" class="bg-red-600 px-5 py-2 rounded-sm text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-transparent hover:border-red-600 whitespace-nowrap"
-                    data-key="nav-finance">Financiación</a>
-            </nav>
-
-            <div class="flex items-center space-x-2 bg-white/5 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 ml-2">
-                <button onclick="changeLanguage('es')"
-                    class="text-[9px] md:text-[11px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ES</button>
-                <span class="text-gray-700 text-[10px]">|</span>
-                <button onclick="changeLanguage('en')"
-                    class="text-[9px] md:text-[11px] font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">EN</button>
-            </div>
-        </div>
+        </header>
     </div>
-</header>
-
-
-
 
 
     <!-- Hero -->
@@ -109,166 +192,186 @@
         </div>
     </section>
 
-    <!-- Detailed Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-black text-brand-blue uppercase mb-4" data-key="services-main-title">
-                    Especialidades Mecánicas</h3>
-                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
-            </div>
+ <!-- Detailed Services Section -->
+<section id="services" class="relative py-20 bg-white overflow-hidden">
+    <!-- CAPA DE IMÁGENES DE FONDO (MARCAS DE AGUA) -->
+    <div class="absolute inset-0 pointer-events-none select-none z-0">
+        <!-- Imagen 1: Superior Derecha (Inclinada) -->
+        <img src="Recursos/imagenes/06ede7e50a4fbd7f0e425157657c2d22-removebg-preview.png" 
+             class="absolute top-0 -right-20 w-64 md:w-96 opacity-9 grayscale transform rotate-12" 
+             alt="Fondo decorativo 1">
 
-            <section class="py-16 bg-white">
-                <div class="container mx-auto px-4">
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+        <img src="Recursos/imagenes/7e06cb2e786040abaa91d6c858641580-removebg-preview.png" 
+             class="absolute top-0 -left-20 w-64 md:w-96 opacity-10 grayscale transform -rotate-12" 
+             alt="Fondo decorativo 2">
 
-                        <div class="bg-brand-blue p-10 text-white hover:bg-opacity-95 transition">
-                            <div class="flex items-center gap-4 mb-6">
-                                <i class="fas fa-truck-moving text-4xl text-red-600"></i>
-                                <h3 class="text-3xl font-black uppercase">
-                                    DIESEL <br>
-                                    <span class="text-sm font-light tracking-widest text-gray-400 italic"
-                                        data-key="dual-t-sub">Heavy Duty Division</span>
-                                </h3>
-                            </div>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-t-i1">Overhaul de motores Cummins/CAT</span></li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-t-i2">Sistemas DEF/DPF y Diagnóstico OEM</span></li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-t-i3">Reparación de cableados complejos</span></li>
-                            </ul>
-                            <a href="#services" onclick="toggleTab('trucks')"
-                                class="inline-block border-2 border-red-600 px-6 py-2 rounded-full font-bold transition hover:bg-red-600"
-                                data-key="dual-t-btn">Servicio Industrial</a>
+        <!-- Imagen 2: Centro Izquierda (Inclinada inversa) -->
+        <img src="Recursos/imagenes/7b8e0ae4da78d90d3073224a330f19be-removebg-preview.png" 
+             class="absolute top-1/3 -left-16 w-48 md:w-80 opacity-9 grayscale transform -rotate-12" 
+             alt="Fondo decorativo 2">
+
+        <!-- Imagen 3: Inferior Derecha -->
+        <img src="Recursos/imagenes/820e1c607deb483606d64464297721b3-removebg-preview.png" 
+             class="absolute top-[calc(37.333%+7px)] bottom-10 right-10 w-64 md:w-96 opacity-9 grayscale transform -rotate-12" 
+             alt="Fondo decorativo 3">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16">
+            <h3 class="text-4xl font-black text-brand-blue uppercase mb-4" data-key="services-main-title">
+                Especialidades Mecánicas</h3>
+            <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+        </div>
+
+        <section class="py-16 bg-white bg-opacity-0">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+
+                    <div class="bg-brand-blue p-10 text-white hover:bg-opacity-95 transition">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-truck-moving text-4xl text-red-600"></i>
+                            <h3 class="text-3xl font-black uppercase">
+                                DIESEL <br>
+                                <span class="text-sm font-light tracking-widest text-gray-400 italic"
+                                    data-key="dual-t-sub">Heavy Duty Division</span>
+                            </h3>
                         </div>
-
-                        <div class="bg-gray-50 p-10 text-brand-blue hover:bg-gray-100 transition">
-                            <div class="flex items-center gap-4 mb-6">
-                                <i class="fas fa-car text-4xl text-red-600"></i>
-                                <h3 class="text-3xl font-black uppercase">
-                                    GASOLINE <br>
-                                    <span class="text-sm font-light tracking-widest text-gray-500 italic"
-                                        data-key="dual-c-sub">Passenger Vehicle Division</span>
-                                </h3>
-                            </div>
-                            <ul class="space-y-4 mb-8 text-gray-600">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-c-i1">Diagnóstico de Check Engine</span></li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-c-i2">Aire Acondicionado y Suspensión</span></li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
-                                        data-key="dual-c-i3">Tune-Up y Eficiencia</span></li>
-                            </ul>
-                            <a href="#services" onclick="toggleTab('cars')"
-                                class="inline-block border-2 border-brand-blue px-6 py-2 rounded-full font-bold transition hover:bg-brand-blue hover:text-white hover:bg-red-600 "
-                                data-key="dual-c-btn">Servicio Particular</a>
-                        </div>
-
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-t-i1">Overhaul de motores Cummins/CAT</span></li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-t-i2">Sistemas DEF/DPF y Diagnóstico OEM</span></li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-t-i3">Reparación de cableados complejos</span></li>
+                        </ul>
+                        <a href="#services" onclick="toggleTab('trucks')"
+                            class="inline-block border-2 border-red-600 px-6 py-2 rounded-full font-bold transition hover:bg-red-600"
+                            data-key="dual-t-btn">Servicio Industrial</a>
                     </div>
-                </div>
-            </section>
 
-            <br>
-            <br>
+                    <div class="bg-gray-50 p-10 text-brand-blue hover:bg-gray-100 transition">
+                        <div class="flex items-center gap-4 mb-6">
+                            <i class="fas fa-car text-4xl text-red-600"></i>
+                            <h3 class="text-3xl font-black uppercase">
+                                GASOLINE <br>
+                                <span class="text-sm font-light tracking-widest text-gray-500 italic"
+                                    data-key="dual-c-sub">Passenger Vehicle Division</span>
+                            </h3>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-c-i1">Diagnóstico de Check Engine</span></li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-c-i2">Aire Acondicionado y Suspensión</span></li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-red-600"></i> <span
+                                    data-key="dual-c-i3">Tune-Up y Eficiencia</span></li>
+                        </ul>
+                        <a href="#services" onclick="toggleTab('cars')"
+                            class="inline-block border-2 border-brand-blue px-6 py-2 rounded-full font-bold transition hover:bg-brand-blue hover:text-white hover:bg-red-600 "
+                            data-key="dual-c-btn">Servicio Particular</a>
+                    </div>
 
-
-
-            <!-- Selector de Categoría -->
-            <div class="flex justify-center mb-12">
-                <div class="inline-flex p-1 bg-gray-200 rounded-xl shadow-inner">
-                    <button onclick="toggleTab('trucks')" id="tab-trucks"
-                        class="active-tab px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300">
-                        <i class="fas fa-truck-monster mr-2"></i> <span data-key="tab-trucks-text">CAMIONES
-                            (DIESEL)</span>
-                    </button>
-                    <button onclick="toggleTab('cars')" id="tab-cars"
-                        class="px-8 py-3 rounded-lg font-bold text-lg text-gray-600 hover:text-brand-blue transition-all duration-300">
-                        <i class="fas fa-car-side mr-2"></i> <span data-key="tab-cars-text">CARROS (GAS)</span>
-                    </button>
                 </div>
             </div>
+        </section>
 
-            <!-- Contenido Camiones -->
-            <div id="content-trucks" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-microchip"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-1-title">Diagnóstico
-                        Computarizado</h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-1-desc">Utilizamos software de nivel OEM
-                        para identificar fallas en sistemas DEF, DPF y EGR, evitando el tiempo de inactividad
-                        innecesario de su flota.</p>
-                </div>
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-cogs"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-2-title">Overhaul de Motores
-                    </h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-2-desc">Reconstrucción completa de motores
-                        Cummins, Detroit, PACCAR y CAT. Rectificación de culatas, cambio de pistones y camisas.</p>
-                </div>
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-bolt"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-3-title">Electricidad Pesada
-                    </h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-3-desc">Reparación de cableados complejos,
-                        alternadores industriales y sistemas de arranque para maquinaria pesada y camiones clase 8.</p>
-                </div>
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-cogs"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-4-title">Transmisión y
-                        Diferencial</h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-4-desc">Mantenimiento y reparación de
-                        cajas Eaton Fuller y sistemas de tracción para soportar cargas máximas sin fallas.</p>
-                </div>
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-wind"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-5-title">Sistemas de Aire
-                        (Frenos)</h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-5-desc">Instalación y calibración de
-                        secadores de aire, válvulas y cámaras de freno para garantizar la seguridad en carretera.</p>
-                </div>
-                <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
-                    <div class="text-red-600 text-4xl mb-6"><i class="fas fa-oil-can"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-6-title">Mantenimiento de
-                        Flotas</h4>
-                    <p class="text-gray-600 leading-relaxed" data-key="t-serv-6-desc">Planes de mantenimiento preventivo
-                        personalizados para empresas, incluyendo cambios de aceite industrial y engrase general.</p>
-                </div>
-            </div>
+        <br>
+        <br>
 
-            <!-- Contenido Carros -->
-            <div id="content-cars" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
-                    <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-laptop-medical"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-1-title">Check Engine & ABS
-                    </h4>
-                    <p class="text-gray-600" data-key="c-serv-1-desc">Escaneo profundo de códigos de error, diagnóstico
-                        de sensores de oxígeno, ABS y sistemas de control de tracción.</p>
-                </div>
-                <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
-                    <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-snowflake"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-2-title">Aire Acondicionado
-                    </h4>
-                    <p class="text-gray-600" data-key="c-serv-2-desc">Recarga de refrigerante R134a/R1234yf, detección
-                        de fugas por vacío y reemplazo de compresores de A/C.</p>
-                </div>
-                <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
-                    <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-drum-steelpan"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-3-title">Frenos y Suspensión
-                    </h4>
-                    <p class="text-gray-600" data-key="c-serv-3-desc">Cambio de pastillas, rectificación de discos,
-                        reemplazo de amortiguadores y terminales de dirección.</p>
-                </div>
-                <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
-                    <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-sync"></i></div>
-                    <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-4-title">Tune-Up Completo</h4>
-                    <p class="text-gray-600" data-key="c-serv-4-desc">Cambio de bujías, limpieza de inyectores y
-                        reemplazo de filtros de aire y combustible para máxima eficiencia.</p>
-                </div>
+        <!-- Selector de Categoría -->
+        <div class="flex justify-center mb-12">
+            <div class="inline-flex p-1 bg-gray-200 rounded-xl shadow-inner">
+                <button onclick="toggleTab('trucks')" id="tab-trucks"
+                    class="active-tab px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300">
+                    <i class="fas fa-truck-monster mr-2"></i> <span data-key="tab-trucks-text">CAMIONES
+                        (DIESEL)</span>
+                </button>
+                <button onclick="toggleTab('cars')" id="tab-cars"
+                    class="px-8 py-3 rounded-lg font-bold text-lg text-gray-600 hover:text-brand-blue transition-all duration-300">
+                    <i class="fas fa-car-side mr-2"></i> <span data-key="tab-cars-text">CARROS (GAS)</span>
+                </button>
             </div>
         </div>
+
+        <!-- Contenido Camiones -->
+        <div id="content-trucks" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-microchip"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-1-title">Diagnóstico
+                    Computarizado</h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-1-desc">Utilizamos software de nivel OEM
+                    para identificar fallas en sistemas DEF, DPF y EGR, evitando el tiempo de inactividad
+                    innecesario de su flota.</p>
+            </div>
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-cogs"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-2-title">Overhaul de Motores
+                </h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-2-desc">Reconstrucción completa de motores
+                    Cummins, Detroit, PACCAR y CAT. Rectificación de culatas, cambio de pistones y camisas.</p>
+            </div>
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-bolt"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-3-title">Electricidad Pesada
+                </h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-3-desc">Reparación de cableados complejos,
+                    alternadores industriales y sistemas de arranque para maquinaria pesada y camiones clase 8.</p>
+            </div>
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-cogs"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-4-title">Transmisión y
+                    Diferencial</h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-4-desc">Mantenimiento y reparación de
+                    cajas Eaton Fuller y sistemas de tracción para soportar cargas máximas sin fallas.</p>
+            </div>
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-wind"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-5-title">Sistemas de Aire
+                    (Frenos)</h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-5-desc">Instalación y calibración de
+                    secadores de aire, válvulas y cámaras de freno para garantizar la seguridad en carretera.</p>
+            </div>
+            <div class="category-card bg-gray-50 p-8 rounded-2xl border-t-4 border-red-600 shadow-sm">
+                <div class="text-red-600 text-4xl mb-6"><i class="fas fa-oil-can"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="t-serv-6-title">Mantenimiento de
+                    Flotas</h4>
+                <p class="text-gray-600 leading-relaxed" data-key="t-serv-6-desc">Planes de mantenimiento preventivo
+                    personalizados para empresas, incluyendo cambios de aceite industrial y engrase general.</p>
+            </div>
+        </div>
+
+        <!-- Contenido Carros -->
+        <div id="content-cars" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
+                <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-laptop-medical"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-1-title">Check Engine & ABS
+                </h4>
+                <p class="text-gray-600" data-key="c-serv-1-desc">Escaneo profundo de códigos de error, diagnóstico
+                    de sensores de oxígeno, ABS y sistemas de control de tracción.</p>
+            </div>
+            <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
+                <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-snowflake"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-2-title">Aire Acondicionado
+                </h4>
+                <p class="text-gray-600" data-key="c-serv-2-desc">Recarga de refrigerante R134a/R1234yf, detección
+                    de fugas por vacío y reemplazo de compresores de A/C.</p>
+            </div>
+            <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
+                <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-drum-steelpan"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-3-title">Frenos y Suspensión
+                </h4>
+                <p class="text-gray-600" data-key="c-serv-3-desc">Cambio de pastillas, rectificación de discos,
+                    reemplazo de amortiguadores y terminales de dirección.</p>
+            </div>
+            <div class="category-card bg-white p-8 rounded-2xl border-t-4 border-blue-900 shadow-sm">
+                <div class="text-brand-blue text-4xl mb-6"><i class="fas fa-sync"></i></div>
+                <h4 class="text-2xl font-bold mb-4 text-brand-blue" data-key="c-serv-4-title">Tune-Up Completo</h4>
+                <p class="text-gray-600" data-key="c-serv-4-desc">Cambio de bujías, limpieza de inyectores y
+                    reemplazo de filtros de aire y combustible para máxima eficiencia.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
         <br>
@@ -439,70 +542,70 @@
                 animation-play-state: paused;
             }
         </style>
-<!-- 
+        <!-- 
   Cambios realizados:
   1. Se eliminó 'bg-gray-100' y se añadieron clases de posicionamiento relativo y fondo.
   2. Se añadió un div absoluto para la superposición (overlay) oscura.
   3. Se cambiaron los colores de texto a blanco para contrastar con el fondo.
 -->
 
-<section id="gallery" class="relative py-24 bg-cover bg-center bg-no-repeat sm:bg-fixed" 
-         style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&q=80&w=1920');">
-    
-    <div class="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+        <section id="gallery" class="relative py-24 bg-cover bg-center bg-no-repeat sm:bg-fixed"
+            style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&q=80&w=1920');">
 
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h3 class="text-4xl font-black text-white mb-4 uppercase" data-key="gallery-title">
-                Nuestro Taller en Acción
-            </h3>
-            <p class="text-gray-200 text-lg" data-key="gallery-desc">
-                Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
-            </p>
-        </div>
+            <div class="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/carro-elevado.webp" alt="Taller mecánico"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h3 class="text-4xl font-black text-white mb-4 uppercase" data-key="gallery-title">
+                        Nuestro Taller en Acción
+                    </h3>
+                    <p class="text-gray-200 text-lg" data-key="gallery-desc">
+                        Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/carro-elevado.webp" alt="Taller mecánico"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/fotocarro.webp" alt="Mecánico trabajando"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/imagen-rueda.webp" alt="Reparación de camiones"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/imagen-carros.webp" alt="Herramientas profesionales"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+
+                    <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
+                        <img src="Recursos/imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <a href="galery.html"
+                        class="inline-block bg-white text-brand-blue font-bold py-4 px-10 rounded-full shadow-xl hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300 uppercase tracking-wider"
+                        data-key="gallery-button">
+                        Ver Trabajos y Tecnologías
+                    </a>
+                </div>
             </div>
-
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/fotocarro.webp" alt="Mecánico trabajando"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
-
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/imagen-rueda.webp" alt="Reparación de camiones"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
-
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/imagen-carros.webp" alt="Herramientas profesionales"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
-
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/webmec.webp" alt="Área de servicio - Motor Diesel"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
-
-            <div class="overflow-hidden rounded-2xl shadow-2xl group border-2 border-white/10">
-                <img src="Recursos/imagenes/IMG_9370.jpeg" alt="Flota atendida - Especialista"
-                    class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
-            </div>
-        </div>
-
-        <div class="mt-16 text-center">
-            <a href="galery.html"
-                class="inline-block bg-white text-brand-blue font-bold py-4 px-10 rounded-full shadow-xl hover:bg-gray-100 transform hover:-translate-y-1 transition duration-300 uppercase tracking-wider"
-                data-key="gallery-button">
-                Ver Trabajos y Tecnologías
-            </a>
-        </div>
-    </div>
-</section>
+        </section>
 
 
 
@@ -678,100 +781,119 @@
 
 
 
-   <section id="financing" class="relative py-24 bg-fixed bg-cover bg-center overflow-hidden" 
-         style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1920');">
-    
-    <!-- Reducción de opacidad para que la imagen de la camioneta sea la protagonista (bg-white/40) -->
-    <div class="absolute inset-0 bg-white/40"></div>
-    <!-- Degradado más sutil para no tapar la foto -->
-    <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/20 to-transparent"></div>
+    <section id="financing" class="relative py-24 bg-fixed bg-cover bg-center overflow-hidden"
+        style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1920');">
 
-    <div class="container mx-auto px-4 relative z-10">
-        <!-- Header -->
-         <div class=" bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
-            <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase drop-shadow-sm" data-key="fin-title">
-                Financiación Flexible
-            </h3>
-            <p class=" text-lg font-bold g-white/30 backdrop-blur-sm inline-block px-4 py-1 rounded-lg" data-key="fin-sub">
-                No dejes que el presupuesto detenga tu negocio. Soluciones rápidas para mantener tu unidad en la carretera.
-            </p>
-        </div>
+        <!-- Reducción de opacidad para que la imagen de la camioneta sea la protagonista (bg-white/40) -->
+        <div class="absolute inset-0 bg-white/40"></div>
+        <!-- Degradado más sutil para no tapar la foto -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/20 to-transparent"></div>
 
-        <br>
-
-        <!-- Financing Options -->
-        <div class="flex flex-wrap justify-center gap-14 items-center mb-20 bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-inner border border-white/40">
-            <!-- American First Finance -->
-            <a href="https://americanfirstfinance.com/" target="_blank" class="text-3xl font-black text-blue-900 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-1">
-                American First<br>
-                <span class="font-normal text-gray-500">Finance</span>
-            </a>
-
-            <!-- ACIMA -->
-            <a href="https://www.acima.com/en" target="_blank" class="text-3xl font-black text-blue-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-2">
-                ACIMA
-            </a>
-
-            <!-- Snap Finance -->
-            <a href="https://snapfinance.com/" target="_blank" class="text-3xl font-bold italic text-green-600 md:grayscale md:hover:grayscale-0 transition duration-300 text-center" data-key="fin-option-3">
-                Snap!
-                <span class="text-gray-500 font-normal">Finance</span>
-            </a>
-
-            <!-- Synchrony -->
-            <a href="https://www.synchrony.com/" target="_blank" class="text-3xl font-bold text-gray-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center flex flex-col items-center" data-key="fin-option-4">
-                <span class="flex items-center">
-                    <span class="w-2 h-8 bg-yellow-400 mr-2 inline-block"></span>
-                    synchrony
-                </span>
-            </a>
-        </div>
-
-        <!-- Benefits Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
-            <!-- Tarjetas con mayor desenfoque (backdrop-blur-xl) para resaltar sobre la foto clara -->
-            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
-                <i class="fas fa-clock text-4xl text-red-600 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-1-title">Aprobación Rápida</h4>
-                <p class="text-gray-800 font-medium" data-key="fin-benefit-1-desc">
-                    Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Header -->
+            <div
+                class=" bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+                <h3 class="text-4xl font-black text-brand-blue mb-4 uppercase drop-shadow-sm" data-key="fin-title">
+                    Financiación Flexible
+                </h3>
+                <p class=" text-lg font-bold g-white/30 backdrop-blur-sm inline-block px-4 py-1 rounded-lg"
+                    data-key="fin-sub">
+                    No dejes que el presupuesto detenga tu negocio. Soluciones rápidas para mantener tu unidad en la
+                    carretera.
                 </p>
             </div>
 
-            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
-                <i class="fas fa-file-signature text-4xl text-red-600 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-2-title">Proceso Sencillo</h4>
-                <p class="text-gray-800 font-medium" data-key="fin-benefit-2-desc">
-                    Sin trámites complicados ni papeleo excesivo. Todo claro desde el inicio.
-                </p>
+            <br>
+
+            <!-- Financing Options -->
+            <div
+                class="flex flex-wrap justify-center gap-14 items-center mb-20 bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-inner border border-white/40">
+                <!-- American First Finance -->
+                <a href="https://americanfirstfinance.com/" target="_blank"
+                    class="text-3xl font-black text-blue-900 md:grayscale md:hover:grayscale-0 transition duration-300 text-center"
+                    data-key="fin-option-1">
+                    American First<br>
+                    <span class="font-normal text-gray-500">Finance</span>
+                </a>
+
+                <!-- ACIMA -->
+                <a href="https://www.acima.com/en" target="_blank"
+                    class="text-3xl font-black text-blue-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center"
+                    data-key="fin-option-2">
+                    ACIMA
+                </a>
+
+                <!-- Snap Finance -->
+                <a href="https://snapfinance.com/" target="_blank"
+                    class="text-3xl font-bold italic text-green-600 md:grayscale md:hover:grayscale-0 transition duration-300 text-center"
+                    data-key="fin-option-3">
+                    Snap!
+                    <span class="text-gray-500 font-normal">Finance</span>
+                </a>
+
+                <!-- Synchrony -->
+                <a href="https://www.synchrony.com/" target="_blank"
+                    class="text-3xl font-bold text-gray-800 md:grayscale md:hover:grayscale-0 transition duration-300 text-center flex flex-col items-center"
+                    data-key="fin-option-4">
+                    <span class="flex items-center">
+                        <span class="w-2 h-8 bg-yellow-400 mr-2 inline-block"></span>
+                        synchrony
+                    </span>
+                </a>
             </div>
 
-            <div class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
-                <i class="fas fa-truck-moving text-4xl text-red-600 mb-4"></i>
-                <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-3-title">Sigue en la Ruta</h4>
-                <p class="text-gray-800 font-medium" data-key="fin-benefit-3-desc">
-                    Invierte hoy en la reparación y paga cómodamente mientras sigues generando.
+            <!-- Benefits Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-20">
+                <!-- Tarjetas con mayor desenfoque (backdrop-blur-xl) para resaltar sobre la foto clara -->
+                <div
+                    class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                    <i class="fas fa-clock text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-1-title">Aprobación Rápida
+                    </h4>
+                    <p class="text-gray-800 font-medium" data-key="fin-benefit-1-desc">
+                        Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                    <i class="fas fa-file-signature text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-2-title">Proceso Sencillo
+                    </h4>
+                    <p class="text-gray-800 font-medium" data-key="fin-benefit-2-desc">
+                        Sin trámites complicados ni papeleo excesivo. Todo claro desde el inicio.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white/90 backdrop-blur-xl p-8 rounded-2xl shadow-2xl text-center hover:shadow-red-500/10 transition border border-white">
+                    <i class="fas fa-truck-moving text-4xl text-red-600 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2 text-brand-blue" data-key="fin-benefit-3-title">Sigue en la Ruta
+                    </h4>
+                    <p class="text-gray-800 font-medium" data-key="fin-benefit-3-desc">
+                        Invierte hoy en la reparación y paga cómodamente mientras sigues generando.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div
+                class="bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                <h4 class="text-3xl font-black mb-4 relative z-10" data-key="fin-cta-title">
+                    ¿Necesitas reparar hoy y pagar después?
+                </h4>
+                <p class="text-gray-300 mb-8 text-lg relative z-10" data-key="fin-cta-desc">
+                    Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.
                 </p>
+                <a href="https://wa.me/13466406254"
+                    class="inline-block bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition shadow-lg relative z-10 transform hover:scale-105"
+                    data-key="fin-cta-btn">
+                    Aplicar por WhatsApp
+                </a>
             </div>
         </div>
-
-        <!-- CTA -->
-        <div class="bg-brand-blue rounded-3xl p-12 text-center text-white max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
-            <h4 class="text-3xl font-black mb-4 relative z-10" data-key="fin-cta-title">
-                ¿Necesitas reparar hoy y pagar después?
-            </h4>
-            <p class="text-gray-300 mb-8 text-lg relative z-10" data-key="fin-cta-desc">
-                Nuestro equipo te ayuda a aplicar y elegir la mejor opción de financiación para ti.
-            </p>
-            <a href="https://wa.me/13466406254"
-                class="inline-block bg-red-600 hover:bg-red-700 px-10 py-4 rounded-full font-bold text-lg transition shadow-lg relative z-10 transform hover:scale-105"
-                data-key="fin-cta-btn">
-                Aplicar por WhatsApp
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
