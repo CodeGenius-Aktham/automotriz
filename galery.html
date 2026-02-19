@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Trabajos y Maquinaria | Mechanic World</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="Recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script>
@@ -27,21 +29,25 @@
             font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
             scroll-behavior: smooth;
         }
-        
+
         .hero-gradient {
-            background: linear-gradient(rgba(10, 29, 55, 0.9), rgba(5, 14, 26, 0.95)), 
-                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(10, 29, 55, 0.9), rgba(5, 14, 26, 0.95)),
+                url('Recursos/imagenes/fondo.jpg');
             background-size: cover;
             background-position: center;
         }
 
+        /* Mejora de tarjetas para PC */
         .category-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backface-visibility: hidden;
         }
-        
+
         .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border-color: #d32f2f;
         }
 
         .nav-link::after {
@@ -52,12 +58,16 @@
             background: #d32f2f;
             transition: width .3s;
         }
-        .nav-link:hover::after { width: 100%; }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
         .active-tab {
             background-color: #d32f2f !important;
             color: white !important;
             border-color: #d32f2f !important;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
         }
 
         .whatsapp-btn {
@@ -77,74 +87,124 @@
             z-index: 1000;
             transition: all 0.3s ease;
         }
-        .whatsapp-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Estilos mejorados para la información de maquinaria en PC */
+        .info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* Efecto Glassmorphism */
+            background: linear-gradient(to top, rgba(5, 14, 26, 0.95) 0%, rgba(5, 14, 26, 0.8) 70%, transparent 100%);
+            backdrop-filter: blur(4px);
+            padding: 30px 20px 25px 20px;
+            transform: translateY(100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .category-card:hover .info-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Forzar ratio de imagen para alineación perfecta */
+        .img-container {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+
+        .img-container img, .img-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .category-card:hover .img-container img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .info-overlay {
+                transform: translateY(0);
+                opacity: 1;
+                background: rgba(21, 28, 42, 0.95);
+                position: relative;
+                padding: 15px;
+            }
+            .img-container {
+                aspect-ratio: auto;
+                height: 250px;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-brand-dark text-white">
 
     <!-- Header -->
-   <header class="bg-brand-blue text-white shadow-2xl relative z-50">
-    <div class="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center gap-6">
-        
-        <div class="flex items-center space-x-4 md:space-x-6 group">
-            
-            <div class="flex items-center space-x-3">
-                <div class="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center">
-                    <a href="index.html"><img src="Recursos/logos/logo2.png" 
-                         alt="Mechanic World Logo Primary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl"></a>
+    <header class="bg-brand-blue text-white shadow-2xl relative z-50">
+        <div class="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center gap-6">
+
+            <div class="flex items-center space-x-4 md:space-x-6 group">
+                <div class="flex items-center space-x-3">
+                    <div class="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center">
+                        <a href="index.html"><img src="Recursos/logos/logo2.png" alt="Mechanic World Logo Primary"
+                                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl"></a>
+                    </div>
+                    <div class="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center">
+                        <a href="index.html"> <img src="Recursos/imagenes/logo.png" alt="Mechanic World Logo Secondary"
+                                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl">
+                        </a>
+                    </div>
                 </div>
 
-                <div class="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center">
-                   <a href="index.html"> <img src="Recursos/imagenes/logo.png" 
-                         alt="Mechanic World Logo Secondary"
-                         class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 filter drop-shadow-xl"> </a>
+                <div class="flex flex-col border-l-4 border-red-600 pl-4">
+                    <h1 class="text-2xl md:text-4xl font-black tracking-tighter leading-none italic">
+                        MECHANIC <span class="text-red-600">WORLD</span>
+                    </h1>
+                    <p class="text-[10px] md:text-sm uppercase tracking-[0.2em] text-gray-400 font-bold"
+                        data-key="header-tag">
+                        Diesel & Gas Specialty
+                    </p>
                 </div>
             </div>
-            
-            <div class="flex flex-col border-l-4 border-red-600 pl-4">
-                <h1 class="text-2xl md:text-4xl font-black tracking-tighter leading-none italic">
-                    MECHANIC <span class="text-red-600">WORLD</span>
-                </h1>
-                <p class="text-[10px] md:text-sm uppercase tracking-[0.2em] text-gray-400 font-bold" data-key="header-tag">
-                    Diesel & Gas Specialty
-                </p>
+
+            <div class="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
+                <nav
+                    class="flex flex-wrap justify-center space-x-4 md:space-x-6 items-center font-bold uppercase text-[10px] md:text-xs tracking-widest">
+                    <a href="#about" class="hover:text-red-500 transition-colors duration-300"
+                        data-key="nav-about">Nosotros</a>
+                    <a href="#services" class="hover:text-red-500 transition-colors duration-300"
+                        data-key="nav-services">Servicios</a>
+                    <a href="#guarantee" class="hover:text-red-500 transition-colors duration-300"
+                        data-key="nav-guarantee">Garantía</a>
+
+                    <a href="#financing"
+                        class="bg-red-600 px-5 py-2 rounded-sm text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-transparent hover:border-red-600"
+                        data-key="nav-finance">Financiación</a>
+                </nav>
+
+                <div
+                    class="flex items-center space-x-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded border border-white/10">
+                    <button onclick="changeLanguage('es')"
+                        class="text-[10px] md:text-xs font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ESP</button>
+                    <span class="text-gray-600 text-xs">|</span>
+                    <button onclick="changeLanguage('en')"
+                        class="text-[10px] md:text-xs font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ENG</button>
+                </div>
             </div>
         </div>
-
-        <div class="flex flex-col md:flex-row items-center gap-6 w-full lg:w-auto">
-            <nav class="flex flex-wrap justify-center space-x-4 md:space-x-6 items-center font-bold uppercase text-[10px] md:text-xs tracking-widest">
-                <a href="#about" class="hover:text-red-500 transition-colors duration-300" data-key="nav-about">Nosotros</a>
-                <a href="#services" class="hover:text-red-500 transition-colors duration-300" data-key="nav-services">Servicios</a>
-                <a href="#guarantee" class="hover:text-red-500 transition-colors duration-300" data-key="nav-guarantee">Garantía</a>
-                
-                <a href="#financing" class="bg-red-600 px-5 py-2 rounded-sm text-white hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-transparent hover:border-red-600"
-                    data-key="nav-finance">Financiación</a>
-            </nav>
-
-            <div class="flex items-center space-x-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded border border-white/10">
-                <button onclick="changeLanguage('es')"
-                    class="text-[10px] md:text-xs font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ESP</button>
-                <span class="text-gray-600 text-xs">|</span>
-                <button onclick="changeLanguage('en')"
-                    class="text-[10px] md:text-xs font-black hover:text-red-500 transition-colors focus:text-red-500 outline-none">ENG</button>
-            </div>
-        </div>
-    </div>
-</header>
+    </header>
 
 
     <!-- Hero Gallery -->
-    <section class="relative py-20 flex items-center justify-center text-white hero-gradient overflow-hidden" >
-        <style>
-            
-        .hero-gradient {
-            background: linear-gradient(rgba(10, 29, 55, 0.9), rgba(5, 14, 26, 0.95)), 
-                        url('Recursos/imagenes/fondo.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        </style>
+    <section class="relative py-20 flex items-center justify-center text-white hero-gradient overflow-hidden">
         <div class="container mx-auto px-6 text-center z-10">
             <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter" data-key="gallery-title">
                 Nuestro Taller <span class="text-brand-red">en Acción</span>
@@ -154,9 +214,15 @@
                 Instalaciones modernas, técnicos certificados y procesos profesionales en cada servicio.
             </p>
             <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <button onclick="filterSelection('all')" class="filter-btn active-tab px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="nav-all">Todos</button>
-                <button onclick="filterSelection('trabajos')" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="nav-services">Trabajos</button>
-                <button onclick="filterSelection('maquinaria')" class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red" data-key="brands-title">Tecnologías</button>
+                <button onclick="filterSelection('all')"
+                    class="filter-btn active-tab px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red"
+                    data-key="nav-all">Todos</button>
+                <button onclick="filterSelection('trabajos')"
+                    class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red"
+                    data-key="nav-services">Trabajos</button>
+                <button onclick="filterSelection('maquinaria')"
+                    class="filter-btn px-8 py-3 rounded-full font-black uppercase tracking-widest border-2 border-white/20 transition-all hover:border-brand-red"
+                    data-key="brands-title">Tecnologías</button>
             </div>
         </div>
     </section>
@@ -164,92 +230,105 @@
     <!-- Main Content -->
     <main class="bg-brand-dark py-20">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="gallery-container">
-                
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12" id="gallery-container">
+
                 <!-- VIDEOS DE TRABAJOS -->
-                <!-- Video 1 -->
                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="Recursos/imagenes/carro-elevado.webp">
+                    <div class="relative img-container group cursor-pointer" onclick="openFullscreen(this)">
+                        <video autoplay muted loop playsinline poster="Recursos/imagenes/carro-elevado.webp">
                             <source src="Recursos/video/Video-recurso-1.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 bg-brand-blue/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                             <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-expand text-white"></i></div>
+                                <div class="w-16 h-16 bg-brand-red/90 rounded-full flex items-center justify-center shadow-lg transform scale-50 group-hover:scale-100 transition duration-300">
+                                    <i class="fas fa-expand text-white"></i>
+                                </div>
                                 <span class="text-white text-xs font-bold uppercase tracking-wider">Ver Pantalla Completa</span>
                             </div>
                         </div>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10 shadow-lg">Video de Servicio</div>
+                    </div>
+                </div>
+
+                <!-- Repetición optimizada para los demás items -->
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative img-container group cursor-pointer" onclick="openFullscreen(this)">
+                        <video autoplay muted loop playsinline>
+                            <source src="Recursos/video/Video-recurso-2.mp4" type="video/mp4">
+                        </video>
                         <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
                     </div>
                 </div>
 
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="relative img-container group cursor-pointer" onclick="openFullscreen(this)">
+                        <video autoplay muted loop playsinline>
+                            <source src="Recursos/video/Video-recurso-3.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    </div>
+                </div>
+
+                <!-- IMÁGENES DE TRABAJOS -->
+                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/foto-recurso-1.jpeg" alt="Trabajo Realizado">
+                    </div>
+                </div>
                 
-
-                <!-- Más Videos de Trabajos -->
                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-2.mp4" type="video/mp4"></video>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/foto-recurso-2.jpeg" alt="Trabajo Realizado">
                     </div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-3.mp4" type="video/mp4"></video>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-5.mp4" type="video/mp4"></video>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/Video-recurso-6.mp4" type="video/mp4"></video>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                </div>
-                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="relative h-64 group cursor-pointer overflow-hidden" onclick="openFullscreen(this)">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline><source src="Recursos/video/dpf-cleaning-demo.mp4" type="video/mp4"></video>
-                        <div class="absolute top-4 left-4 bg-brand-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase z-10">Video de Servicio</div>
-                    </div>
-                </div>
-                <!-- IMÁGENES DE TRABAJOS (1 AL 9) -->
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-1.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-2.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-3.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
                 </div>
 
-                <!-- Continuación de Imágenes de Trabajos -->
                 <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-6.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/foto-recurso-7.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-8.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
-                </div>
-                <div class="gallery-item trabajos category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-9.jpeg" alt="Trabajo Realizado" class="w-full h-full object-cover"></div>
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/foto-recurso-3.jpeg" alt="Trabajo Realizado">
+                    </div>
                 </div>
 
-                <!-- MAQUINARIA / TECNOLOGÍAS -->
+                <!-- MAQUINARIA / TECNOLOGÍAS CON INFORMACIÓN MEJORADA -->
                 <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/fotos-recurso-10.jpeg" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/fotos-recurso-10.jpeg" alt="Reconstrucción de Motor Diesel Industrial">
+                    </div>
+                    <div class="info-overlay">
+                        <h3 class="text-brand-red font-black uppercase text-base mb-2 tracking-tight">
+                            Reparación Integral de Motores
+                        </h3>
+                        <p class="text-sm text-gray-300 leading-snug">
+                            Especialistas en Overhaul y rectificación de motores Diesel de alta potencia para maquinaria pesada y transporte de carga.
+                        </p>
+                    </div>
                 </div>
+
                 <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/image.png" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/image.png" alt="Máquina de limpieza DPF, DOC y SCR">
+                    </div>
+                    <div class="info-overlay">
+                        <h3 class="text-brand-red font-black uppercase text-base mb-2 tracking-tight">
+                            Limpiadora Industrial DPF / SCR
+                        </h3>
+                        <p class="text-sm text-gray-300 leading-snug">
+                            Equipo de alta presión para la regeneración técnica de filtros de partículas y catalizadores, restaurando el flujo original.
+                        </p>
+                    </div>
                 </div>
+
                 <div class="gallery-item maquinaria category-card overflow-hidden rounded-2xl bg-brand-steel border border-gray-800">
-                    <div class="h-64"><img src="Recursos/imagenes/Foto-recurso-12.png" alt="Equipo Tecnológico" class="w-full h-full object-cover"></div>
+                    <div class="img-container">
+                        <img src="Recursos/imagenes/Foto-recurso-12.png" alt="Banco de Pruebas">
+                    </div>
+                    <div class="info-overlay">
+                        <h3 class="text-brand-red font-black uppercase text-base mb-2 tracking-tight">
+                            Simulador de Carga y Suspensión
+                        </h3>
+                        <p class="text-sm text-gray-300 leading-snug">
+                            Sistema de actuadores para diagnóstico de NVH y validación dinámica de chasis en tiempo real.
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -257,7 +336,7 @@
     </main>
 
     <!-- Footer -->
-   <footer class="bg-brand-dark text-white pt-20 pb-10 border-t border-gray-800">
+    <footer class="bg-brand-dark text-white pt-20 pb-10 border-t border-gray-800">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
             <div>
                 <h4 class="text-2xl font-bold mb-6">MECHANIC <span class="text-brand-red">WORLD</span></h4>
@@ -276,7 +355,7 @@
                 <h4 class="text-lg font-bold mb-6 uppercase tracking-widest text-brand-red" data-key="hero-btn-2">Contacto</h4>
                 <p class="text-gray-400 mb-2">Houston, Texas</p>
                 <div class="flex space-x-4">
-                      <a href="https://www.facebook.com/mechanicworldhtx" class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/mechanicworldhtx" class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/mechanicworldhtx" class="w-10 h-10 bg-brand-blue flex items-center justify-center rounded-full hover:bg-red-600 transition"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -295,9 +374,7 @@
             const buttons = document.querySelectorAll('.filter-btn');
 
             buttons.forEach(btn => btn.classList.remove('active-tab'));
-            
-            // Lógica para marcar botón activo
-            event.target.classList.add('active-tab');
+            if (event) event.target.classList.add('active-tab');
 
             items.forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
