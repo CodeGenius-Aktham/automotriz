@@ -56,6 +56,9 @@ const langData = {
         'dual-c-i3': 'Tune-Up y Eficiencia',
         'dual-c-btn': 'Servicio Particular',
 
+        'Servicio-esen': 'Servicios en todo',
+        'EEUU-esen': 'Estados Unidos',
+
         // Financing Section
         'fin-benefit-1-title': 'Aprobación Rápida',
         'fin-benefit-1-desc': 'Respuesta en minutos para que tu camión o auto vuelva a operar sin retrasos.',
@@ -195,7 +198,8 @@ const langData = {
         'dual-c-i3': 'Tune-Up & Efficiency',
         'dual-c-btn': 'Personal Service',
 
-
+        'Servicio-esen': 'Services everywhere',
+        'EEUU-esen': 'United States',
         
         'safety-title': 'Safety & Quality Policy',
         'safety-subtitle': 'Strict protocols designed to protect our clients, technicians, and vehicles.',
@@ -266,3 +270,4 @@ function toggleTab(type) {
         tabTrucks.classList.add('text-gray-600');
     }
 }
+
