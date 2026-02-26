@@ -874,89 +874,89 @@
 
     
 
-    
-     <!-- Sección del Mapa -->
-    <section id="usa-map-section">
-        <header class="mb-6 text-center">
-            <p class="text-orange-700/60 text-sm font-semibold italic">Servicios en todo</p>
-            <h1 class="text-3xl font-black text-orange-900 uppercase tracking-widest">Estados Unidos</h1>
-            <div class="h-1.5 w-24 bg-orange-500 mx-auto mt-2 rounded-full"></div>
-        </header>
+ <!-- Sección del Mapa -->
+<section id="usa-map-section">
+    <header class="mb-6 text-center">
+        <p class="text-orange-700/60 text-sm font-semibold italic" data-key="Servicio-esen">Servicios en todo</p>
+        <h1 class="text-3xl font-black text-orange-900 uppercase tracking-widest" data-key="EEUU-esen">Estados Unidos</h1>
+        <div class="h-1.5 w-24 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+    </header>
 
-        <div id="loading" class="flex flex-col items-center justify-center h-96">
-            <div class="loading-spinner"></div>
-            <p class="mt-4 text-orange-600 font-medium animate-pulse">Generando proyección técnica...</p>
-        </div>
+    <div id="loading" class="flex flex-col items-center justify-center h-96">
+        <div class="loading-spinner"></div>
+        <p class="mt-4 text-orange-600 font-medium animate-pulse">Generando proyección técnica...</p>
+    </div>
 
-        <div id="map-wrapper" class="relative">
-            <!-- El mapa SVG se inyectará aquí -->
-        </div>
-    </section>
+    <div id="map-wrapper" class="relative min-h-[400px]">
+        <!-- El mapa SVG se inyectará aquí -->
+    </div>
+</section>
 
-    <script>
-        const width = 1000;
-        const height = 600;
-        const projection = d3.geoAlbersUsa().scale(1250).translate([width / 2, height / 2]);
-        const pathGenerator = d3.geoPath().projection(projection);
+<!-- Librerías necesarias para visualizar el mapa -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 
-        function render(data) {
-            const wrapper = document.getElementById('map-wrapper');
-            if (!wrapper) return;
+<script>
+    // Configuración de dimensiones
+    const width = 1000;
+    const height = 600;
 
-            const states = topojson.feature(data, data.objects.states).features;
-            document.getElementById('loading').style.display = 'none';
+    async function initMap() {
+        const loadingEl = document.getElementById('loading');
+        const wrapper = document.getElementById('map-wrapper');
 
-            // Limpiar si ya existe un SVG (evita duplicados en recargas)
-            wrapper.innerHTML = '';
+        try {
+            // 1. Cargar datos geográficos
+            const response = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
+            if (!response.ok) throw new Error('No se pudo conectar con el servidor de mapas.');
+            const us = await response.json();
 
+            // 2. Preparar proyección
+            const projection = d3.geoAlbersUsa()
+                .scale(1300)
+                .translate([width / 2, height / 2]);
+
+            const path = d3.geoPath().projection(projection);
+
+            // 3. Crear SVG
             const svg = d3.select("#map-wrapper")
                 .append("svg")
                 .attr("viewBox", `0 0 ${width} ${height}`)
+                .attr("preserveAspectRatio", "xMidYMid meet")
                 .attr("class", "w-full h-auto");
 
+            // 4. Dibujar estados
             svg.append("g")
                 .selectAll("path")
-                .data(states)
+                .data(topojson.feature(us, us.objects.states).features)
                 .enter()
                 .append("path")
-                .attr("d", pathGenerator)
+                .attr("d", path)
                 .attr("class", "state-path");
-        }
 
-        async function init() {
-            try {
-                const response = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json');
-                if (!response.ok) throw new Error('Error al descargar datos del atlas');
-                const usData = await response.json();
-                
-                // Esperar un momento para asegurar que topojson esté listo
-                if (typeof topojson !== 'undefined') {
-                    render(usData);
-                } else {
-                    let attempts = 0;
-                    const checkTopo = setInterval(() => {
-                        attempts++;
-                        if (typeof topojson !== 'undefined') {
-                            render(usData);
-                            clearInterval(checkTopo);
-                        } else if (attempts > 50) {
-                            clearInterval(checkTopo);
-                            throw new Error('Librería TopoJSON no encontrada');
-                        }
-                    }, 100);
-                }
-            } catch (err) {
-                console.error(err);
-                document.getElementById('loading').innerHTML = `
-                    <p class="text-red-500 font-bold">Error de carga: ${err.message}</p>
-                    <p class="text-xs text-gray-500 mt-2">Asegúrate de tener conexión a internet estable.</p>
-                `;
-            }
-        }
+            // 5. Ocultar cargador
+            loadingEl.style.display = 'none';
 
-        // Ejecutar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
+        } catch (error) {
+            console.error("Detalles del error:", error);
+            loadingEl.innerHTML = `
+                <div class="text-center p-6 bg-red-50 rounded-lg border border-red-200 max-w-md">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-3xl mb-4"></i>
+                    <p class="text-red-700 font-bold mb-2">Error Crítico de Visualización</p>
+                    <p class="text-red-600 text-sm mb-4">${error.message}</p>
+                    <button onclick="location.reload()" class="bg-red-600 text-white px-4 py-2 rounded text-xs font-bold uppercase">Reintentar Carga</button>
+                </div>
+            `;
+        }
+    }
+
+    // Ejecución inmediata con respaldo
+    if (document.readyState === 'complete') {
+        initMap();
+    } else {
+        window.addEventListener('load', initMap);
+    }
+</script>
 
     
 
@@ -1165,5 +1165,6 @@
 
 
 </html>
+
 
 
